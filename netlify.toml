@@ -1,0 +1,41 @@
+# Configuration Netlify pour Passerelle Environnement
+# Ce fichier configure le déploiement automatique sur Netlify
+
+[build]
+  # Dossier publié (pour l'instant, c'est la racine)
+  publish = "."
+  # Pas besoin de build command pour un site statique
+  command = ""
+
+[dev]
+  # Port local pour les tests
+  port = 8000
+  # Dossier à servir en local
+  publish = "."
+
+# Redirects - à utiliser pour les routes (si besoin plus tard)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache pour les polices (long terme)
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache pour les images
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

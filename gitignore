@@ -1,0 +1,51 @@
+# ============================================
+# Passerelle Environnement - .gitignore
+# Fichiers à ne pas pousser sur GitHub
+# ============================================
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.env.local
+.env.*.local
+
+# Node (si utilisation future de build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+.npm
+.yarn
+
+# OS spécifiques Windows
+desktop.ini
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.pid
+
+# Certificats SSL (si utilisation future)
+*.pem
+*.key
+*.crt
+
+# Environnement local
+.env
+.env.local
+
+# Cache des navigateurs
+.cache/
+*.cache
+
+# Dossiers de build (si utilisation future)
+dist/
+build/
