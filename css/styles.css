@@ -329,7 +329,7 @@ section {
 
 .domaines-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -666,6 +666,10 @@ section {
         gap: 1.5rem;
     }
 
+    .domaines-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .container {
         padding: 0 1rem;
     }
@@ -699,6 +703,10 @@ section {
     .btn {
         padding: 0.8rem 1.8rem;
         font-size: 0.9rem;
+    }
+
+    .domaines-grid {
+        grid-template-columns: 1fr;
     }
 
     .hero {
