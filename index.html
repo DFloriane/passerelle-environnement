@@ -3,66 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Passerelle Environnement - Accompagnement personnalisé vers les métiers de l'environnement public">
-    <meta name="keywords" content="environnement, métiers, accompagnement, eau, biodiversité, urbanisme">
-    <meta property="og:title" content="Passerelle Environnement">
-    <meta property="og:description" content="Accompagnement personnalisé vers les métiers de l'environnement public">
+    <meta name="description" content="Passerelle Environnement — Accompagnement personnalisé vers les métiers de l'environnement public. Eau, biodiversité, urbanisme, agriculture, climat, EEDD.">
+    <meta name="keywords" content="métiers environnement, secteur public, accompagnement, reconversion, eau, biodiversité, collectivités">
+    <meta property="og:title" content="Passerelle Environnement — Trouver sa voie dans l'environnement public">
+    <meta property="og:description" content="Accompagnement personnalisé vers les métiers de l'environnement public. Questionnaire gratuit, résultat immédiat.">
     <meta property="og:image" content="/assets/images/hero-panoramique.jpg">
     <meta property="og:url" content="https://passerelle-environnement.fr">
-    <title>Passerelle Environnement - Accompagnement vers les métiers de l'environnement public</title>
+    <title>Passerelle Environnement — Accompagnement vers les métiers de l'environnement public</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
+
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Passerelle Environnement</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="accompagnement.html">Accompagnement</a></li>
                 <li><a href="apropos.html">À propos</a></li>
                 <li><a href="blog.html">Ressources</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="questionnaire.html" class="nav-cta">Faire le questionnaire</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <img src="assets/images/hero-panoramique.jpg" alt="Trois personnes de dos observant une rivière en montagne" class="hero-image">
+        <img
+            src="assets/images/hero-panoramique.jpg"
+            alt="Trois personnes de dos observant une rivière en milieu naturel"
+            class="hero-image">
         <div class="hero-overlay">
             <div class="hero-content">
-                <h1>Transformez votre parcours vers l'environnement public</h1>
-                <p>Accompagnement personnalisé pour jeunes diplômés et personnes en reconversion vers les métiers de l'environnement</p>
-                <a href="questionnaire.html" class="btn btn-cta">Commencer</a>
+                <p class="hero-surtitre">Accompagnement professionnel</p>
+                <h1>Trouver sa voie dans l'environnement public</h1>
+                <p class="hero-accroche">
+                    Vous voulez travailler pour l'eau, la biodiversité, le climat ou les territoires —
+                    mais vous ne savez pas par où commencer. On vous aide à y voir clair.
+                </p>
+                <div class="hero-actions">
+                    <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire — 2 min</a>
+                    <a href="accompagnement.html" class="btn btn-ghost">Découvrir l'accompagnement</a>
+                </div>
+                <p class="hero-reassurance">Sans inscription · Sans email · Résultat immédiat</p>
             </div>
         </div>
     </section>
 
-    <!-- PRÉSENTATION ACCUEIL -->
-    <section class="section-intro">
+    <!-- ACCROCHE -->
+    <section class="section-accroche">
         <div class="container">
-            <h2>Pourquoi Passerelle Environnement ?</h2>
-            <p class="intro-text">
-                Vous rêvez de contribuer aux enjeux environnementaux ? Vous envisagez le secteur public 
-                mais ne savez pas par où commencer ? Vous avez des questions sur les postes, les secteurs, 
-                les formations ? <strong>Nous vous accompagnons pas à pas.</strong>
-            </p>
-            <div class="intro-grid">
-                <div class="intro-card">
-                    <h3>🎯 Personnalisé</h3>
-                    <p>Un accompagnement adapté à votre profil, vos envies et vos contraintes</p>
+            <div class="accroche-grid">
+                <div class="accroche-texte">
+                    <h2>Le secteur public environnemental recrute. Mais il a ses propres codes.</h2>
+                    <p>
+                        Collectivités, agences de l'eau, syndicats de bassin versant, offices de biodiversité —
+                        ces structures recrutent en permanence. Mais leurs métiers sont souvent méconnus,
+                        leurs intitulés de poste trompeurs, et leurs circuits de recrutement
+                        radicalement différents du secteur privé.
+                    </p>
+                    <p>
+                        <strong>Passerelle Environnement</strong> vous accompagne pour comprendre ce secteur
+                        de l'intérieur, identifier les postes qui vous correspondent vraiment
+                        et construire une stratégie d'accès efficace.
+                    </p>
+                    <a href="accompagnement.html" class="btn btn-secondary">En savoir plus sur l'accompagnement</a>
                 </div>
-                <div class="intro-card">
-                    <h3>🌱 Bienveillant</h3>
-                    <p>Dans un espace sans jugement, avec quelqu'un qui connaît le terrain</p>
-                </div>
-                <div class="intro-card">
-                    <h3>🚀 Pragmatique</h3>
-                    <p>Des conseils concrets basés sur 10 ans d'expérience dans les collectivités</p>
+                <div class="accroche-chiffres">
+                    <div class="chiffre-card">
+                        <span class="chiffre">10 ans</span>
+                        <span class="chiffre-label">d'expérience dans les collectivités et structures publiques</span>
+                    </div>
+                    <div class="chiffre-card">
+                        <span class="chiffre">6</span>
+                        <span class="chiffre-label">domaines couverts : eau, biodiversité, urbanisme, agriculture, climat, EEDD</span>
+                    </div>
+                    <div class="chiffre-card">
+                        <span class="chiffre">100%</span>
+                        <span class="chiffre-label">personnalisé — chaque accompagnement est construit autour de votre profil</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,41 +95,148 @@
     <!-- DOMAINES -->
     <section class="section-domaines">
         <div class="container">
-            <h2>Domaines couverts</h2>
+            <div class="section-entete">
+                <h2>Six domaines couverts</h2>
+                <p class="section-sous-titre">Du terrain à la stratégie, du local au national — les métiers de l'environnement public sont variés. Voici les domaines dans lesquels nous vous accompagnons.</p>
+            </div>
             <div class="domaines-grid">
                 <div class="domaine-card">
-                    <img src="assets/images/illustrations/eau.svg" alt="Eau" class="domaine-icon">
-                    <h3>Eau</h3>
+                    <div class="domaine-img-wrap">
+                        <img src="assets/images/illustrations/eau.jpg" alt="Gestion de l'eau" class="domaine-img">
+                    </div>
+                    <div class="domaine-info">
+                        <h3>Eau</h3>
+                        <p>Technicien rivière, chargé de mission bassin versant, gestionnaire de milieux aquatiques</p>
+                    </div>
                 </div>
                 <div class="domaine-card">
-                    <img src="assets/images/illustrations/biodiversite.svg" alt="Biodiversité" class="domaine-icon">
-                    <h3>Biodiversité</h3>
+                    <div class="domaine-img-wrap">
+                        <img src="assets/images/illustrations/biodiversite.jpg" alt="Biodiversité" class="domaine-img">
+                    </div>
+                    <div class="domaine-info">
+                        <h3>Biodiversité</h3>
+                        <p>Chargé·e de mission natura 2000, gestionnaire d'espaces naturels, coordinateur·rice biodiversité</p>
+                    </div>
                 </div>
                 <div class="domaine-card">
-                    <img src="assets/images/illustrations/urbanisme.svg" alt="Urbanisme" class="domaine-icon">
-                    <h3>Urbanisme</h3>
+                    <div class="domaine-img-wrap">
+                        <img src="assets/images/illustrations/urbanisme.jpg" alt="Urbanisme et aménagement" class="domaine-img">
+                    </div>
+                    <div class="domaine-info">
+                        <h3>Urbanisme</h3>
+                        <p>Chargé·e d'études urbanisme, responsable PLU, coordinateur·rice aménagement durable</p>
+                    </div>
                 </div>
                 <div class="domaine-card">
-                    <img src="assets/images/illustrations/agriculture.svg" alt="Agriculture" class="domaine-icon">
-                    <h3>Agriculture</h3>
+                    <div class="domaine-img-wrap">
+                        <img src="assets/images/illustrations/agriculture.jpg" alt="Agriculture et alimentation" class="domaine-img">
+                    </div>
+                    <div class="domaine-info">
+                        <h3>Agriculture</h3>
+                        <p>Animateur·rice de projet alimentaire territorial, chargé·e de mission agriculture durable</p>
+                    </div>
                 </div>
                 <div class="domaine-card">
-                    <img src="assets/images/illustrations/climat.svg" alt="Climat" class="domaine-icon">
-                    <h3>Climat</h3>
+                    <div class="domaine-img-wrap">
+                        <img src="assets/images/illustrations/climat.jpg" alt="Climat et énergie" class="domaine-img">
+                    </div>
+                    <div class="domaine-info">
+                        <h3>Climat</h3>
+                        <p>Chargé·e de mission PCAET, coordinateur·rice transition énergétique, responsable adaptation</p>
+                    </div>
                 </div>
                 <div class="domaine-card">
-                    <img src="assets/images/illustrations/eedd.svg" alt="EEDD" class="domaine-icon">
-                    <h3>EEDD</h3>
+                    <div class="domaine-img-wrap">
+                        <img src="assets/images/illustrations/eedd.jpg" alt="Éducation à l'environnement" class="domaine-img">
+                    </div>
+                    <div class="domaine-info">
+                        <h3>EEDD</h3>
+                        <p>Animateur·rice nature, chargé·e de sensibilisation, coordinateur·rice éducation environnement</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA QUESTIONNAIRE -->
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="section-parcours">
+        <div class="container">
+            <div class="section-entete">
+                <h2>Comment ça marche</h2>
+                <p class="section-sous-titre">Un parcours simple, du questionnaire au premier rendez-vous.</p>
+            </div>
+            <div class="parcours-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-contenu">
+                        <h3>Questionnaire anonyme</h3>
+                        <p>2 minutes. Pas d'email, pas d'inscription. Votre profil se construit en temps réel.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-contenu">
+                        <h3>Résultat immédiat</h3>
+                        <p>Lecture de votre profil, pistes à explorer, et configuration d'accompagnement adaptée.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-contenu">
+                        <h3>Réservation en ligne</h3>
+                        <p>Choisissez votre formule, payez en ligne, recevez votre lien de rendez-vous par email.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-contenu">
+                        <h3>Premier entretien</h3>
+                        <p>Floriane arrive préparée grâce à votre code profil. On va à l'essentiel dès la première heure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="parcours-cta">
+                <a href="questionnaire.html" class="btn btn-cta">Commencer le questionnaire</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- APERÇU À PROPOS -->
+    <section class="section-about-preview">
+        <div class="container">
+            <div class="about-preview-grid">
+                <div class="about-preview-img">
+                    <img src="assets/images/floriane-portrait.jpg" alt="Floriane Dybul, fondatrice de Passerelle Environnement" class="portrait">
+                </div>
+                <div class="about-preview-texte">
+                    <p class="about-surtitre">À propos</p>
+                    <h2>10 ans à piloter des projets environnementaux au contact des élus et des collectivités</h2>
+                    <p>
+                        Je m'appelle Floriane Dybul. J'ai passé dix ans à travailler sur des projets
+                        environnementaux dans des structures publiques — collectivités, syndicats de bassin,
+                        agences. J'ai vu de l'intérieur comment se font les recrutements, quels profils
+                        sont recherchés, et pourquoi tant de candidatures bien intentionnées ne
+                        débouchent pas.
+                    </p>
+                    <p>
+                        Passerelle Environnement est né de ce constat : les personnes qui veulent rejoindre
+                        ce secteur ont souvent les compétences, mais pas les codes. Je suis là pour
+                        faire le pont.
+                    </p>
+                    <a href="apropos.html" class="btn btn-secondary">En savoir plus sur mon parcours</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
     <section class="section-cta">
         <div class="container">
-            <h2>Prêt à commencer ?</h2>
-            <p>En 5 minutes, un questionnaire anonyme pour comprendre votre profil et vos ambitions</p>
+            <h2>Prêt·e à trouver votre voie ?</h2>
+            <p>Commencez par le questionnaire — 2 minutes, résultat immédiat, aucune inscription requise.</p>
             <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire</a>
         </div>
     </section>
@@ -116,13 +247,14 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
+                    <p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Liens</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="accompagnement.html">Accompagnement</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
                         <li><a href="blog.html">Ressources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -142,8 +274,8 @@
         </div>
     </footer>
 
-    <!-- TARTEAUCITRON (RGPD - stub pour l'instant) -->
     <script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js/tarteaucitron.js"></script>
     <script src="js/tarteaucitron-init.js" defer></script>
+
 </body>
 </html>
