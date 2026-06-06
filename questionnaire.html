@@ -344,11 +344,46 @@
     margin-bottom: 8px;
   }
   .btn-cta-panel:hover { background: #b5664a; transform: translateY(-1px); }
+  .btn-cta-decouverte {
+    display: block; width: 100%;
+    padding: 11px 16px;
+    background: white;
+    color: var(--bleu);
+    border: 2px solid var(--bleu);
+    border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; font-weight: 700;
+    text-align: center; cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-bottom: 10px;
+  }
+  .btn-cta-decouverte:hover { background: var(--bleu-clair); transform: translateY(-1px); }
+  .btn-cta-contact {
+    display: block; width: 100%;
+    padding: 12px 16px;
+    background: var(--gris-med);
+    color: var(--dark);
+    border: none; border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; font-weight: 700;
+    text-align: center; cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-bottom: 8px;
+  }
+  .btn-cta-contact:hover { background: #d5d8d2; transform: translateY(-1px); }
+  .cta-message {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
   .cta-note {
     font-size: 11px;
     color: var(--texte-leger);
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* ── Code profil ── */
@@ -452,7 +487,7 @@
 <div class="entete">
   <div class="entete-meta">Passerelle Environnement — Votre situation, votre projet</div>
   <h1>Votre profil professionnel environnement</h1>
-  <div class="entete-sous">10 minutes — découvrez les leviers les plus pertinents pour votre projet</div>
+  <div class="entete-sous">2 minutes — découvrez les leviers les plus pertinents pour votre projet</div>
 </div>
 
 <!-- BARRE DE PROGRESSION -->
@@ -680,8 +715,7 @@
 
       <!-- CTA (100% uniquement) -->
       <div class="cta-section" id="ctaSection">
-        <a href="#" class="btn-cta-panel" id="btnCta">Prendre rendez-vous →</a>
-        <div class="cta-note">Tarif définitif confirmé lors de notre premier échange</div>
+        <div id="ctaContenu"></div>
       </div>
 
       <!-- Code profil -->
@@ -706,6 +740,20 @@
 </div><!-- fin corps -->
 
 <script>
+  // ── LIENS STRIPE (à remplacer par les vrais liens à l'étape 8) ──────
+  // Session découverte — prix fixe 50 €
+  const STRIPE_DECOUVERTE = '#stripe-session-decouverte-50';
+  // Forfaits complets — un lien par tranche de prix
+  // Clé = montant calculé arrondi à la cinquantaine
+  const STRIPE_FORFAITS = {
+    400: '#stripe-forfait-400',
+    450: '#stripe-forfait-450',
+    500: '#stripe-forfait-500',
+    550: '#stripe-forfait-550',
+    600: '#stripe-forfait-600',
+  };
+  // Fallback si montant hors grille
+  const STRIPE_FORFAIT_DEFAUT = '#stripe-forfait';
   function getVal(name) {
     const el = document.querySelector(`input[name="${name}"]:checked`);
     return el ? el.value : null;
@@ -861,8 +909,21 @@
     }
 
     // ── CONFIG + TARIF ────────────────────────────────────────────────
-    // Si profil hors périmètre : pas de config ni tarif
+    // Si profil hors périmètre : message personnalisé + lien contact
     if (signal === 'rouge' || signal === 'orange') {
+      let ctaMessage = '';
+      if (signal === 'rouge') {
+        ctaMessage = "Avant d'aller plus loin, il serait utile de clarifier si ce secteur correspond vraiment à vos aspirations. Je vous propose d'en discuter directement — sans engagement.";
+      } else if (situation === 'secteur_public') {
+        ctaMessage = "Votre profil est déjà dans le secteur public. Votre enjeu est davantage un repositionnement ou une évolution interne, ce qui demande une approche sur mesure. Parlons-en.";
+      } else {
+        ctaMessage = "Votre situation est particulière — urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux.";
+      }
+      document.getElementById('ctaSection').classList.add('visible');
+      document.getElementById('ctaContenu').innerHTML = `
+        <div class="cta-message">${ctaMessage}</div>
+        <a href="/contact.html" class="btn-cta-contact">Nous écrire →</a>
+      `;
       genererCode(clarte, situation, dispo, horizon, 0, false);
       return;
     }
@@ -952,6 +1013,20 @@
     document.getElementById('configSection').classList.add('visible');
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
+
+    // ── CTA VERT — 2 boutons Stripe ──
+    const lienForfait = STRIPE_FORFAITS[total] || STRIPE_FORFAIT_DEFAUT;
+    document.getElementById('ctaContenu').innerHTML = `
+      <a href="${lienForfait}" class="btn-cta-panel" target="_blank">
+        Forfait complet — ${total} €
+      </a>
+      <a href="${STRIPE_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">
+        Session découverte — 50 €
+      </a>
+      <div class="cta-note">
+        Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet
+      </div>
+    `;
 
     // Générer le code profil
     genererCode(clarte, situation, dispo, horizon, total, cvOption);
