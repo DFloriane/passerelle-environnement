@@ -1122,3 +1122,1169 @@ section {
     .chiffre-grand { font-size: 2.2rem; }
     .section-cta-final h2 { font-size: 1.6rem; }
 }
+
+/* ============================================
+   PAGE ACCOMPAGNEMENT
+   ============================================ */
+
+.section-intro-page {
+    background-color: white;
+    padding: 4rem 0;
+}
+
+.intro-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.intro-page-grid h2 {
+    text-align: left;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.liste-non, .liste-oui {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.liste-non li, .liste-oui li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+}
+
+.liste-non li {
+    background-color: #FFF5F5;
+    color: #555;
+}
+
+.liste-oui li {
+    background-color: var(--color-vert-clair, #E8F0E4);
+    color: #333;
+}
+
+/* ── Formules ── */
+
+.section-formules {
+    background-color: var(--color-blanc-casse);
+    padding: 5rem 0;
+}
+
+.formule-decouverte {
+    background-color: white;
+    border: 2px solid var(--color-gris-clair);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.formule-tag {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-vert-sauge);
+    margin-bottom: 0.5rem;
+}
+
+.formule-decouverte h3 {
+    font-size: 1.6rem;
+    color: var(--color-bleu-canard);
+    margin-bottom: 1rem;
+}
+
+.formule-decouverte p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.formule-note {
+    font-size: 0.82rem !important;
+    color: #888 !important;
+    font-style: italic;
+    margin-top: 0.8rem;
+}
+
+.formule-decouverte-tarif {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.tarif-montant-card {
+    font-family: 'Nunito', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-bleu-canard);
+    line-height: 1;
+}
+
+.tarif-duree {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+/* ── 3 cartes formules ── */
+
+.formules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.formule-card {
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid var(--color-gris-clair);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.formule-card:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+
+.formule-card-featured {
+    border: 2px solid var(--color-bleu-canard);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 28px rgba(45,125,138,0.18);
+}
+
+.formule-featured-badge {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: var(--color-terracotta);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.formule-header {
+    padding: 1.8rem 1.8rem 1.5rem;
+}
+
+.formule-clarification { background-color: #EEF7F8; }
+.formule-cible         { background-color: var(--color-bleu-canard); }
+.formule-renforce      { background-color: #F3F0E8; }
+
+.formule-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+
+.formule-cible .formule-label { color: rgba(255,255,255,0.7); }
+
+.formule-header h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.formule-cible h3 { color: white; }
+.formule-clarification h3, .formule-renforce h3 { color: var(--color-bleu-canard); }
+
+.formule-corps {
+    padding: 1.5rem 1.8rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0;
+}
+
+.formule-pour {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-vert-sauge);
+    margin-bottom: 0.4rem;
+}
+
+.formule-corps > p {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.formule-detail {
+    border-top: 1px solid var(--color-gris-clair);
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formule-ligne {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.formule-ligne span { color: #888; }
+.formule-ligne strong { color: var(--color-dark); }
+
+.formule-tarif {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+    margin-top: auto;
+}
+
+.formule-tarif .from {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.formule-tarif .montant {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-bleu-canard);
+    line-height: 1.1;
+}
+
+.formules-note {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ── Ce qu'on travaille ── */
+
+.section-travail {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.travail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.travail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.travail-num {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gris-clair);
+    line-height: 1;
+}
+
+.travail-item h3 {
+    font-size: 1.1rem;
+    color: var(--color-bleu-canard);
+    margin: 0;
+}
+
+.travail-item p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── Responsive accompagnement ── */
+
+@media (max-width: 768px) {
+    .intro-page-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .formule-decouverte { flex-direction: column; padding: 2rem; text-align: center; }
+    .formules-grid { grid-template-columns: 1fr; }
+    .formule-card-featured { transform: none; }
+    .travail-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ============================================
+   PAGE ACCOMPAGNEMENT — NOUVELLES SECTIONS
+   ============================================ */
+
+/* ── Section problème ── */
+
+.section-probleme {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.probleme-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.probleme-inner h2 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.probleme-inner p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* ── Section pourquoi ── */
+
+.section-pourquoi {
+    background-color: var(--color-blanc-casse);
+    padding: 5rem 0;
+}
+
+.section-intro-texte {
+    text-align: center;
+    font-size: 1.05rem;
+    color: #666;
+    max-width: 600px;
+    margin: -1rem auto 3rem;
+    line-height: 1.7;
+}
+
+.pourquoi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pourquoi-item {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    border-left: 4px solid var(--color-bleu-canard);
+}
+
+.pourquoi-icone {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.pourquoi-item h3 {
+    font-size: 1rem;
+    color: var(--color-bleu-canard);
+    margin-bottom: 0.6rem;
+}
+
+.pourquoi-item p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.pourquoi-conclusion {
+    background-color: var(--color-bleu-canard);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.pourquoi-conclusion p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    flex: 1;
+}
+
+/* ── Section pour qui ── */
+
+.section-pour-qui {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.pour-qui-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.pour-qui-texte h2 {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.pour-qui-texte > p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.pour-qui-liste {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pour-qui-liste li {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    padding: 0.8rem 1rem 0.8rem 1.2rem;
+    border-left: 3px solid var(--color-vert-sauge);
+    background-color: var(--color-blanc-casse);
+    border-radius: 0 8px 8px 0;
+}
+
+.pour-qui-liste li strong {
+    color: var(--color-bleu-canard);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.reassurance-bloc {
+    background-color: var(--color-blanc-casse);
+    border-radius: 12px;
+    padding: 2rem;
+    position: sticky;
+    top: 100px;
+}
+
+.reassurance-bloc h3 {
+    font-size: 1rem;
+    color: var(--color-bleu-canard);
+    margin-bottom: 1.2rem;
+}
+
+.reassurance-liste {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.reassurance-liste li {
+    font-size: 0.9rem;
+    color: #555;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--color-gris-clair);
+}
+
+.reassurance-liste li:last-child {
+    border-bottom: none;
+}
+
+/* ── Section ce qu'on fait ── */
+
+.section-ce-quon-fait {
+    background-color: var(--color-blanc-casse);
+    padding: 5rem 0;
+}
+
+.travail-item-vide {
+    display: flex;
+    align-items: center;
+}
+
+.ce-quon-ne-fait-pas {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    border: 1px solid var(--color-gris-clair);
+}
+
+.ce-quon-ne-fait-pas h4 {
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.ce-quon-ne-fait-pas ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ce-quon-ne-fait-pas li {
+    font-size: 0.88rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* ── CTA intermédiaire ── */
+
+.section-cta-intermediaire {
+    background-color: var(--color-gris-clair);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.section-cta-intermediaire p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+}
+
+/* ── Section qui suis-je ── */
+
+.section-qui-suis-je {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.qui-suis-je-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.qui-suis-je-photo {
+    text-align: center;
+}
+
+.qui-suis-je-texte h2 {
+    text-align: left;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.qui-suis-je-texte p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* ── Section déroulé ── */
+
+.section-deroule {
+    background-color: var(--color-blanc-casse);
+    padding: 5rem 0;
+}
+
+.deroule-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.deroule-steps::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-gris-clair);
+}
+
+.deroule-step {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+}
+
+.deroule-step:last-child {
+    padding-bottom: 0;
+}
+
+.deroule-num {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-bleu-canard);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(45,125,138,0.3);
+}
+
+.deroule-contenu {
+    padding-top: 0.6rem;
+    flex: 1;
+}
+
+.deroule-contenu h3 {
+    font-size: 1.05rem;
+    color: var(--color-bleu-canard);
+    margin-bottom: 0.5rem;
+}
+
+.deroule-contenu p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── FAQ ── */
+
+.section-faq {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.faq-liste {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--color-gris-clair);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--color-gris-clair);
+}
+
+.faq-item summary {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-dark);
+    padding: 1.4rem 1rem 1.4rem 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--color-bleu-canard);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item[open] summary {
+    color: var(--color-bleu-canard);
+}
+
+.faq-reponse {
+    padding: 0 1rem 1.5rem 0;
+}
+
+.faq-reponse p {
+    font-size: 0.92rem;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ── Responsive accompagnement ── */
+
+@media (max-width: 768px) {
+    .probleme-inner h2 { font-size: 1.4rem; }
+    .pourquoi-grid { grid-template-columns: 1fr; }
+    .pourquoi-conclusion { flex-direction: column; text-align: center; }
+    .pour-qui-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .reassurance-bloc { position: static; }
+    .qui-suis-je-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .qui-suis-je-photo { order: -1; }
+    .qui-suis-je-photo .portrait { max-width: 220px; }
+    .travail-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .deroule-steps::before { left: 20px; }
+    .deroule-num { width: 42px; height: 42px; font-size: 1rem; }
+}
+
+/* ============================================
+   PAGE À PROPOS
+   ============================================ */
+
+.section-apropos-principale {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.apropos-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.apropos-photo {
+    text-align: center;
+    position: sticky;
+    top: 100px;
+}
+
+.portrait-large {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    margin-bottom: 1.2rem;
+}
+
+.apropos-identite {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.apropos-identite strong {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: var(--color-bleu-canard);
+}
+
+.apropos-identite span {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.apropos-texte h2 {
+    text-align: left;
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+}
+
+.apropos-texte p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+
+/* ── Observations ── */
+
+.section-observations {
+    background-color: var(--color-blanc-casse);
+    padding: 5rem 0;
+}
+
+.observations-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.observations-texte h2 {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.observations-texte > p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.observations-liste {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.observations-liste li {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.7;
+    padding: 1rem 1.2rem;
+    background-color: white;
+    border-radius: 8px;
+    border-left: 3px solid var(--color-bleu-canard);
+}
+
+.observations-liste li strong {
+    display: block;
+    color: var(--color-bleu-canard);
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.citation {
+    background-color: var(--color-bleu-canard);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    position: sticky;
+    top: 100px;
+    margin: 0;
+}
+
+.citation p {
+    font-size: 1.05rem;
+    color: white;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+}
+
+.citation cite {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    font-style: normal;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+/* ── Pourquoi Passerelle ── */
+
+.section-pourquoi-passerelle {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.pourquoi-passerelle-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.pourquoi-passerelle-inner h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.pourquoi-passerelle-inner p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+
+/* ── Positionnement ── */
+
+.section-positionnement {
+    background-color: var(--color-blanc-casse);
+    padding: 4rem 0;
+}
+
+.positionnement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.positionnement-item {
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+}
+
+.positionnement-non {
+    background-color: #FFF5F5;
+}
+
+.positionnement-oui {
+    background-color: #F0F7F0;
+}
+
+.positionnement-item h3 {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    color: var(--color-dark);
+}
+
+.positionnement-item ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.positionnement-item li {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ── Responsive à propos ── */
+
+@media (max-width: 768px) {
+    .apropos-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .apropos-photo { position: static; }
+    .portrait-large { max-width: 200px; }
+    .observations-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .citation { position: static; }
+    .positionnement-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   ARTICLES BLOG
+   ============================================ */
+
+.section-article {
+    background-color: white;
+    padding: 4rem 0 6rem;
+}
+
+.article-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.article-contenu h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-contenu h3 {
+    text-align: left;
+    font-size: 1.15rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.article-contenu p {
+    font-size: 0.97rem;
+    color: #444;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+
+.article-contenu ul, .article-contenu ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.article-contenu li {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+}
+
+.article-contenu strong {
+    color: var(--color-dark);
+}
+
+/* ── Méta article ── */
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-blanc-casse);
+    border-bottom: 1px solid var(--color-gris-clair);
+    font-size: 0.85rem;
+    color: #888;
+    flex-wrap: wrap;
+}
+
+.article-meta-auteure {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-bleu-canard);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+.article-meta-sep { color: var(--color-gris-clair); }
+
+/* ── Encart CTA article ── */
+
+.article-cta-encart {
+    background: linear-gradient(135deg, var(--color-bleu-canard), var(--color-vert-sauge));
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    color: white;
+    text-align: center;
+}
+
+.article-cta-encart h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.article-cta-encart p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.article-cta-encart .btn-cta {
+    background-color: white;
+    color: var(--color-bleu-canard);
+}
+
+/* ── Sidebar ── */
+
+.article-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-bloc {
+    background-color: var(--color-blanc-casse);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.sidebar-titre {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-bleu-canard);
+    margin-bottom: 1rem;
+}
+
+.sidebar-articles {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sidebar-articles li a {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+}
+
+.sidebar-articles li a:hover {
+    color: var(--color-bleu-canard);
+}
+
+.sidebar-cta {
+    background-color: var(--color-bleu-canard);
+    text-align: center;
+}
+
+.sidebar-cta .sidebar-titre { color: rgba(255,255,255,0.7); }
+
+.sidebar-cta p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* ── Hero article ── */
+
+.hero-article {
+    background-color: var(--color-bleu-canard);
+    padding: 4rem 0 3rem;
+}
+
+.hero-article .container {
+    max-width: 860px;
+}
+
+.hero-article h1 {
+    color: white;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+}
+
+.hero-article .hero-surtitre {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+.hero-article p:not(.hero-surtitre) {
+    color: rgba(255,255,255,0.82);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 680px;
+}
+
+/* ── Responsive articles ── */
+
+@media (max-width: 900px) {
+    .article-wrapper {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    .article-sidebar {
+        position: static;
+        order: -1;
+    }
+    .hero-article h1 { font-size: 1.6rem; }
+}

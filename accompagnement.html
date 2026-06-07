@@ -3,53 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez l'accompagnement personnalisé proposé par Passerelle Environnement">
-    <meta name="keywords" content="accompagnement, coaching, environnement, métiers">
-    <title>Accompagnement - Passerelle Environnement</title>
+    <meta name="description" content="Accompagnement personnalisé pour travailler dans l'environnement public — reconversion, jeunes diplômés, métiers de l'eau, biodiversité, climat. Passerelle Environnement.">
+    <meta name="keywords" content="reconversion environnement, travailler dans l'environnement, métiers environnement collectivités, jeune diplômé environnement, accompagnement secteur public environnement">
+    <title>Accompagnement — Travailler dans l'environnement public — Passerelle Environnement</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
+
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="accompagnement.html" class="active">Accompagnement</a></li>
                 <li><a href="apropos.html">À propos</a></li>
                 <li><a href="blog.html">Ressources</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="questionnaire.html" class="nav-cta">Faire le questionnaire</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SIMPLE -->
+    <!-- HERO -->
     <section class="hero-simple">
         <div class="container">
-            <h1>L'accompagnement Passerelle</h1>
-            <p>Un parcours personnalisé adapté à votre profil et vos ambitions</p>
+            <p class="hero-surtitre">Passerelle Environnement</p>
+            <h1>Vous voulez travailler dans l'environnement public.<br>Construisons ensemble la stratégie pour y arriver.</h1>
+            <p>Accompagnement individuel pour jeunes diplômés, personnes en reconversion et professionnels qui souhaitent rejoindre les métiers de l'eau, de la biodiversité, du climat ou du territoire.</p>
+            <a href="questionnaire.html" class="btn btn-cta" style="margin-top:1.5rem;">Faire le questionnaire — 2 min · sans inscription</a>
         </div>
     </section>
 
-    <!-- CONTENU PRINCIPAL -->
-    <section class="section-intro">
+    <!-- SECTION 1 : LE PROBLÈME -->
+    <section class="section-probleme">
         <div class="container">
-            <h2>Comment ça marche ?</h2>
-            <p class="intro-text">
-                À compléter avec le contenu détaillé de l'offre d'accompagnement.
+            <div class="probleme-inner">
+                <h2>Travailler dans l'environnement public, c'est plus complexe qu'il n'y paraît</h2>
+                <p>
+                    Chaque année, des jeunes diplômés, des agents publics et des professionnels en reconversion
+                    cherchent à rejoindre les métiers de l'eau, de la biodiversité, du climat, de l'agriculture
+                    ou de l'aménagement du territoire.
+                </p>
+                <p>
+                    Le problème n'est pas l'absence d'opportunités.
+                    <strong>Les collectivités, les agences de l'eau, les syndicats de bassin versant
+                    et les offices de biodiversité recrutent en permanence.</strong>
+                </p>
+                <p>
+                    Le problème, c'est de comprendre comment fonctionne réellement ce secteur —
+                    et pourquoi les candidatures échouent si souvent.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 : POURQUOI C'EST DIFFICILE -->
+    <section class="section-pourquoi">
+        <div class="container">
+            <h2>Pourquoi tant de candidatures n'aboutissent pas</h2>
+            <p class="section-intro-texte">
+                Ce n'est pas une question de motivation, ni de diplôme. Ce sont les règles du jeu qui diffèrent.
             </p>
-            <!-- À remplir à l'étape 5.3 -->
+            <div class="pourquoi-grid">
+                <div class="pourquoi-item">
+                    <div class="pourquoi-icone">📋</div>
+                    <h3>Les recruteurs publics ne recrutent pas comme le privé</h3>
+                    <p>Calendriers décalés, logiques de poste différentes, circuits de candidature spécifiques — les codes changent radicalement.</p>
+                </div>
+                <div class="pourquoi-item">
+                    <div class="pourquoi-icone">🔍</div>
+                    <h3>Les métiers sont mal connus, les intitulés trompeurs</h3>
+                    <p>"Chargé de mission environnement" peut recouvrir des réalités très différentes selon la structure. Savoir lire une fiche de poste, c'est déjà un avantage.</p>
+                </div>
+                <div class="pourquoi-item">
+                    <div class="pourquoi-icone">🗺️</div>
+                    <h3>Les structures sont nombreuses et peu visibles</h3>
+                    <p>Communes, intercommunalités, syndicats, agences, établissements publics — l'écosystème est vaste et difficile à cartographier seul.</p>
+                </div>
+                <div class="pourquoi-item">
+                    <div class="pourquoi-icone">🎯</div>
+                    <h3>On cible souvent les mauvais employeurs</h3>
+                    <p>Beaucoup de candidats se concentrent sur les grandes structures visibles et manquent les recruteurs les plus actifs — souvent plus petits et moins connus.</p>
+                </div>
+            </div>
+            <div class="pourquoi-conclusion">
+                <p>
+                    Continuer à envoyer des candidatures sans comprendre ces règles ne fonctionne généralement pas.
+                    Il existe des méthodes pour comprendre le secteur et construire une stratégie cohérente.
+                </p>
+                <a href="questionnaire.html" class="btn btn-cta">Tester mon profil — 2 min · sans email</a>
+            </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section-cta">
+    <!-- SECTION 3 : POUR QUI -->
+    <section class="section-pour-qui">
         <div class="container">
-            <h2>Prêt à avancer ?</h2>
-            <p>Commencez par répondre à notre questionnaire pour mieux vous connaître</p>
+            <div class="pour-qui-grid">
+                <div class="pour-qui-texte">
+                    <h2>À qui s'adresse l'accompagnement</h2>
+                    <p>
+                        Cet accompagnement s'adresse aux personnes qui veulent rejoindre
+                        les métiers de l'environnement public en France, quelle que soit
+                        leur situation de départ.
+                    </p>
+                    <ul class="pour-qui-liste">
+                        <li><strong>Jeunes diplômés</strong> en environnement, géographie, droit public, sciences de la vie, aménagement — qui cherchent à entrer dans le secteur pour la première fois</li>
+                        <li><strong>Personnes en reconversion</strong> qui viennent d'un autre domaine et s'intéressent aux métiers de l'eau, de la biodiversité ou du climat</li>
+                        <li><strong>Professionnels du secteur privé</strong> — bureaux d'études, industrie, ONG — qui souhaitent rejoindre le secteur public</li>
+                        <li><strong>Agents publics</strong> qui souhaitent évoluer, changer de domaine ou de type de structure à l'intérieur du secteur</li>
+                        <li><strong>Personnes en questionnement</strong> qui ne savent pas encore si l'environnement public est fait pour elles</li>
+                    </ul>
+                </div>
+                <div class="pour-qui-reassurance">
+                    <div class="reassurance-bloc">
+                        <h3>Ce que vous n'avez pas besoin de faire</h3>
+                        <ul class="reassurance-liste">
+                            <li>✓ Sans inscription</li>
+                            <li>✓ Sans email requis</li>
+                            <li>✓ Diagnostic immédiat</li>
+                            <li>✓ Accompagnement 100 % individuel</li>
+                            <li>✓ Adapté aux reconversions</li>
+                            <li>✓ Adapté aux jeunes diplômés</li>
+                            <li>✓ Connaissance réelle du secteur public</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 : CE QU'ON CONSTRUIT -->
+    <section class="section-ce-quon-fait">
+        <div class="container">
+            <div class="section-entete">
+                <h2>Construire une stratégie d'accès au secteur environnement</h2>
+                <p class="section-sous-titre">Pas un cours. Pas un coaching générique. Un travail ciblé sur votre situation.</p>
+            </div>
+            <div class="travail-grid">
+                <div class="travail-item">
+                    <div class="travail-num">01</div>
+                    <h3>Lecture de votre situation</h3>
+                    <p>Comprendre votre parcours, vos contraintes réelles, vos atouts dans le contexte spécifique du secteur public environnemental.</p>
+                </div>
+                <div class="travail-item">
+                    <div class="travail-num">02</div>
+                    <h3>Cartographie du secteur</h3>
+                    <p>Identifier les structures qui recrutent, les métiers qui correspondent à votre profil, les passerelles depuis votre situation actuelle.</p>
+                </div>
+                <div class="travail-item">
+                    <div class="travail-num">03</div>
+                    <h3>Identification des employeurs</h3>
+                    <p>Savoir qui recrute vraiment, dans quel calendrier, et comment se positionner efficacement face à chaque type de recruteur.</p>
+                </div>
+                <div class="travail-item">
+                    <div class="travail-num">04</div>
+                    <h3>Construction du projet</h3>
+                    <p>Clarifier votre direction, formuler votre projet de façon cohérente, lever les flous qui fragilisent les candidatures.</p>
+                </div>
+                <div class="travail-item">
+                    <div class="travail-num">05</div>
+                    <h3>Préparation des candidatures</h3>
+                    <p>Adapter CV et lettres aux codes du secteur public — très différents du secteur privé dans leur forme, leur logique, leurs attentes.</p>
+                </div>
+                <div class="travail-item travail-item-vide">
+                    <div class="ce-quon-ne-fait-pas">
+                        <h4>Ce que cet accompagnement n'est pas</h4>
+                        <ul>
+                            <li>❌ Un annuaire d'offres d'emploi</li>
+                            <li>❌ Un coaching de développement personnel</li>
+                            <li>❌ Un cours sur les métiers de l'environnement</li>
+                            <li>❌ Une formation à la rédaction de CV générique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMÉDIAIRE -->
+    <section class="section-cta-intermediaire">
+        <div class="container">
+            <p>Commencez par le questionnaire pour voir si cet accompagnement correspond à votre situation.</p>
+            <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire — 2 min · résultat immédiat</a>
+        </div>
+    </section>
+
+    <!-- SECTION 5 : QUI SUIS-JE -->
+    <section class="section-qui-suis-je">
+        <div class="container">
+            <div class="qui-suis-je-grid">
+                <div class="qui-suis-je-photo">
+                    <img src="assets/images/floriane-portrait.png" alt="Floriane Dybul, fondatrice de Passerelle Environnement" class="portrait">
+                </div>
+                <div class="qui-suis-je-texte">
+                    <p class="about-surtitre">Pourquoi me faire confiance</p>
+                    <h2>Floriane Dybul — 10 ans dans le secteur public environnemental</h2>
+                    <p>
+                        J'ai passé dix ans à piloter des projets environnementaux au contact des élus,
+                        des collectivités et des acteurs territoriaux. J'ai travaillé sur des problématiques
+                        d'eau, de biodiversité, d'urbanisme et de transition énergétique à différentes
+                        échelles — de la commune au niveau régional.
+                    </p>
+                    <p>
+                        J'ai vu de l'intérieur comment se font les recrutements dans ce secteur.
+                        Quels profils sont retenus. Pourquoi d'autres, pourtant compétents, n'aboutissent pas.
+                        Ce que les recruteurs ne disent pas dans les offres d'emploi.
+                    </p>
+                    <p>
+                        <strong>Passerelle Environnement est né de ce constat :</strong> les personnes qui
+                        veulent rejoindre ce secteur ont souvent les compétences, mais pas les codes.
+                        Je suis là pour faire le pont.
+                    </p>
+                    <a href="apropos.html" class="btn btn-secondary">En savoir plus sur mon parcours →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 : DÉROULÉ -->
+    <section class="section-deroule">
+        <div class="container">
+            <div class="section-entete">
+                <h2>Comment se déroule l'accompagnement</h2>
+                <p class="section-sous-titre">Un processus structuré, adapté à votre rythme.</p>
+            </div>
+            <div class="deroule-steps">
+                <div class="deroule-step">
+                    <div class="deroule-num">1</div>
+                    <div class="deroule-contenu">
+                        <h3>Questionnaire de profil</h3>
+                        <p>2 minutes, anonyme, sans email. Votre situation et votre projet sont analysés en temps réel. Vous recevez un code profil.</p>
+                    </div>
+                </div>
+                <div class="deroule-step">
+                    <div class="deroule-num">2</div>
+                    <div class="deroule-contenu">
+                        <h3>Choix de la formule et paiement</h3>
+                        <p>Vous choisissez la formule adaptée à votre profil et réglez en ligne. Vous recevez immédiatement le lien pour réserver votre premier créneau.</p>
+                    </div>
+                </div>
+                <div class="deroule-step">
+                    <div class="deroule-num">3</div>
+                    <div class="deroule-contenu">
+                        <h3>Premier entretien de diagnostic</h3>
+                        <p>Floriane arrive préparée grâce à votre code profil. En une heure, on pose le diagnostic complet et on définit les priorités de l'accompagnement.</p>
+                    </div>
+                </div>
+                <div class="deroule-step">
+                    <div class="deroule-num">4</div>
+                    <div class="deroule-contenu">
+                        <h3>Sessions de travail</h3>
+                        <p>Cartographie du secteur, identification des employeurs, construction de la stratégie, préparation des candidatures — selon votre profil et vos besoins.</p>
+                    </div>
+                </div>
+                <div class="deroule-step">
+                    <div class="deroule-num">5</div>
+                    <div class="deroule-contenu">
+                        <h3>Passage à l'action</h3>
+                        <p>Vous repartez avec une direction claire, des outils adaptés et une stratégie concrète. Les échanges intermédiaires permettent d'ajuster au fil des retours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 : FORMULES -->
+    <section class="section-formules">
+        <div class="container">
+            <div class="section-entete">
+                <h2>Formules et tarifs</h2>
+                <p class="section-sous-titre">Déterminées par le questionnaire selon votre profil. Toujours ajustables lors du premier échange.</p>
+            </div>
+
+            <div class="formule-decouverte">
+                <div class="formule-decouverte-texte">
+                    <p class="formule-tag">Pour commencer</p>
+                    <h3>Session découverte — 50 €</h3>
+                    <p>Un premier échange d'une heure pour faire le point sur votre situation, poser vos questions et évaluer si l'accompagnement complet correspond à vos besoins.</p>
+                    <p class="formule-note">Annulation libre jusqu'à 48h avant · La session est déduite du tarif si vous vous engagez ensuite dans un accompagnement complet.</p>
+                </div>
+                <div class="formule-decouverte-tarif">
+                    <span class="tarif-montant-card">50 €</span>
+                    <span class="tarif-duree">1 heure</span>
+                    <a href="questionnaire.html" class="btn btn-secondary">Commencer par le questionnaire</a>
+                </div>
+            </div>
+
+            <div class="formules-grid">
+                <div class="formule-card">
+                    <div class="formule-header formule-clarification">
+                        <p class="formule-label">Profil en exploration</p>
+                        <h3>Accompagnement<br>de clarification</h3>
+                    </div>
+                    <div class="formule-corps">
+                        <p class="formule-pour">Pour qui</p>
+                        <p>Vous souhaitez travailler dans l'environnement mais ne savez pas encore quel domaine ni quel type de poste vous correspond.</p>
+                        <div class="formule-detail">
+                            <div class="formule-ligne"><span>Sessions</span><strong>3 × 1h</strong></div>
+                            <div class="formule-ligne"><span>Échanges</span><strong>1 × 30 min</strong></div>
+                            <div class="formule-ligne"><span>Option CV</span><strong>Sur devis</strong></div>
+                        </div>
+                        <div class="formule-tarif">
+                            <span class="from">À partir de</span>
+                            <span class="montant">400 €</span>
+                        </div>
+                        <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire</a>
+                    </div>
+                </div>
+
+                <div class="formule-card formule-card-featured">
+                    <div class="formule-featured-badge">Le plus choisi</div>
+                    <div class="formule-header formule-cible">
+                        <p class="formule-label">Profil orienté</p>
+                        <h3>Accompagnement<br>ciblé</h3>
+                    </div>
+                    <div class="formule-corps">
+                        <p class="formule-pour">Pour qui</p>
+                        <p>Vous savez dans quel domaine vous voulez travailler — l'eau, la biodiversité, le climat — mais vous ne connaissez pas bien les postes ni les recruteurs.</p>
+                        <div class="formule-detail">
+                            <div class="formule-ligne"><span>Sessions</span><strong>3 × 1h</strong></div>
+                            <div class="formule-ligne"><span>Échanges</span><strong>2 × 30 min</strong></div>
+                            <div class="formule-ligne"><span>Option CV</span><strong>+100 €</strong></div>
+                        </div>
+                        <div class="formule-tarif">
+                            <span class="from">À partir de</span>
+                            <span class="montant">450 €</span>
+                        </div>
+                        <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire</a>
+                    </div>
+                </div>
+
+                <div class="formule-card">
+                    <div class="formule-header formule-renforce">
+                        <p class="formule-label">Profil en transition</p>
+                        <h3>Accompagnement<br>renforcé</h3>
+                    </div>
+                    <div class="formule-corps">
+                        <p class="formule-pour">Pour qui</p>
+                        <p>Vous venez d'un autre secteur. Comprendre et intégrer les codes du secteur public environnemental demande un travail de fond plus soutenu.</p>
+                        <div class="formule-detail">
+                            <div class="formule-ligne"><span>Sessions</span><strong>4 × 1h</strong></div>
+                            <div class="formule-ligne"><span>Échanges</span><strong>3 × 30 min</strong></div>
+                            <div class="formule-ligne"><span>Option CV</span><strong>+100 €</strong></div>
+                        </div>
+                        <div class="formule-tarif">
+                            <span class="from">À partir de</span>
+                            <span class="montant">550 €</span>
+                        </div>
+                        <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire</a>
+                    </div>
+                </div>
+            </div>
+            <p class="formules-note">Les tarifs sont indicatifs et confirmés lors du premier échange. L'option CV/lettre comprend la reformulation de votre CV et d'une lettre de motivation adaptés aux codes du secteur public environnemental.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 8 : FAQ SEO -->
+    <section class="section-faq">
+        <div class="container">
+            <div class="section-entete">
+                <h2>Questions fréquentes</h2>
+            </div>
+            <div class="faq-liste">
+                <details class="faq-item">
+                    <summary>Peut-on travailler dans l'environnement sans diplôme spécialisé ?</summary>
+                    <div class="faq-reponse">
+                        <p>Oui, dans certains cas. Le secteur public environnemental valorise des profils variés — droit public, géographie, sciences humaines, ingénierie généraliste — à condition de comprendre les attentes spécifiques des recruteurs et de savoir positionner son parcours en conséquence. L'accompagnement permet précisément d'identifier les postes accessibles depuis votre profil.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Comment se reconvertir dans l'environnement public ?</summary>
+                    <div class="faq-reponse">
+                        <p>La reconversion vers le secteur public environnemental suit une logique différente d'une reconversion classique. Elle passe par la compréhension fine des structures qui recrutent, des métiers qui correspondent à votre profil d'origine, et des codes de candidature spécifiques au secteur public. C'est précisément ce que l'accompagnement Passerelle Environnement vous aide à construire.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Quels métiers recrutent dans l'environnement public en France ?</summary>
+                    <div class="faq-reponse">
+                        <p>Les métiers qui recrutent régulièrement dans le secteur public environnemental comprennent : technicien rivière et gestionnaire de milieux aquatiques, chargé de mission biodiversité, coordinateur de projet alimentaire territorial, responsable transition énergétique, animateur EEDD, chargé d'études urbanisme et planification, coordinateur territorial environnement. Ces postes existent dans les collectivités, les agences de l'eau, les syndicats de bassin et les établissements publics.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Faut-il passer un concours pour travailler dans l'environnement public ?</summary>
+                    <div class="faq-reponse">
+                        <p>Pas nécessairement. Si la fonction publique territoriale comprend des concours, beaucoup de postes dans les structures publiques environnementales (syndicats, agences, établissements publics) sont pourvus par recrutement direct. Comprendre les différents types de structures et leurs modes de recrutement fait partie du travail réalisé dans l'accompagnement.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Puis-je rejoindre une collectivité territoriale après une carrière dans le privé ?</summary>
+                    <div class="faq-reponse">
+                        <p>Oui. Des profils issus du secteur privé rejoignent régulièrement les collectivités — mais à condition de comprendre que la logique de recrutement, les attentes et la valorisation de l'expérience sont différentes. L'un des enjeux de l'accompagnement est précisément de vous aider à "traduire" votre expérience dans les codes du secteur public environnemental.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Combien de temps dure l'accompagnement ?</summary>
+                    <div class="faq-reponse">
+                        <p>La durée dépend de la formule choisie et de votre rythme. En général, un accompagnement complet s'étale sur 6 à 12 semaines, à raison d'une session toutes les deux semaines environ. L'objectif n'est pas de traiter rapidement, mais d'avancer de façon structurée et de laisser le temps entre les sessions pour mettre en pratique.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section-cta-final">
+        <div class="container">
+            <h2>Prêt·e à construire votre stratégie ?</h2>
+            <p>Commencez par le questionnaire — 2 minutes · sans inscription · résultat immédiat</p>
             <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire</a>
         </div>
     </section>
@@ -60,13 +423,14 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
+                    <p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Liens</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="accompagnement.html">Accompagnement</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
                         <li><a href="blog.html">Ressources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>

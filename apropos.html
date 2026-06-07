@@ -3,62 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="À propos de Passerelle Environnement et de Floriane Dybul">
-    <meta name="keywords" content="Floriane Dybul, environnement, expertise">
-    <title>À propos - Passerelle Environnement</title>
+    <meta name="description" content="Floriane Dybul — 10 ans dans le secteur public environnemental. Fondatrice de Passerelle Environnement, accompagnement vers les métiers de l'environnement public.">
+    <title>À propos — Floriane Dybul — Passerelle Environnement</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
+
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="accompagnement.html">Accompagnement</a></li>
                 <li><a href="apropos.html" class="active">À propos</a></li>
                 <li><a href="blog.html">Ressources</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="questionnaire.html" class="nav-cta">Faire le questionnaire</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SIMPLE -->
+    <!-- HERO -->
     <section class="hero-simple">
         <div class="container">
-            <h1>À propos</h1>
-            <p>Qui est derrière Passerelle Environnement</p>
+            <p class="hero-surtitre">À propos</p>
+            <h1>Ce que dix ans dans le secteur public<br>m'ont appris sur les candidatures qui aboutissent</h1>
         </div>
     </section>
 
-    <!-- SECTION À PROPOS -->
-    <section class="section-about">
+    <!-- SECTION PRINCIPALE -->
+    <section class="section-apropos-principale">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Floriane Dybul</h2>
-                    <h3>10 ans à piloter des projets environnementaux au contact des élus et des collectivités</h3>
-                    <p>
-                        À compléter avec la bio de Floriane et son expertise.
-                    </p>
-                    <!-- À remplir à l'étape 5.4 -->
+            <div class="apropos-grid">
+                <div class="apropos-photo">
+                    <img src="assets/images/floriane-portrait.png"
+                         alt="Floriane Dybul, fondatrice de Passerelle Environnement"
+                         class="portrait portrait-large">
+                    <div class="apropos-identite">
+                        <strong>Floriane Dybul</strong>
+                        <span>Fondatrice de Passerelle Environnement</span>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="assets/images/floriane-portrait.jpg" alt="Floriane Dybul" class="portrait">
+                <div class="apropos-texte">
+                    <h2>Dix ans à l'intérieur du secteur</h2>
+                    <p>
+                        J'ai passé dix ans à piloter des projets environnementaux au contact
+                        des élus, des collectivités territoriales et des acteurs du secteur public.
+                        Eau, biodiversité, urbanisme, transition énergétique, politiques territoriales —
+                        j'ai travaillé sur ces sujets à différentes échelles, de la commune
+                        au niveau régional.
+                    </p>
+                    <p>
+                        Pendant ces années, j'ai participé à des recrutements. J'ai vu des dossiers
+                        de candidature — beaucoup. J'ai compris pourquoi certains profils étaient
+                        retenus et pourquoi d'autres, pourtant compétents et motivés, ne
+                        franchissaient pas les étapes.
+                    </p>
+                    <p>
+                        Ce n'était que rarement une question de compétences.
+                        C'était presque toujours une question de codes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CE QUE J'OBSERVE -->
+    <section class="section-observations">
+        <div class="container">
+            <div class="observations-grid">
+                <div class="observations-texte">
+                    <h2>Ce que j'observe sur le terrain</h2>
+                    <p>
+                        Avant de créer Passerelle Environnement, j'ai accumulé des années d'observation.
+                        Les mêmes erreurs reviennent systématiquement — pas par manque d'effort,
+                        mais par méconnaissance du fonctionnement réel du secteur.
+                    </p>
+                    <ul class="observations-liste">
+                        <li>
+                            <strong>Des candidatures envoyées aux mauvaises structures.</strong>
+                            Les grandes agences et ministères attirent toutes les candidatures.
+                            Les syndicats de bassin, les petites intercommunalités, les établissements
+                            publics locaux — qui recrutent régulièrement — sont souvent ignorés.
+                        </li>
+                        <li>
+                            <strong>Des CV formatés pour le secteur privé.</strong>
+                            Le secteur public valorise différemment l'expérience, les missions,
+                            les compétences. Un CV efficace en entreprise peut passer inaperçu
+                            dans une collectivité.
+                        </li>
+                        <li>
+                            <strong>Un projet mal formulé face aux recruteurs.</strong>
+                            "Je veux travailler dans l'environnement" n'est pas une réponse.
+                            Les recruteurs publics cherchent à comprendre pourquoi ce poste,
+                            pourquoi cette structure, pourquoi maintenant.
+                        </li>
+                        <li>
+                            <strong>Un mauvais calibrage du niveau de poste visé.</strong>
+                            Viser trop haut trop vite — ou sous-estimer ses atouts —
+                            sont deux erreurs fréquentes et évitables.
+                        </li>
+                    </ul>
+                </div>
+                <div class="observations-encart">
+                    <blockquote class="citation">
+                        <p>
+                            "Les personnes qui veulent rejoindre ce secteur ont souvent
+                            les compétences. Ce qui leur manque, c'est la compréhension
+                            de ses règles du jeu."
+                        </p>
+                        <cite>— Floriane Dybul</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POURQUOI PASSERELLE -->
+    <section class="section-pourquoi-passerelle">
+        <div class="container">
+            <div class="pourquoi-passerelle-inner">
+                <h2>Pourquoi j'ai créé Passerelle Environnement</h2>
+                <p>
+                    Je voyais deux réalités qui ne se rencontraient pas.
+                </p>
+                <p>
+                    D'un côté, des structures publiques qui peinent à trouver des profils
+                    adaptés — pas parce que les candidats n'existent pas, mais parce que
+                    le secteur est difficile à lire de l'extérieur.
+                </p>
+                <p>
+                    De l'autre, des personnes motivées, souvent très compétentes,
+                    qui tournent en rond parce qu'elles ne comprennent pas les règles du jeu
+                    d'un secteur qu'elles n'ont jamais pratiqué de l'intérieur.
+                </p>
+                <p>
+                    Passerelle Environnement est né de cette évidence :
+                    <strong>quelqu'un qui connaît le secteur de l'intérieur peut faire
+                    gagner beaucoup de temps — et éviter beaucoup de candidatures
+                    dans le vide — à ceux qui cherchent à y entrer.</strong>
+                </p>
+                <p>
+                    Ce n'est pas un cours. Ce n'est pas un catalogue d'offres d'emploi.
+                    C'est un accompagnement individuel, construit autour de votre situation spécifique,
+                    par quelqu'un qui a passé dix ans à observer ce secteur de l'intérieur.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CE QUE JE NE SUIS PAS -->
+    <section class="section-positionnement">
+        <div class="container">
+            <div class="positionnement-grid">
+                <div class="positionnement-item positionnement-non">
+                    <h3>Ce que je ne suis pas</h3>
+                    <ul>
+                        <li>❌ Un cabinet de recrutement</li>
+                        <li>❌ Un coach en développement personnel</li>
+                        <li>❌ Une agence de placement</li>
+                        <li>❌ Une formation généraliste aux métiers de l'environnement</li>
+                    </ul>
+                </div>
+                <div class="positionnement-item positionnement-oui">
+                    <h3>Ce que je suis</h3>
+                    <ul>
+                        <li>✓ Une professionnelle du secteur public environnemental</li>
+                        <li>✓ Une personne qui a travaillé avec des élus, des techniciens, des directeurs de service</li>
+                        <li>✓ Quelqu'un qui comprend ce que les recruteurs publics attendent réellement</li>
+                        <li>✓ Un accompagnement individuel, sans programme standard</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="section-cta">
+    <section class="section-cta-final">
         <div class="container">
-            <h2>Discutons de votre parcours</h2>
-            <p>Prenez rendez-vous pour une première séance découverte</p>
-            <a href="questionnaire.html" class="btn btn-cta">Commencer</a>
+            <h2>Vous voulez en savoir plus avant de vous lancer ?</h2>
+            <p>Commencez par le questionnaire — 2 minutes · sans inscription · résultat immédiat</p>
+            <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire</a>
         </div>
     </section>
 
@@ -68,13 +195,14 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
+                    <p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Liens</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="accompagnement.html">Accompagnement</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
                         <li><a href="blog.html">Ressources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
