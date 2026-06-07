@@ -354,27 +354,7 @@ section {
     font-size: 1.2rem;
 }
 
-.domaine-img-wrap {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-    border-radius: 8px 8px 0 0;
-    flex-shrink: 0;
-    background-color: var(--color-gris-clair);
-}
-
-.domaine-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-.domaine-card:hover .domaine-img {
-    transform: scale(1.05);
-}
+/* domaine-img-wrap, domaine-img et hover définis plus bas */
 
 .domaine-info {
     padding: 1.2rem;
@@ -678,7 +658,7 @@ section {
    ============================================ */
 
 .hero {
-    background-image: url('../assets/images/hero-panoramique.jpg');
+    background-image: url('/assets/images/hero-panoramique.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -903,7 +883,7 @@ section {
     height: 160px;
     overflow: hidden;
     flex-shrink: 0;
-    background-color: var(--color-gris-clair);
+    background-color: var(--color-blanc-casse);
     display: flex;
     align-items: center;
     justify-content: center;
