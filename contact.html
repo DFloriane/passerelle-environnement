@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez Passerelle Environnement">
-    <meta name="keywords" content="contact, email, formulaire">
-    <title>Contact - Passerelle Environnement</title>
+    <meta name="description" content="Contactez Passerelle Environnement — une question sur l'accompagnement, le questionnaire ou les métiers de l'environnement public.">
+    <title>Contact — Passerelle Environnement</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <!-- NAVIGATION -->
+
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="accompagnement.html">Accompagnement</a></li>
                 <li><a href="apropos.html">À propos</a></li>
@@ -26,45 +24,152 @@
         </div>
     </nav>
 
-    <!-- HERO SIMPLE -->
     <section class="hero-simple">
         <div class="container">
-            <h1>Contact</h1>
-            <p>Une question ? Écrivez-nous</p>
+            <p class="hero-surtitre">Contact</p>
+            <h1>Une question avant de vous lancer ?</h1>
+            <p>Je réponds personnellement à chaque message, généralement sous 48h.</p>
         </div>
     </section>
 
-    <!-- FORMULAIRE CONTACT -->
-    <section class="section-intro">
+    <section class="section-contact">
         <div class="container">
-            <div class="contact-wrapper">
-                <h2>Nous vous répondrons rapidement</h2>
-                <!-- 
-                    À l'étape 5.7, on ajoutera :
-                    - Un formulaire de contact
-                    - Intégration avec Brevo ou un autre service d'email
-                    - Validation et envoi
-                -->
-                <p style="text-align: center; color: #999; padding: 2rem;">
-                    Formulaire de contact à ajouter à l'étape 5.7
-                </p>
+            <div class="contact-grid">
+
+                <!-- FORMULAIRE -->
+                <div class="contact-form-wrap">
+                    <h2>Écrivez-moi</h2>
+
+                    <!-- Netlify Forms : attribut data-netlify="true" suffit -->
+                    <form
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                        action="/merci.html"
+                        class="contact-form"
+                        id="contactForm"
+                    >
+                        <!-- Anti-spam honeypot caché -->
+                        <input type="hidden" name="form-name" value="contact">
+                        <div style="display:none">
+                            <label>Ne pas remplir : <input name="bot-field"></label>
+                        </div>
+
+                        <div class="form-groupe">
+                            <label for="prenom">Prénom <span class="form-requis">*</span></label>
+                            <input
+                                type="text"
+                                id="prenom"
+                                name="prenom"
+                                placeholder="Votre prénom"
+                                required
+                                autocomplete="given-name"
+                            >
+                        </div>
+
+                        <div class="form-groupe">
+                            <label for="email">Email <span class="form-requis">*</span></label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="votre@email.fr"
+                                required
+                                autocomplete="email"
+                            >
+                        </div>
+
+                        <div class="form-groupe">
+                            <label for="sujet">Votre question porte sur</label>
+                            <select id="sujet" name="sujet">
+                                <option value="">— Choisissez un sujet —</option>
+                                <option value="accompagnement">L'accompagnement et les formules</option>
+                                <option value="questionnaire">Le questionnaire de profil</option>
+                                <option value="secteur">Les métiers de l'environnement public</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-groupe">
+                            <label for="message">Votre message <span class="form-requis">*</span></label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Décrivez votre situation et votre question..."
+                                rows="6"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-groupe form-groupe-rgpd">
+                            <label class="form-checkbox">
+                                <input type="checkbox" name="rgpd" required>
+                                <span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href="politique-confidentialite.html" target="_blank">politique de confidentialité</a>.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-cta btn-submit">
+                            Envoyer le message
+                        </button>
+
+                        <p class="form-note">Réponse personnelle sous 48h · Aucun démarchage</p>
+                    </form>
+                </div>
+
+                <!-- INFOS LATÉRALES -->
+                <div class="contact-infos">
+                    <div class="contact-info-bloc">
+                        <h3>Avant d'écrire</h3>
+                        <p>Si vous avez une question sur votre profil ou sur les formules d'accompagnement, le questionnaire vous donnera probablement une réponse plus rapide et plus précise.</p>
+                        <a href="questionnaire.html" class="btn btn-secondary" style="margin-top:1rem;display:inline-block;">Faire le questionnaire — 2 min</a>
+                    </div>
+
+                    <div class="contact-info-bloc">
+                        <h3>Questions fréquentes</h3>
+                        <ul class="contact-faq">
+                            <li>
+                                <strong>Puis-je faire une session découverte avant de m'engager ?</strong>
+                                Oui. La session découverte à 50 € est précisément là pour ça. Elle est déduite du tarif si vous continuez ensuite.
+                            </li>
+                            <li>
+                                <strong>Les séances se font-elles en présentiel ?</strong>
+                                Non, exclusivement en visioconférence. Cela permet de travailler quelle que soit votre localisation en France.
+                            </li>
+                            <li>
+                                <strong>Combien de temps entre le paiement et le premier rendez-vous ?</strong>
+                                Vous choisissez votre créneau immédiatement après le paiement. En général, vous pouvez avoir un premier rendez-vous dans la semaine.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info-bloc contact-info-reassurance">
+                        <ul>
+                            <li>✓ Réponse personnelle, pas automatique</li>
+                            <li>✓ Sous 48h ouvrées</li>
+                            <li>✓ Aucun démarchage commercial</li>
+                            <li>✓ Données non partagées</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
+                    <p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Liens</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="accompagnement.html">Accompagnement</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
                         <li><a href="blog.html">Ressources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
