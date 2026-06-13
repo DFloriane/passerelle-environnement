@@ -1,770 +1,645 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questionnaire de profil — Passerelle Environnement</title>
-<style>
-  /* ── Polices auto-hébergées (charte Passerelle) ── */
-  @font-face {
-    font-family: 'Nunito';
-    src: url('../assets/fonts/Nunito/Nunito-Regular.woff2') format('woff2');
-    font-weight: 400; font-style: normal;
-  }
-  @font-face {
-    font-family: 'Nunito';
-    src: url('../assets/fonts/Nunito/Nunito-SemiBold.woff2') format('woff2');
-    font-weight: 600; font-style: normal;
-  }
-  @font-face {
-    font-family: 'Nunito';
-    src: url('../assets/fonts/Nunito/Nunito-Bold.woff2') format('woff2');
-    font-weight: 700; font-style: normal;
-  }
-  @font-face {
-    font-family: 'Atkinson Hyperlegible';
-    src: url('../assets/fonts/AtkinsonHyperlegible/AtkinsonHyperlegible-Regular.woff2') format('woff2');
-    font-weight: 400; font-style: normal;
-  }
-  @font-face {
-    font-family: 'Atkinson Hyperlegible';
-    src: url('../assets/fonts/AtkinsonHyperlegible/AtkinsonHyperlegible-Bold.woff2') format('woff2');
-    font-weight: 700; font-style: normal;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Questionnaire de profil — Passerelle Environnement. 2 minutes, sans inscription, résultat immédiat.">
+    <title>Questionnaire de profil — Passerelle Environnement</title>
 
-  /* ── Variables charte ── */
-  :root {
-    --bleu:        #2D7D8A;
-    --bleu-clair:  #D6EEF0;
-    --vert:        #7D9B76;
-    --vert-clair:  #E8F0E4;
-    --terracotta:  #C4785A;
-    --gris:        #F7F5F0;
-    --gris-med:    #E8EBE4;
-    --dark:        #2C2C2C;
-    --texte-leger: #666;
-    --alerte:      #8B1A1A;
-    --alerte-clair:#FDEAEA;
-    --orange-clair:#FFF3E0;
-    --orange:      #E67E22;
-  }
+    <!-- Styles du site (navbar, footer, hero) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    <style>
+    /* ── Styles spécifiques au questionnaire ── */
 
-  body {
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    background: var(--gris);
-    color: var(--dark);
-    -webkit-font-smoothing: antialiased;
-  }
+    /* Variables locales alignées avec la charte */
+    :root {
+        --bleu:         #2D7D8A;
+        --bleu-clair:   #D6EEF0;
+        --vert:         #7D9B76;
+        --vert-clair:   #E8F0E4;
+        --terracotta:   #C4785A;
+        --gris:         #F7F5F0;
+        --gris-med:     #E8EBE4;
+        --dark:         #2C2C2C;
+        --texte-leger:  #666;
+        --alerte:       #8B1A1A;
+        --alerte-clair: #FDEAEA;
+        --orange-clair: #FFF3E0;
+        --orange:       #E67E22;
+    }
 
-  /* ── En-tête ── */
-  .entete {
-    background: var(--bleu);
-    color: white;
-    padding: 40px 48px 32px;
-    position: relative;
-    overflow: hidden;
-  }
-  .entete::before {
-    content: '';
-    position: absolute; right: -60px; top: -60px;
-    width: 300px; height: 300px; border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-  .entete-meta {
-    font-size: 11px; letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 12px;
-  }
-  .entete h1 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 28px; font-weight: 700;
-    margin-bottom: 8px; line-height: 1.3;
-  }
-  .entete-sous {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-  }
+    /* Zone questionnaire */
+    .questionnaire-page {
+        background: var(--gris);
+        padding-bottom: 4rem;
+    }
 
-  /* ── Intro ── */
-  .intro {
-    background: var(--bleu-clair);
-    border-left: 4px solid var(--bleu);
-    margin: 28px 48px 0;
-    padding: 14px 20px;
-    border-radius: 0 8px 8px 0;
-    font-size: 13.5px; line-height: 1.7;
-    color: var(--bleu);
-  }
+    /* ── Intro ── */
+    .intro {
+        background: var(--bleu-clair);
+        border-left: 4px solid var(--bleu);
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 14px 20px;
+        border-radius: 0 8px 8px 0;
+        font-size: 0.88rem;
+        line-height: 1.7;
+        color: var(--bleu);
+    }
 
-  /* ── Corps ── */
-  .corps {
-    padding: 28px 48px 48px;
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 28px;
-    align-items: start;
-  }
+    /* ── Barre de progression ── */
+    .prog-wrap {
+        background: white;
+        border-bottom: 1px solid var(--gris-med);
+        padding: 12px 2rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: 1140px;
+        margin: 0 auto 1.5rem;
+    }
+    .prog-texte {
+        font-size: 0.78rem;
+        color: var(--texte-leger);
+        white-space: nowrap;
+    }
+    .prog-track {
+        flex: 1; height: 4px;
+        background: var(--gris-med);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    .prog-fill {
+        height: 100%;
+        background: var(--bleu);
+        width: 0%;
+        transition: width 0.3s;
+        border-radius: 2px;
+    }
 
-  /* ── Blocs questions ── */
-  .bloc {
-    background: white;
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .bloc-titre {
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px; font-weight: 700;
-    color: var(--bleu);
-    margin-bottom: 4px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .bloc-num {
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--bleu); color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px; font-weight: 600;
-    display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0;
-  }
-  .bloc-sous {
-    font-size: 12px; color: var(--texte-leger);
-    margin-bottom: 18px; margin-left: 36px;
-  }
-  .question {
-    margin-bottom: 20px; margin-left: 36px;
-  }
-  .question:last-child { margin-bottom: 0; }
-  .question label.q-label {
-    display: block;
-    font-size: 13.5px; font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .options { display: flex; flex-direction: column; gap: 8px; }
-  .options-2col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .option {
-    display: flex; align-items: flex-start; gap: 10px;
-    background: var(--gris);
-    border: 1.5px solid var(--gris-med);
-    border-radius: 8px; padding: 11px 14px;
-    font-size: 13px; cursor: pointer;
-    transition: all 0.15s;
-    user-select: none; line-height: 1.5;
-  }
-  .option:hover { border-color: var(--vert); background: var(--vert-clair); }
-  .option.selected { border-color: var(--bleu); background: var(--bleu-clair); }
-  .option input {
-    accent-color: var(--bleu);
-    flex-shrink: 0; margin-top: 2px;
-    pointer-events: none;
-  }
+    /* ── Corps ── */
+    .corps {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 2rem 2rem;
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        align-items: start;
+    }
 
-  /* ── Panneau profil ── */
-  .profil-panel {
-    position: sticky; top: 24px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-  .panel-header {
-    background: var(--bleu);
-    color: white;
-    padding: 18px 22px;
-  }
-  .panel-header-titre {
-    font-family: 'Nunito', sans-serif;
-    font-size: 17px; font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .panel-header-sous {
-    font-size: 11px;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 0.5px;
-  }
-  .panel-corps { padding: 20px 22px; }
-  .panel-section { margin-bottom: 20px; }
-  .panel-section:last-child { margin-bottom: 0; }
+    /* ── Blocs questions ── */
+    .bloc {
+        background: white;
+        border-radius: 12px;
+        padding: 26px 28px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .bloc-titre {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1rem; font-weight: 700;
+        color: var(--bleu);
+        margin-bottom: 4px;
+        display: flex; align-items: center; gap: 10px;
+    }
+    .bloc-num {
+        width: 26px; height: 26px; border-radius: 50%;
+        background: var(--bleu); color: white;
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.75rem; font-weight: 600;
+        display: flex; align-items: center;
+        justify-content: center; flex-shrink: 0;
+    }
+    .bloc-sous {
+        font-size: 0.78rem;
+        color: var(--texte-leger);
+        margin-bottom: 18px;
+        margin-left: 36px;
+    }
+    .question {
+        margin-bottom: 20px;
+        margin-left: 36px;
+    }
+    .question:last-child { margin-bottom: 0; }
+    .question label.q-label {
+        display: block;
+        font-size: 0.88rem; font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .options-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .option {
+        display: flex; align-items: flex-start; gap: 10px;
+        background: var(--gris);
+        border: 1.5px solid var(--gris-med);
+        border-radius: 8px; padding: 11px 14px;
+        font-size: 0.85rem; cursor: pointer;
+        transition: all 0.15s;
+        user-select: none; line-height: 1.5;
+    }
+    .option:hover { border-color: var(--vert); background: var(--vert-clair); }
+    .option.selected { border-color: var(--bleu); background: var(--bleu-clair); }
+    .option input {
+        accent-color: var(--bleu);
+        flex-shrink: 0; margin-top: 2px;
+        pointer-events: none;
+    }
 
-  /* ── Signal de compatibilité ── */
-  .signal-bloc {
-    border-radius: 8px;
-    padding: 12px 14px;
-    font-size: 13px; line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  .signal-bloc.vide {
-    background: var(--gris-med);
-    color: var(--texte-leger);
-    font-style: italic;
-  }
-  .signal-bloc.vert {
-    background: var(--vert-clair);
-    border-left: 3px solid var(--vert);
-  }
-  .signal-bloc.orange {
-    background: var(--orange-clair);
-    border-left: 3px solid var(--orange);
-  }
-  .signal-bloc.rouge {
-    background: var(--alerte-clair);
-    border-left: 3px solid var(--alerte);
-  }
-  .signal-titre {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700; font-size: 13px;
-    margin-bottom: 6px;
-  }
-  .signal-desc { font-size: 12.5px; line-height: 1.6; }
+    /* ── Panneau profil ── */
+    .profil-panel {
+        position: sticky; top: 24px;
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .panel-header {
+        background: var(--bleu);
+        color: white;
+        padding: 18px 22px;
+    }
+    .panel-header-titre {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.05rem; font-weight: 700;
+        margin-bottom: 4px;
+    }
+    .panel-header-sous {
+        font-size: 0.7rem;
+        color: rgba(255,255,255,0.65);
+        letter-spacing: 0.5px;
+    }
+    .panel-corps { padding: 20px 22px; }
 
-  /* ── Sections diagnostic ── */
-  .diag-section {
-    border-top: 1px solid var(--gris-med);
-    padding-top: 16px;
-    margin-top: 4px;
-  }
-  .diag-titre {
-    font-family: 'Nunito', sans-serif;
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--texte-leger);
-    margin-bottom: 8px;
-  }
-  .diag-contenu {
-    font-size: 12.5px;
-    line-height: 1.7;
-    color: var(--dark);
-  }
-  .diag-vide {
-    font-size: 12px;
-    color: var(--texte-leger);
-    font-style: italic;
-  }
+    /* ── Signal de compatibilité ── */
+    .signal-bloc {
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 0.82rem; line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .signal-bloc.vide {
+        background: var(--gris-med);
+        color: var(--texte-leger);
+        font-style: italic;
+    }
+    .signal-bloc.vert  { background: var(--vert-clair); border-left: 3px solid var(--vert); }
+    .signal-bloc.orange{ background: var(--orange-clair); border-left: 3px solid var(--orange); }
+    .signal-bloc.rouge { background: var(--alerte-clair); border-left: 3px solid var(--alerte); }
+    .signal-titre {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700; font-size: 0.82rem;
+        margin-bottom: 6px;
+    }
+    .signal-desc { font-size: 0.8rem; line-height: 1.6; }
 
-  /* ── Configuration (affichée à 100%) ── */
-  .config-section {
-    border-top: 1px solid var(--gris-med);
-    padding-top: 16px;
-    margin-top: 4px;
-    display: none;
-  }
-  .config-section.visible { display: block; }
-  .config-titre-label {
-    font-family: 'Nunito', sans-serif;
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--texte-leger);
-    margin-bottom: 8px;
-  }
-  .config-forfait {
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 700;
-    color: var(--bleu);
-    margin-bottom: 4px;
-  }
-  .config-ligne {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    padding: 5px 0;
-    border-bottom: 1px dotted var(--gris-med);
-  }
-  .config-ligne:last-child { border-bottom: none; }
-  .config-label { color: var(--texte-leger); }
-  .config-val { font-weight: 600; color: var(--dark); }
-  .config-vide {
-    font-size: 12px;
-    color: var(--texte-leger);
-    font-style: italic;
-  }
+    /* ── Sections diagnostic ── */
+    .diag-section {
+        border-top: 1px solid var(--gris-med);
+        padding-top: 16px;
+        margin-top: 4px;
+    }
+    .diag-titre {
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.65rem; font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--texte-leger);
+        margin-bottom: 8px;
+    }
+    .diag-contenu {
+        font-size: 0.8rem;
+        line-height: 1.7;
+        color: var(--dark);
+    }
 
-  /* ── Tarif (affiché à 100%) ── */
-  .tarif-section {
-    border-top: 1px solid var(--gris-med);
-    padding-top: 16px;
-    margin-top: 4px;
-    display: none;
-  }
-  .tarif-section.visible { display: block; }
-  .tarif-titre-label {
-    font-family: 'Nunito', sans-serif;
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--texte-leger);
-    margin-bottom: 8px;
-  }
-  .tarif-montant {
-    font-family: 'Nunito', sans-serif;
-    font-size: 24px; font-weight: 700;
-    color: var(--bleu);
-  }
-  .tarif-depuis {
-    font-size: 12px;
-    color: var(--texte-leger);
-    margin-bottom: 6px;
-  }
-  .tarif-detail {
-    font-size: 11px;
-    color: var(--texte-leger);
-    line-height: 1.6;
-    margin-top: 6px;
-    font-style: italic;
-  }
+    /* ── Configuration ── */
+    .config-section {
+        border-top: 1px solid var(--gris-med);
+        padding-top: 16px;
+        margin-top: 4px;
+        display: none;
+    }
+    .config-section.visible { display: block; }
+    .config-titre-label {
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.65rem; font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--texte-leger);
+        margin-bottom: 8px;
+    }
+    .config-forfait {
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.88rem; font-weight: 700;
+        color: var(--bleu);
+        margin-bottom: 4px;
+    }
+    .config-ligne {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.78rem;
+        padding: 5px 0;
+        border-bottom: 1px dotted var(--gris-med);
+    }
+    .config-ligne:last-child { border-bottom: none; }
+    .config-label { color: var(--texte-leger); }
+    .config-val { font-weight: 600; color: var(--dark); }
 
-  /* ── CTA prise de contact ── */
-  .cta-section {
-    display: none;
-    border-top: 1px solid var(--gris-med);
-    padding-top: 16px;
-    margin-top: 4px;
-  }
-  .cta-section.visible { display: block; }
-  .btn-cta-panel {
-    display: block; width: 100%;
-    padding: 12px 16px;
-    background: var(--terracotta);
-    color: white;
-    border: none; border-radius: 8px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 700;
-    text-align: center; cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    margin-bottom: 8px;
-  }
-  .btn-cta-panel:hover { background: #b5664a; transform: translateY(-1px); }
-  .btn-cta-decouverte {
-    display: block; width: 100%;
-    padding: 11px 16px;
-    background: white;
-    color: var(--bleu);
-    border: 2px solid var(--bleu);
-    border-radius: 8px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 700;
-    text-align: center; cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    margin-bottom: 10px;
-  }
-  .btn-cta-decouverte:hover { background: var(--bleu-clair); transform: translateY(-1px); }
-  .btn-cta-contact {
-    display: block; width: 100%;
-    padding: 12px 16px;
-    background: var(--gris-med);
-    color: var(--dark);
-    border: none; border-radius: 8px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 700;
-    text-align: center; cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    margin-bottom: 8px;
-  }
-  .btn-cta-contact:hover { background: #d5d8d2; transform: translateY(-1px); }
-  .cta-message {
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: var(--dark);
-    margin-bottom: 12px;
-  }
-  .cta-note {
-    font-size: 11px;
-    color: var(--texte-leger);
-    text-align: center;
-    line-height: 1.6;
-  }
+    /* ── Tarif ── */
+    .tarif-section {
+        border-top: 1px solid var(--gris-med);
+        padding-top: 16px;
+        margin-top: 4px;
+        display: none;
+    }
+    .tarif-section.visible { display: block; }
+    .tarif-titre-label {
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.65rem; font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--texte-leger);
+        margin-bottom: 8px;
+    }
+    .tarif-montant {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.5rem; font-weight: 700;
+        color: var(--bleu);
+    }
+    .tarif-depuis {
+        font-size: 0.75rem;
+        color: var(--texte-leger);
+        margin-bottom: 6px;
+    }
+    .tarif-detail {
+        font-size: 0.7rem;
+        color: var(--texte-leger);
+        line-height: 1.6;
+        margin-top: 6px;
+        font-style: italic;
+    }
 
-  /* ── Code profil ── */
-  .code-bloc {
-    display: none;
-    margin-top: 16px;
-    background: #1a2e3a;
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 10px;
-    padding: 16px 18px;
-  }
-  .code-bloc.visible { display: block; }
-  .code-label {
-    font-size: 10px; letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.45);
-    margin-bottom: 10px;
-  }
-  .code-value {
-    font-family: 'Courier New', monospace;
-    font-size: 13px; color: #7ecfd4;
-    background: rgba(0,0,0,.3);
-    border-radius: 6px; padding: 10px 14px;
-    word-break: break-all; line-height: 1.6;
-    margin-bottom: 12px;
-    user-select: all;
-  }
-  .btn-copy {
-    width: 100%; padding: 10px;
-    background: rgba(45,125,138,.2);
-    border: 1px solid rgba(45,125,138,.4);
-    border-radius: 6px; color: #7ecfd4;
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 13px; cursor: pointer;
-    transition: all .15s;
-  }
-  .btn-copy:hover { background: rgba(45,125,138,.35); }
-  .btn-copy.copied { background: rgba(45,125,138,.4); color: #fff; }
-  .code-note {
-    font-size: 11px; color: rgba(255,255,255,.4);
-    margin-top: 10px; line-height: 1.5;
-  }
+    /* ── CTA ── */
+    .cta-section {
+        display: none;
+        border-top: 1px solid var(--gris-med);
+        padding-top: 16px;
+        margin-top: 4px;
+    }
+    .cta-section.visible { display: block; }
+    .btn-cta-panel {
+        display: block; width: 100%;
+        padding: 12px 16px;
+        background: var(--terracotta); color: white;
+        border: none; border-radius: 8px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.88rem; font-weight: 700;
+        text-align: center; cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+        margin-bottom: 8px;
+    }
+    .btn-cta-panel:hover { background: #b5664a; transform: translateY(-1px); }
+    .btn-cta-decouverte {
+        display: block; width: 100%;
+        padding: 11px 16px;
+        background: white; color: var(--bleu);
+        border: 2px solid var(--bleu);
+        border-radius: 8px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.88rem; font-weight: 700;
+        text-align: center; cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+        margin-bottom: 10px;
+    }
+    .btn-cta-decouverte:hover { background: var(--bleu-clair); transform: translateY(-1px); }
+    .btn-cta-contact {
+        display: block; width: 100%;
+        padding: 12px 16px;
+        background: var(--gris-med); color: var(--dark);
+        border: none; border-radius: 8px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.88rem; font-weight: 700;
+        text-align: center; cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+        margin-bottom: 8px;
+    }
+    .btn-cta-contact:hover { background: #d5d8d2; transform: translateY(-1px); }
+    .cta-message {
+        font-size: 0.8rem; line-height: 1.6;
+        color: var(--dark); margin-bottom: 12px;
+    }
+    .cta-note {
+        font-size: 0.7rem;
+        color: var(--texte-leger);
+        text-align: center; line-height: 1.6;
+    }
 
-  /* ── Barre de progression ── */
-  .prog-wrap {
-    padding: 12px 48px;
-    background: white;
-    border-bottom: 1px solid var(--gris-med);
-    display: flex; align-items: center; gap: 12px;
-  }
-  .prog-texte {
-    font-size: 12px; color: var(--texte-leger);
-    white-space: nowrap;
-  }
-  .prog-track {
-    flex: 1; height: 4px;
-    background: var(--gris-med);
-    border-radius: 2px; overflow: hidden;
-  }
-  .prog-fill {
-    height: 100%;
-    background: var(--bleu);
-    width: 0%; transition: width 0.3s;
-    border-radius: 2px;
-  }
+    /* ── Code profil ── */
+    .code-bloc {
+        display: none;
+        margin-top: 16px;
+        background: #1a2e3a;
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 10px;
+        padding: 16px 18px;
+    }
+    .code-bloc.visible { display: block; }
+    .code-label {
+        font-size: 0.65rem; letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.45);
+        margin-bottom: 10px;
+    }
+    .code-value {
+        font-family: 'Courier New', monospace;
+        font-size: 0.82rem; color: #7ecfd4;
+        background: rgba(0,0,0,.3);
+        border-radius: 6px; padding: 10px 14px;
+        word-break: break-all; line-height: 1.6;
+        margin-bottom: 12px;
+        user-select: all;
+    }
+    .btn-copy {
+        width: 100%; padding: 10px;
+        background: rgba(45,125,138,.2);
+        border: 1px solid rgba(45,125,138,.4);
+        border-radius: 6px; color: #7ecfd4;
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+        font-size: 0.82rem; cursor: pointer;
+        transition: all .15s;
+    }
+    .btn-copy:hover { background: rgba(45,125,138,.35); }
+    .btn-copy.copied { background: rgba(45,125,138,.4); color: #fff; }
+    .code-note {
+        font-size: 0.7rem; color: rgba(255,255,255,.4);
+        margin-top: 10px; line-height: 1.5;
+    }
 
-  /* ── Pied ── */
-  .pied {
-    padding: 20px 48px;
-    border-top: 1px solid var(--gris-med);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    color: var(--texte-leger);
-    grid-column: 1 / -1;
-  }
-  .pied-logo {
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 700;
-    color: var(--bleu);
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
-    .corps { grid-template-columns: 1fr; padding: 20px; }
-    .entete, .intro { padding-left: 20px; padding-right: 20px; }
-    .intro { margin-left: 20px; margin-right: 20px; }
-    .profil-panel { position: static; }
-    .question { margin-left: 0; }
-    .bloc-sous { margin-left: 0; }
-    .options-2col { grid-template-columns: 1fr; }
-    .pied { padding: 20px; grid-column: 1; }
-    .prog-wrap { padding: 12px 20px; }
-  }
-</style>
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .corps { grid-template-columns: 1fr; padding: 1rem; }
+        .intro { margin: 0 1rem; }
+        .profil-panel { position: static; }
+        .question { margin-left: 0; }
+        .bloc-sous { margin-left: 0; }
+        .options-2col { grid-template-columns: 1fr; }
+        .prog-wrap { padding: 12px 1rem; }
+    }
+    </style>
 </head>
 <body>
 
-<!-- EN-TÊTE -->
-<div class="entete">
-  <div class="entete-meta">Passerelle Environnement — Votre situation, votre projet</div>
-  <h1>Votre profil professionnel environnement</h1>
-  <div class="entete-sous">2 minutes — découvrez les leviers les plus pertinents pour votre projet</div>
-</div>
-
-<!-- BARRE DE PROGRESSION -->
-<div class="prog-wrap">
-  <span class="prog-texte" id="progTexte">0 / 6 questions</span>
-  <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
-</div>
-
-<!-- INTRO -->
-<div class="intro">
-  Répondez spontanément. Ce questionnaire cherche à comprendre votre situation, votre projet et les pistes les plus adaptées pour construire votre avenir professionnel dans l'environnement public en France.
-</div>
-
-<div class="corps">
-  <div class="questions-col">
-
-    <!-- BLOC 1 — PROJET -->
-    <div class="bloc">
-      <div class="bloc-titre"><div class="bloc-num">1</div>Votre projet professionnel</div>
-      <div class="bloc-sous">La question centrale — répondez à celle qui vous ressemble le plus</div>
-
-      <div class="question">
-        <label class="q-label">Où en êtes-vous dans votre projet ?</label>
-        <div class="options">
-          <label class="option">
-            <input type="radio" name="clarte" value="doute" onchange="update()">
-            <span>Je ne suis pas encore certain·e que le secteur environnement est fait pour moi — j'explore encore</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="clarte" value="flou" onchange="update()">
-            <span>Je sais que je veux travailler dans l'environnement, mais je ne saurais pas dire quel métier ni quel type de structure</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="clarte" value="assez_clair" onchange="update()">
-            <span>J'ai un domaine qui m'attire — l'eau, la biodiversité, le climat… — mais je ne sais pas quels postes existent ni comment y accéder</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="clarte" value="clair" onchange="update()">
-            <span>Je sais quel type de poste je vise et quel type d'employeur — j'ai besoin d'un plan concret pour y arriver</span>
-          </label>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="accompagnement.html">Accompagnement</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="blog.html">Ressources</a></li>
+                <li><a href="questionnaire.html" class="nav-cta active">Faire le questionnaire</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- BLOC 2 — LIEN SECTEUR -->
-    <div class="bloc">
-      <div class="bloc-titre"><div class="bloc-num">2</div>Votre rapport au secteur</div>
-      <div class="bloc-sous">Ce que vous connaissez déjà — ou pas</div>
-
-      <div class="question">
-        <label class="q-label">Votre situation professionnelle actuelle</label>
-        <div class="options">
-          <label class="option">
-            <input type="radio" name="situation" value="etudiant" onchange="update()">
-            <span>Je suis étudiant·e ou jeune diplômé·e — je cherche à entrer dans le secteur pour la première fois</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="situation" value="exterieur" onchange="update()">
-            <span>Je travaille dans un autre secteur — l'environnement public est une reconversion pour moi</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="situation" value="lien_partiel" onchange="update()">
-            <span>Mon travail actuel touche à l'environnement de loin — mais ce n'est pas mon cœur de métier</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="situation" value="secteur_prive" onchange="update()">
-            <span>Je travaille déjà dans l'environnement (secteur privé) et je veux rejoindre le public</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="situation" value="secteur_public" onchange="update()">
-            <span>Je suis déjà dans l'environnement public — je cherche à évoluer ou changer de sous-domaine</span>
-          </label>
+    <!-- HERO -->
+    <section class="hero-simple">
+        <div class="container">
+            <p class="hero-surtitre">Passerelle Environnement — Votre situation, votre projet</p>
+            <h1>Votre profil professionnel environnement</h1>
+            <p>2 minutes — découvrez les leviers les plus pertinents pour votre projet</p>
         </div>
-      </div>
+    </section>
 
-      <div class="question">
-        <label class="q-label">Avez-vous déjà essayé d'entrer dans ce secteur ?</label>
-        <div class="options">
-          <label class="option">
-            <input type="radio" name="tentatives" value="non" onchange="update()">
-            <span>Non — c'est ma première démarche structurée</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="tentatives" value="recherches" onchange="update()">
-            <span>J'ai fait des recherches et quelques prises de contact, sans aller plus loin</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="tentatives" value="candidatures" onchange="update()">
-            <span>J'ai envoyé des candidatures — sans retour ou sans suite</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="tentatives" value="entretiens" onchange="update()">
-            <span>J'ai eu des entretiens mais je n'ai pas été retenu·e</span>
-          </label>
+    <!-- ZONE QUESTIONNAIRE -->
+    <div class="questionnaire-page">
+
+        <!-- BARRE DE PROGRESSION -->
+        <div class="prog-wrap">
+            <span class="prog-texte" id="progTexte">0 / 6 questions</span>
+            <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
         </div>
-      </div>
-    </div>
 
-    <!-- BLOC 3 — CV -->
-    <div class="bloc">
-      <div class="bloc-titre"><div class="bloc-num">3</div>Vos outils de candidature</div>
-      <div class="bloc-sous">L'état de votre CV au regard du secteur visé</div>
-
-      <div class="question">
-        <label class="q-label">Comment décririez-vous votre CV aujourd'hui ?</label>
-        <div class="options">
-          <label class="option">
-            <input type="radio" name="cv" value="inexistant" onchange="update()">
-            <span>Je n'ai pas encore de CV adapté au secteur environnement</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="cv" value="generique" onchange="update()">
-            <span>J'ai un CV généraliste — il n'est pas du tout orienté environnement</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="cv" value="partiel" onchange="update()">
-            <span>J'ai commencé à adapter mon CV, mais je ne suis pas sûr·e qu'il soit au bon niveau</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="cv" value="bon" onchange="update()">
-            <span>Mon CV est déjà bien positionné sur les codes du secteur public environnemental</span>
-          </label>
+        <!-- INTRO -->
+        <div class="intro">
+            Répondez spontanément. Ce questionnaire cherche à comprendre votre situation, votre projet et les pistes
+            les plus adaptées pour construire votre avenir professionnel dans l'environnement public en France.
         </div>
-      </div>
-    </div>
 
-    <!-- BLOC 4 — HORIZON -->
-    <div class="bloc">
-      <div class="bloc-titre"><div class="bloc-num">4</div>Votre horizon de temps</div>
-      <div class="bloc-sous">Une indication importante pour calibrer l'accompagnement</div>
+        <!-- CORPS -->
+        <div class="corps">
+            <div class="questions-col">
 
-      <div class="question">
-        <label class="q-label">Dans quel délai souhaitez-vous intégrer le secteur ?</label>
-        <div class="options options-2col">
-          <label class="option">
-            <input type="radio" name="horizon" value="urgent" onchange="update()">
-            <span>Dans moins de 3 mois — c'est urgent pour moi</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="horizon" value="6mois" onchange="update()">
-            <span>D'ici 6 mois — je veux avancer vite</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="horizon" value="1an" onchange="update()">
-            <span>Dans l'année — j'ai le temps de bien faire les choses</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="horizon" value="long" onchange="update()">
-            <span>Sur le long terme — je prépare un virage progressif</span>
-          </label>
+                <!-- BLOC 1 — PROJET -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">1</div>Votre projet professionnel</div>
+                    <div class="bloc-sous">La question centrale — répondez à celle qui vous ressemble le plus</div>
+                    <div class="question">
+                        <label class="q-label">Où en êtes-vous dans votre projet ?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="clarte" value="doute" onchange="update()"><span>Je ne suis pas encore certain·e que le secteur environnement est fait pour moi — j'explore encore</span></label>
+                            <label class="option"><input type="radio" name="clarte" value="flou" onchange="update()"><span>Je sais que je veux travailler dans l'environnement, mais je ne saurais pas dire quel métier ni quel type de structure</span></label>
+                            <label class="option"><input type="radio" name="clarte" value="assez_clair" onchange="update()"><span>J'ai un domaine qui m'attire — l'eau, la biodiversité, le climat… — mais je ne sais pas quels postes existent ni comment y accéder</span></label>
+                            <label class="option"><input type="radio" name="clarte" value="clair" onchange="update()"><span>Je sais quel type de poste je vise et quel type d'employeur — j'ai besoin d'un plan concret pour y arriver</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOC 2 — SITUATION -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">2</div>Votre situation actuelle</div>
+                    <div class="bloc-sous">Votre point de départ conditionne la stratégie</div>
+                    <div class="question">
+                        <label class="q-label">Comment décririez-vous votre situation professionnelle aujourd'hui ?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="situation" value="etudiant" onchange="update()"><span>Étudiant·e ou jeune diplômé·e — je cherche à entrer dans le secteur pour la première fois</span></label>
+                            <label class="option"><input type="radio" name="situation" value="exterieur" onchange="update()"><span>En activité dans un autre secteur — je souhaite me reconvertir vers l'environnement public</span></label>
+                            <label class="option"><input type="radio" name="situation" value="lien_partiel" onchange="update()"><span>Mon activité actuelle a un lien partiel avec l'environnement (bureau d'études, association, enseignement…)</span></label>
+                            <label class="option"><input type="radio" name="situation" value="secteur_prive" onchange="update()"><span>Je travaille déjà dans l'environnement, mais dans le secteur privé</span></label>
+                            <label class="option"><input type="radio" name="situation" value="secteur_public" onchange="update()"><span>Je suis déjà dans le secteur public environnemental — je veux évoluer ou changer de poste</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOC 3 — TENTATIVES -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">3</div>Vos démarches</div>
+                    <div class="bloc-sous">Ce que vous avez déjà fait ou pas encore</div>
+                    <div class="question">
+                        <label class="q-label">Où en êtes-vous dans vos démarches vers ce secteur ?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="tentatives" value="non" onchange="update()"><span>Je n'ai pas encore démarché — je suis en phase de réflexion</span></label>
+                            <label class="option"><input type="radio" name="tentatives" value="recherches" onchange="update()"><span>J'ai fait des recherches, consulté des offres, exploré le secteur — sans candidater</span></label>
+                            <label class="option"><input type="radio" name="tentatives" value="candidatures" onchange="update()"><span>J'ai envoyé des candidatures, mais peu ou pas de retours positifs</span></label>
+                            <label class="option"><input type="radio" name="tentatives" value="entretiens" onchange="update()"><span>J'ai décroché des entretiens, mais ça ne s'est pas concrétisé</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOC 4 — CV -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">4</div>Votre CV</div>
+                    <div class="bloc-sous">Le CV pour le secteur public fonctionne différemment du privé</div>
+                    <div class="question">
+                        <label class="q-label">Comment décririez-vous votre CV aujourd'hui ?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="cv" value="inexistant" onchange="update()"><span>Je n'ai pas encore de CV adapté à ce secteur</span></label>
+                            <label class="option"><input type="radio" name="cv" value="generique" onchange="update()"><span>J'ai un CV générique, pas spécifiquement orienté secteur public</span></label>
+                            <label class="option"><input type="radio" name="cv" value="partiel" onchange="update()"><span>Mon CV mentionne des expériences environnementales mais n'est pas optimisé</span></label>
+                            <label class="option"><input type="radio" name="cv" value="bon" onchange="update()"><span>Mon CV est déjà bien adapté au secteur public environnemental</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOC 5 — HORIZON -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">5</div>Votre horizon</div>
+                    <div class="bloc-sous">Le tempo change la stratégie</div>
+                    <div class="question">
+                        <label class="q-label">Dans quel délai souhaitez-vous concrétiser votre projet ?</label>
+                        <div class="options options-2col">
+                            <label class="option"><input type="radio" name="horizon" value="urgent" onchange="update()"><span>Le plus vite possible — c'est urgent</span></label>
+                            <label class="option"><input type="radio" name="horizon" value="6mois" onchange="update()"><span>Dans les 6 prochains mois</span></label>
+                            <label class="option"><input type="radio" name="horizon" value="1an" onchange="update()"><span>D'ici un an</span></label>
+                            <label class="option"><input type="radio" name="horizon" value="long" onchange="update()"><span>À plus long terme — je prépare le terrain</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOC 6 — DISPONIBILITÉ -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">6</div>Votre disponibilité</div>
+                    <div class="bloc-sous">Pour calibrer le rythme de l'accompagnement</div>
+                    <div class="question">
+                        <label class="q-label">Combien de temps pouvez-vous consacrer à votre projet par semaine ?</label>
+                        <div class="options options-2col">
+                            <label class="option"><input type="radio" name="dispo" value="faible" onchange="update()"><span>Moins d'une heure — je suis très pris·e</span></label>
+                            <label class="option"><input type="radio" name="dispo" value="normale" onchange="update()"><span>1 à 3 heures — disponibilité raisonnable</span></label>
+                            <label class="option"><input type="radio" name="dispo" value="forte" onchange="update()"><span>Plus de 3 heures — je peux m'y consacrer sérieusement</span></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- fin questions-col -->
+
+            <!-- PANNEAU PROFIL -->
+            <div class="profil-panel">
+                <div class="panel-header">
+                    <div class="panel-header-titre">Votre profil environnement</div>
+                    <div class="panel-header-sous">LECTURE PROGRESSIVE DE VOTRE SITUATION</div>
+                </div>
+                <div class="panel-corps">
+
+                    <div class="signal-bloc vide" id="signalBloc">
+                        <div class="signal-titre" id="signalTitre">Répondez aux questions</div>
+                        <div class="signal-desc" id="signalDesc">Votre profil se précise au fil de vos réponses.</div>
+                    </div>
+
+                    <div class="diag-section" id="lectureSection" style="display:none">
+                        <div class="diag-titre">Lecture du profil</div>
+                        <div class="diag-contenu" id="lectureContenu"></div>
+                    </div>
+
+                    <div class="diag-section" id="perspectivesSection" style="display:none">
+                        <div class="diag-titre">Pistes à explorer</div>
+                        <div class="diag-contenu" id="perspectivesContenu"></div>
+                    </div>
+
+                    <div class="diag-section" id="syntheseSection" style="display:none">
+                        <div class="diag-titre">Votre principal enjeu</div>
+                        <div class="diag-contenu" id="syntheseContenu"></div>
+                    </div>
+
+                    <div class="config-section" id="configSection">
+                        <div class="config-titre-label">Configuration recommandée</div>
+                        <div id="configForfait" class="config-forfait"></div>
+                        <div id="configBloc"></div>
+                    </div>
+
+                    <div class="tarif-section" id="tarifSection">
+                        <div class="tarif-titre-label">Tarif indicatif</div>
+                        <div id="tarifBloc"></div>
+                    </div>
+
+                    <div class="cta-section" id="ctaSection">
+                        <div id="ctaContenu"></div>
+                    </div>
+
+                    <div class="code-bloc" id="codeBloc">
+                        <div class="code-label">Votre code profil</div>
+                        <div class="code-value" id="codeValue">—</div>
+                        <button class="btn-copy" id="btnCopy" onclick="copyCode()">Copier le code</button>
+                        <div class="code-note">
+                            Communiquez ce code lors de votre prise de rendez-vous — il me permet de préparer notre échange.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- fin corps -->
+    </div><!-- fin questionnaire-page -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Passerelle Environnement</h4>
+                    <p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="accompagnement.html">Accompagnement</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="blog.html">Ressources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p>
+                <p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p>
+            </div>
         </div>
-      </div>
-    </div>
+    </footer>
 
-    <!-- BLOC 5 — DISPONIBILITÉ -->
-    <div class="bloc">
-      <div class="bloc-titre"><div class="bloc-num">5</div>Votre disponibilité</div>
-      <div class="bloc-sous">Pour calibrer le rythme de l'accompagnement</div>
-
-      <div class="question">
-        <label class="q-label">Combien de temps pouvez-vous consacrer à votre projet par semaine ?</label>
-        <div class="options options-2col">
-          <label class="option">
-            <input type="radio" name="dispo" value="faible" onchange="update()">
-            <span>Moins d'une heure — je suis très pris·e</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="dispo" value="normale" onchange="update()">
-            <span>1 à 3 heures — disponibilité raisonnable</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="dispo" value="forte" onchange="update()">
-            <span>Plus de 3 heures — je peux m'y consacrer sérieusement</span>
-          </label>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- fin questions-col -->
-
-  <!-- PANNEAU PROFIL -->
-  <div class="profil-panel">
-    <div class="panel-header">
-      <div class="panel-header-titre">Votre profil environnement</div>
-      <div class="panel-header-sous">LECTURE PROGRESSIVE DE VOTRE SITUATION</div>
-    </div>
-    <div class="panel-corps">
-
-      <!-- Signal compatibilité -->
-      <div class="signal-bloc vide" id="signalBloc">
-        <div class="signal-titre" id="signalTitre">Répondez aux questions</div>
-        <div class="signal-desc" id="signalDesc">Votre profil se précise au fil de vos réponses.</div>
-      </div>
-
-      <!-- Lecture du profil -->
-      <div class="diag-section" id="lectureSection" style="display:none">
-        <div class="diag-titre">Lecture du profil</div>
-        <div class="diag-contenu" id="lectureContenu"></div>
-      </div>
-
-      <!-- Perspectives -->
-      <div class="diag-section" id="perspectivesSection" style="display:none">
-        <div class="diag-titre">Pistes à explorer</div>
-        <div class="diag-contenu" id="perspectivesContenu"></div>
-      </div>
-
-      <!-- Synthèse -->
-      <div class="diag-section" id="syntheseSection" style="display:none">
-        <div class="diag-titre">Votre principal enjeu</div>
-        <div class="diag-contenu" id="syntheseContenu"></div>
-      </div>
-
-      <!-- Configuration (100% uniquement) -->
-      <div class="config-section" id="configSection">
-        <div class="config-titre-label">Configuration recommandée</div>
-        <div id="configForfait" class="config-forfait"></div>
-        <div id="configBloc"></div>
-      </div>
-
-      <!-- Tarif (100% uniquement) -->
-      <div class="tarif-section" id="tarifSection">
-        <div class="tarif-titre-label">Tarif indicatif</div>
-        <div id="tarifBloc"></div>
-      </div>
-
-      <!-- CTA (100% uniquement) -->
-      <div class="cta-section" id="ctaSection">
-        <div id="ctaContenu"></div>
-      </div>
-
-      <!-- Code profil -->
-      <div class="code-bloc" id="codeBloc">
-        <div class="code-label">Votre code profil</div>
-        <div class="code-value" id="codeValue">—</div>
-        <button class="btn-copy" id="btnCopy" onclick="copyCode()">Copier le code</button>
-        <div class="code-note">
-          Communiquez ce code lors de votre prise de rendez-vous — il me permet de préparer notre échange.
-        </div>
-      </div>
-
-    </div><!-- fin panel-corps -->
-  </div><!-- fin profil-panel -->
-
-  <!-- PIED DE PAGE -->
-  <div class="pied">
-    <span class="pied-logo">Passerelle Environnement</span>
-    <span>Sans inscription · Résultat immédiat · Aucun email requis</span>
-  </div>
-
-</div><!-- fin corps -->
+    <script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js/tarteaucitron.js"></script>
+    <script src="js/tarteaucitron-init.js" defer></script>
 
 <script>
-  // ── LIENS STRIPE (à remplacer par les vrais liens à l'étape 8) ──────
-  // Session découverte — prix fixe 50 €
   const STRIPE_DECOUVERTE = '#stripe-session-decouverte-50';
-  // Forfaits complets — un lien par tranche de prix
-  // Clé = montant calculé arrondi à la cinquantaine
-  const STRIPE_FORFAITS = {
-    400: '#stripe-forfait-400',
-    450: '#stripe-forfait-450',
-    500: '#stripe-forfait-500',
-    550: '#stripe-forfait-550',
-    600: '#stripe-forfait-600',
-  };
-  // Fallback si montant hors grille
+  const STRIPE_FORFAITS = { 400:'#stripe-forfait-400', 450:'#stripe-forfait-450', 500:'#stripe-forfait-500', 550:'#stripe-forfait-550', 600:'#stripe-forfait-600' };
   const STRIPE_FORFAIT_DEFAUT = '#stripe-forfait';
+
   function getVal(name) {
     const el = document.querySelector(`input[name="${name}"]:checked`);
     return el ? el.value : null;
   }
-
   function countAnswered() {
-    return ['clarte','situation','tentatives','cv','horizon','dispo']
-      .filter(q => getVal(q) !== null).length;
+    return ['clarte','situation','tentatives','cv','horizon','dispo'].filter(q => getVal(q) !== null).length;
   }
-
-  // Marquer les options sélectionnées
   document.querySelectorAll('.option input').forEach(input => {
     input.addEventListener('change', function() {
       const name = this.name;
@@ -775,35 +650,31 @@
   });
 
   function update() {
-    const clarte    = getVal('clarte');
-    const situation = getVal('situation');
-    const tentatives= getVal('tentatives');
-    const cv        = getVal('cv');
-    const horizon   = getVal('horizon');
-    const dispo     = getVal('dispo');
-    const answered  = countAnswered();
+    const clarte     = getVal('clarte');
+    const situation  = getVal('situation');
+    const tentatives = getVal('tentatives');
+    const cv         = getVal('cv');
+    const horizon    = getVal('horizon');
+    const dispo      = getVal('dispo');
+    const answered   = countAnswered();
 
-    // Barre de progression
     document.getElementById('progTexte').textContent = `${answered} / 6 questions`;
     document.getElementById('progFill').style.width  = `${Math.round((answered/6)*100)}%`;
 
-    // Reset des sections diagnostic à chaque update
-    document.getElementById('lectureSection').style.display     = 'none';
+    document.getElementById('lectureSection').style.display      = 'none';
     document.getElementById('perspectivesSection').style.display = 'none';
-    document.getElementById('syntheseSection').style.display    = 'none';
+    document.getElementById('syntheseSection').style.display     = 'none';
     document.getElementById('configSection').classList.remove('visible');
     document.getElementById('tarifSection').classList.remove('visible');
     document.getElementById('ctaSection').classList.remove('visible');
 
     if (answered < 6) {
-      // Message d'attente — rien d'autre n'est visible
       document.getElementById('signalBloc').className = 'signal-bloc vide';
       document.getElementById('signalTitre').textContent = `${answered} / 6 questions répondues`;
       document.getElementById('signalDesc').textContent  = 'Votre profil complet apparaîtra une fois toutes les questions complétées.';
       return;
     }
 
-    // ── À partir d'ici : toutes les questions sont répondues ──
     const signalBloc  = document.getElementById('signalBloc');
     const signalTitre = document.getElementById('signalTitre');
     const signalDesc  = document.getElementById('signalDesc');
@@ -813,16 +684,13 @@
     let sDesc  = "Votre profil correspond à ce qu'un accompagnement Passerelle Environnement peut apporter.";
 
     if (clarte === 'doute') {
-      signal = "rouge";
-      sTitre = "⚠ Point à clarifier en premier";
+      signal = "rouge"; sTitre = "⚠ Point à clarifier en premier";
       sDesc  = "Vous n'êtes pas encore certain·e que ce secteur est fait pour vous. Je vous propose un échange préalable gratuit de 20 minutes avant tout engagement.";
     } else if (situation === 'secteur_public' && clarte === 'clair') {
-      signal = "orange";
-      sTitre = "→ Profil déjà dans le secteur";
+      signal = "orange"; sTitre = "→ Profil déjà dans le secteur";
       sDesc  = "Vous êtes déjà dans l'environnement public avec un projet clair. L'accompagnement portera sur votre repositionnement ou mobilité interne. À discuter.";
     } else if (horizon === 'urgent' && clarte === 'flou') {
-      signal = "orange";
-      sTitre = "→ Urgence + projet à construire";
+      signal = "orange"; sTitre = "→ Urgence + projet à construire";
       sDesc  = "Vous êtes pressé·e mais votre projet n'est pas encore défini. C'est un point de tension à adresser dès la première session.";
     }
 
@@ -830,214 +698,106 @@
     signalTitre.textContent = sTitre;
     signalDesc.textContent  = sDesc;
 
-    // ── LECTURE DU PROFIL ─────────────────────────────────────────────
     if (clarte && situation) {
       let lecture = '';
-
-      if (clarte === 'doute') {
-        lecture = "Votre intérêt pour l'environnement existe, mais des doutes persistent sur l'orientation à prendre. C'est une étape normale — clarifier la direction avant d'agir est la bonne posture.";
-      } else if (clarte === 'flou' && (situation === 'exterieur' || situation === 'etudiant')) {
-        lecture = "Vous avez la conviction de vouloir travailler dans l'environnement, mais le secteur public reste encore flou dans ses structures et ses métiers. Une phase de découverte s'impose avant d'agir.";
-      } else if (clarte === 'flou' && situation === 'lien_partiel') {
-        lecture = "Vous avez des points d'ancrage dans l'environnement, mais le passage au secteur public demande de comprendre ses codes spécifiques. Le pont existe — il faut l'identifier.";
-      } else if (clarte === 'flou' && situation === 'secteur_prive') {
-        lecture = "Vous êtes déjà dans l'environnement, mais le secteur public fonctionne différemment du privé : recrutement, carrière, types de postes. La transition demande une vraie préparation.";
-      } else if (clarte === 'flou' && situation === 'secteur_public') {
-        lecture = "Vous êtes dans le secteur public mais vous cherchez encore quelle direction prendre. L'enjeu est de clarifier votre projet à l'intérieur d'un secteur que vous connaissez déjà.";
-      } else if (clarte === 'assez_clair') {
-        lecture = "Vous avez un domaine d'intérêt identifié. La prochaine étape est de comprendre comment ce domaine se décline concrètement dans les collectivités et structures publiques, et comment y accéder.";
-      } else if (clarte === 'clair' && situation !== 'secteur_public') {
-        lecture = "Votre direction est claire. L'enjeu est maintenant stratégique : construire un plan d'accès efficace au secteur public environnemental, là où les codes de candidature diffèrent du privé.";
-      } else if (situation === 'secteur_public') {
-        lecture = "Vous connaissez déjà le secteur de l'intérieur. Votre enjeu est davantage un repositionnement, une évolution ou une mobilité — ce qui demande un travail différent sur votre projet.";
-      }
-
-      if (lecture) {
-        document.getElementById('lectureContenu').textContent = lecture;
-        document.getElementById('lectureSection').style.display = 'block';
-      }
+      if (clarte === 'doute') { lecture = "Votre intérêt pour l'environnement existe, mais des doutes persistent sur l'orientation à prendre. C'est une étape normale — clarifier la direction avant d'agir est la bonne posture."; }
+      else if (clarte === 'flou' && (situation === 'exterieur' || situation === 'etudiant')) { lecture = "Vous avez la conviction de vouloir travailler dans l'environnement, mais le secteur public reste encore flou dans ses structures et ses métiers. Une phase de découverte s'impose avant d'agir."; }
+      else if (clarte === 'flou' && situation === 'lien_partiel') { lecture = "Vous avez des points d'ancrage dans l'environnement, mais le passage au secteur public demande de comprendre ses codes spécifiques. Le pont existe — il faut l'identifier."; }
+      else if (clarte === 'flou' && situation === 'secteur_prive') { lecture = "Vous êtes déjà dans l'environnement, mais le secteur public fonctionne différemment du privé : recrutement, carrière, types de postes. La transition demande une vraie préparation."; }
+      else if (clarte === 'flou' && situation === 'secteur_public') { lecture = "Vous êtes dans le secteur public mais vous cherchez encore quelle direction prendre. L'enjeu est de clarifier votre projet à l'intérieur d'un secteur que vous connaissez déjà."; }
+      else if (clarte === 'assez_clair') { lecture = "Vous avez un domaine d'intérêt identifié. La prochaine étape est de comprendre comment ce domaine se décline concrètement dans les collectivités et structures publiques, et comment y accéder."; }
+      else if (clarte === 'clair' && situation !== 'secteur_public') { lecture = "Votre direction est claire. L'enjeu est maintenant stratégique : construire un plan d'accès efficace au secteur public environnemental, là où les codes de candidature diffèrent du privé."; }
+      else if (situation === 'secteur_public') { lecture = "Vous connaissez déjà le secteur de l'intérieur. Votre enjeu est davantage un repositionnement, une évolution ou une mobilité — ce qui demande un travail différent sur votre projet."; }
+      if (lecture) { document.getElementById('lectureContenu').textContent = lecture; document.getElementById('lectureSection').style.display = 'block'; }
     }
 
-    // ── PERSPECTIVES ──────────────────────────────────────────────────
     if (clarte && situation) {
       let perspectives = '';
-
-      if (clarte === 'doute') {
-        perspectives = "À définir lors d'un échange préalable — inutile de projeter des pistes avant d'avoir clarifié la direction.";
-      } else if (clarte === 'flou') {
-        perspectives = "Les familles de métiers les plus accessibles dans le secteur public : gestion de l'eau et des milieux, biodiversité et espaces naturels, urbanisme et planification, coordination territoriale, animation et sensibilisation (EEDD).";
-      } else if (clarte === 'assez_clair') {
-        if (situation === 'etudiant' || situation === 'exterieur') {
-          perspectives = "Les collectivités territoriales (communes, intercommunalités, départements), les syndicats de bassin versant, les agences publiques (OFB, agences de l'eau) et les établissements publics constituent les principaux employeurs à cibler.";
-        } else {
-          perspectives = "Votre expérience existante peut constituer un levier fort. Les postes de chargé·e de mission, coordinateur·rice ou responsable de projet dans les structures publiques sont souvent accessibles par passerelle depuis le privé ou le parapublic.";
-        }
-      } else if (clarte === 'clair') {
-        perspectives = "Avec un projet clair, l'enjeu est de bien cibler les recruteurs (type de structure, taille, géographie), de comprendre leurs calendriers de recrutement, et de positionner votre candidature au bon moment et de la bonne façon.";
-      }
-
-      if (perspectives) {
-        document.getElementById('perspectivesContenu').textContent = perspectives;
-        document.getElementById('perspectivesSection').style.display = 'block';
-      }
+      if (clarte === 'doute') { perspectives = "À définir lors d'un échange préalable — inutile de projeter des pistes avant d'avoir clarifié la direction."; }
+      else if (clarte === 'flou') { perspectives = "Les familles de métiers les plus accessibles dans le secteur public : gestion de l'eau et des milieux, biodiversité et espaces naturels, urbanisme et planification, coordination territoriale, animation et sensibilisation (EEDD)."; }
+      else if (clarte === 'assez_clair') {
+        if (situation === 'etudiant' || situation === 'exterieur') { perspectives = "Les collectivités territoriales (communes, intercommunalités, départements), les syndicats de bassin versant, les agences publiques (OFB, agences de l'eau) et les établissements publics constituent les principaux employeurs à cibler."; }
+        else { perspectives = "Votre expérience existante peut constituer un levier fort. Les postes de chargé·e de mission, coordinateur·rice ou responsable de projet dans les structures publiques sont souvent accessibles par passerelle depuis le privé ou le parapublic."; }
+      } else if (clarte === 'clair') { perspectives = "Avec un projet clair, l'enjeu est de bien cibler les recruteurs (type de structure, taille, géographie), de comprendre leurs calendriers de recrutement, et de positionner votre candidature au bon moment et de la bonne façon."; }
+      if (perspectives) { document.getElementById('perspectivesContenu').textContent = perspectives; document.getElementById('perspectivesSection').style.display = 'block'; }
     }
 
-    // ── SYNTHÈSE ──────────────────────────────────────────────────────
     if (clarte) {
       let synthese = '';
-
-      if (clarte === 'doute') {
-        synthese = "Votre principal enjeu est de clarifier si ce secteur correspond à vos aspirations profondes — avant de parler de stratégie ou de candidatures.";
-      } else if (clarte === 'flou' && tentatives === 'non') {
-        synthese = "Votre principal enjeu n'est pas encore la candidature, mais la compréhension du secteur, de ses structures et de ses métiers réels.";
-      } else if (clarte === 'flou' && tentatives === 'recherches') {
-        synthese = "Vous avez commencé à explorer, mais sans cadre structuré. L'enjeu est de transformer ces recherches en une démarche claire et ciblée.";
-      } else if (clarte === 'flou' && (tentatives === 'candidatures' || tentatives === 'entretiens')) {
-        synthese = "Vous avez déjà essayé. Sans retour satisfaisant. L'enjeu est de comprendre ce qui bloque — souvent la méconnaissance des codes spécifiques au recrutement public.";
-      } else if (clarte === 'assez_clair') {
-        synthese = "Votre principal enjeu est de passer du domaine d'intérêt à la réalité du marché : quels postes existent vraiment, qui recrute, et comment s'y présenter efficacement.";
-      } else if (clarte === 'clair' && horizon === 'urgent') {
-        synthese = "Vous avez une direction claire et peu de temps. L'enjeu est de construire rapidement une stratégie ciblée pour ne pas disperser vos efforts.";
-      } else if (clarte === 'clair') {
-        synthese = "Vous avez une direction claire. L'enjeu est de transformer cette clarté en stratégie concrète et en candidatures bien positionnées.";
-      }
-
-      if (synthese) {
-        document.getElementById('syntheseContenu').textContent = synthese;
-        document.getElementById('syntheseSection').style.display = 'block';
-      }
+      if (clarte === 'doute') { synthese = "Votre principal enjeu est de clarifier si ce secteur correspond à vos aspirations profondes — avant de parler de stratégie ou de candidatures."; }
+      else if (clarte === 'flou' && tentatives === 'non') { synthese = "Votre principal enjeu n'est pas encore la candidature, mais la compréhension du secteur, de ses structures et de ses métiers réels."; }
+      else if (clarte === 'flou' && tentatives === 'recherches') { synthese = "Vous avez commencé à explorer, mais sans cadre structuré. L'enjeu est de transformer ces recherches en une démarche claire et ciblée."; }
+      else if (clarte === 'flou' && (tentatives === 'candidatures' || tentatives === 'entretiens')) { synthese = "Vous avez déjà tenté de postuler sans cadre clair. L'enjeu est de reprendre à la base : comprendre le secteur avant de recommencer à candidater."; }
+      else if (clarte === 'assez_clair' && tentatives === 'non') { synthese = "Vous avez un domaine identifié mais n'avez pas encore agi. L'enjeu est de passer de l'intention à la stratégie concrète — sans perdre de temps en explorations trop larges."; }
+      else if (clarte === 'assez_clair' && (tentatives === 'candidatures' || tentatives === 'entretiens')) { synthese = "Vous candidatez avec une direction partielle. L'enjeu est d'affiner le ciblage et d'améliorer le positionnement de vos candidatures."; }
+      else if (clarte === 'clair' && (tentatives === 'non' || tentatives === 'recherches')) { synthese = "Votre projet est clair mais vous n'avez pas encore agi. L'enjeu est de construire et exécuter un plan d'accès efficace — rapidement."; }
+      else if (clarte === 'clair' && tentatives === 'candidatures') { synthese = "Vous candidatez avec un projet clair mais sans retours. L'enjeu est d'identifier les blocages : positionnement, ciblage, outils de candidature ou timing."; }
+      else if (clarte === 'clair' && tentatives === 'entretiens') { synthese = "Vous arrivez en entretien mais ne concluez pas. L'enjeu est de travailler la phase finale : présentation du projet, argumentation, adéquation perçue avec le poste."; }
+      if (synthese) { document.getElementById('syntheseContenu').textContent = synthese; document.getElementById('syntheseSection').style.display = 'block'; }
     }
 
-    // ── CONFIG + TARIF ────────────────────────────────────────────────
-    // Si profil hors périmètre : message personnalisé + lien contact
     if (signal === 'rouge' || signal === 'orange') {
       let ctaMessage = '';
-      if (signal === 'rouge') {
-        ctaMessage = "Avant d'aller plus loin, il serait utile de clarifier si ce secteur correspond vraiment à vos aspirations. Je vous propose d'en discuter directement — sans engagement.";
-      } else if (situation === 'secteur_public') {
-        ctaMessage = "Votre profil est déjà dans le secteur public. Votre enjeu est davantage un repositionnement ou une évolution interne, ce qui demande une approche sur mesure. Parlons-en.";
-      } else {
-        ctaMessage = "Votre situation est particulière — urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux.";
-      }
+      if (signal === 'rouge') { ctaMessage = "Avant d'aller plus loin, il serait utile de clarifier si ce secteur correspond vraiment à vos aspirations. Je vous propose d'en discuter directement — sans engagement."; }
+      else if (situation === 'secteur_public') { ctaMessage = "Votre profil est déjà dans le secteur public. Votre enjeu est davantage un repositionnement ou une évolution interne, ce qui demande une approche sur mesure. Parlons-en."; }
+      else { ctaMessage = "Votre situation est particulière — urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux."; }
       document.getElementById('ctaSection').classList.add('visible');
-      document.getElementById('ctaContenu').innerHTML = `
-        <div class="cta-message">${ctaMessage}</div>
-        <a href="/contact.html" class="btn-cta-contact">Nous écrire →</a>
-      `;
+      document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div><a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
       genererCode(clarte, situation, dispo, horizon, 0, false);
       return;
     }
 
-    // ── Calcul du forfait ──
     let sessions = 3;
     if (clarte === 'flou') sessions = 4;
     if (situation === 'exterieur' && clarte === 'flou') sessions = 4;
     if (situation === 'etudiant' && clarte === 'flou') sessions = 4;
-
     let echanges = 2;
     if (dispo === 'faible')  echanges = Math.max(1, sessions - 2);
     if (dispo === 'normale') echanges = sessions - 1;
     if (dispo === 'forte')   echanges = sessions;
     if (clarte === 'clair')  echanges = Math.max(1, echanges - 1);
-
-    let cvOption = false;
-    let cvNote = '';
-    if (cv === 'inexistant' || cv === 'generique') {
-      cvOption = true;
-      cvNote = "Recommandée — votre CV n'est pas encore adapté au secteur";
-    } else if (cv === 'partiel' && (tentatives === 'non' || tentatives === 'candidatures')) {
-      cvOption = true;
-      cvNote = "Recommandée — reformuler le CV aura un impact direct";
-    } else if (tentatives === 'entretiens') {
-      cvNote = "Non prioritaire — vous décrochez déjà des entretiens";
-    } else if (cv === 'bon') {
-      cvNote = "Non nécessaire — votre CV est déjà adapté";
-    } else {
-      cvNote = "À discuter lors de la première session";
-    }
-
-    // ── Libellé forfait (humain, pas mécanique) ──
-    let forfaitLabel = '';
-    let forfaitDesc  = '';
-    if (sessions === 4) {
-      forfaitLabel = 'Accompagnement renforcé recommandé';
-      forfaitDesc  = "Votre projet nécessite une phase d'exploration et de structuration avant de passer à l'action.";
-    } else if (clarte === 'assez_clair') {
-      forfaitLabel = 'Accompagnement ciblé recommandé';
-      forfaitDesc  = "Vous avez une direction. L'accompagnement se concentre sur la stratégie d'accès au secteur.";
-    } else {
-      forfaitLabel = 'Accompagnement stratégique recommandé';
-      forfaitDesc  = "Votre projet est clair. L'accompagnement vise l'efficacité et la mise en action rapide.";
-    }
-
-    // ── Tarif simplifié — toujours SANS option CV ("à partir de") ──
-    const PLANCHER = 400;
-    const TARIF_SESSION = 120;
-    const TARIF_ECHANGE = 40;
-    const TARIF_CV      = 100;
+    let cvOption = false; let cvNote = '';
+    if (cv === 'inexistant' || cv === 'generique') { cvOption = true; cvNote = "Recommandée — votre CV n'est pas encore adapté au secteur"; }
+    else if (cv === 'partiel' && (tentatives === 'non' || tentatives === 'candidatures')) { cvOption = true; cvNote = "Recommandée — reformuler le CV aura un impact direct"; }
+    else if (tentatives === 'entretiens') { cvNote = "Non prioritaire — vous décrochez déjà des entretiens"; }
+    else if (cv === 'bon') { cvNote = "Non nécessaire — votre CV est déjà adapté"; }
+    else { cvNote = "À discuter lors de la première session"; }
+    let forfaitLabel = ''; let forfaitDesc = '';
+    if (sessions === 4) { forfaitLabel = 'Accompagnement renforcé recommandé'; forfaitDesc = "Votre projet nécessite une phase d'exploration et de structuration avant de passer à l'action."; }
+    else if (clarte === 'assez_clair') { forfaitLabel = 'Accompagnement ciblé recommandé'; forfaitDesc = "Vous avez une direction. L'accompagnement se concentre sur la stratégie d'accès au secteur."; }
+    else { forfaitLabel = 'Accompagnement stratégique recommandé'; forfaitDesc = "Votre projet est clair. L'accompagnement vise l'efficacité et la mise en action rapide."; }
+    const PLANCHER = 400; const TARIF_SESSION = 120; const TARIF_ECHANGE = 40;
     let total = (sessions * TARIF_SESSION) + (echanges * TARIF_ECHANGE);
-    // Jamais de CV dans le "à partir de" — c'est une option
     total = Math.max(total, PLANCHER);
-    // Arrondir à la cinquantaine
     total = Math.ceil(total / 50) * 50;
 
-    // Affichage config
     document.getElementById('configForfait').textContent = forfaitLabel;
     document.getElementById('configBloc').innerHTML = `
-      <div style="font-size:12px;color:var(--texte-leger);line-height:1.6;margin-bottom:12px;">${forfaitDesc}</div>
-      <div class="config-ligne">
-        <span class="config-label">Sessions principales</span>
-        <span class="config-val">${sessions} × 1h</span>
-      </div>
-      <div class="config-ligne">
-        <span class="config-label">Échanges intermédiaires</span>
-        <span class="config-val">${echanges} × 30 min</span>
-      </div>
-      <div class="config-ligne">
-        <span class="config-label">Option CV / lettre</span>
-        <span class="config-val" style="color:${cvOption ? 'var(--bleu)' : 'var(--texte-leger)'}">${cvOption ? 'Recommandée (+100 €)' : cvNote === 'À discuter lors de la première session' ? 'À discuter' : 'Non nécessaire'}</span>
-      </div>
-      <div style="font-size:11px;color:var(--texte-leger);margin-top:8px;line-height:1.5;padding-top:8px;border-top:1px solid var(--gris-med);">${cvNote}</div>
-    `;
-
-    // Affichage tarif
+      <div style="font-size:0.78rem;color:var(--texte-leger);line-height:1.6;margin-bottom:12px;">${forfaitDesc}</div>
+      <div class="config-ligne"><span class="config-label">Sessions principales</span><span class="config-val">${sessions} × 1h</span></div>
+      <div class="config-ligne"><span class="config-label">Échanges intermédiaires</span><span class="config-val">${echanges} × 30 min</span></div>
+      <div class="config-ligne"><span class="config-label">Option CV / lettre</span><span class="config-val" style="color:${cvOption ? 'var(--bleu)' : 'var(--texte-leger)'}">${cvOption ? 'Recommandée (+100 €)' : cvNote === 'À discuter lors de la première session' ? 'À discuter' : 'Non nécessaire'}</span></div>
+      <div style="font-size:0.7rem;color:var(--texte-leger);margin-top:8px;line-height:1.5;padding-top:8px;border-top:1px solid var(--gris-med);">${cvNote}</div>`;
     document.getElementById('tarifBloc').innerHTML = `
       <div class="tarif-depuis">À partir de</div>
       <div class="tarif-montant">${total} €</div>
-      <div class="tarif-detail">
-        ${sessions} sessions × 120 € + ${echanges} échanges × 40 €${cvOption ? ' — option CV/lettre : +100 €' : ''}.<br>
-        Tarif indicatif — définitif confirmé lors de notre premier échange.
-      </div>
-    `;
-
+      <div class="tarif-detail">${sessions} sessions × 120 € + ${echanges} échanges × 40 €${cvOption ? ' — option CV/lettre : +100 €' : ''}.<br>Tarif indicatif — définitif confirmé lors de notre premier échange.</div>`;
     document.getElementById('configSection').classList.add('visible');
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
-
-    // ── CTA VERT — 2 boutons Stripe ──
     const lienForfait = STRIPE_FORFAITS[total] || STRIPE_FORFAIT_DEFAUT;
     document.getElementById('ctaContenu').innerHTML = `
-      <a href="${lienForfait}" class="btn-cta-panel" target="_blank">
-        Forfait complet — ${total} €
-      </a>
-      <a href="${STRIPE_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">
-        Session découverte — 50 €
-      </a>
-      <div class="cta-note">
-        Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet
-      </div>
-    `;
-
-    // Générer le code profil
+      <a href="${lienForfait}" class="btn-cta-panel" target="_blank">Forfait complet — ${total} €</a>
+      <a href="${STRIPE_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte — 50 €</a>
+      <div class="cta-note">Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet</div>`;
     genererCode(clarte, situation, dispo, horizon, total, cvOption);
   }
 
-  // ── Génération du code profil ──────────────────────────────────────
   function genererCode(clarte, situation, dispo, horizon, total, cvOption) {
-    const C = {flou:'F', assez_clair:'A', clair:'C', doute:'D'}[clarte]      || '?';
+    const C = {flou:'F', assez_clair:'A', clair:'C', doute:'D'}[clarte] || '?';
     const S = {etudiant:'T', exterieur:'E', lien_partiel:'L', secteur_prive:'P', secteur_public:'U'}[situation] || '?';
-    const D = {faible:'F', normale:'N', forte:'O'}[dispo]                     || '?';
-    const H = {urgent:'U', '6mois':'S', '1an':'A', long:'L'}[horizon]         || '?';
+    const D = {faible:'F', normale:'N', forte:'O'}[dispo] || '?';
+    const H = {urgent:'U', '6mois':'S', '1an':'A', long:'L'}[horizon] || '?';
     const T = total > 0 ? String(Math.round(total / 10)).padStart(2, '0') : '00';
     const V = cvOption ? 'V' : 'X';
     const code = 'PAS-' + C + S + D + H + '-' + T + V;
@@ -1045,23 +805,18 @@
     document.getElementById('codeBloc').classList.add('visible');
   }
 
-  // ── Copie du code ──────────────────────────────────────────────────
   function copyCode() {
     const code = document.getElementById('codeValue').textContent;
     const btn  = document.getElementById('btnCopy');
     navigator.clipboard.writeText(code).then(() => {
-      btn.textContent = 'Copié !';
-      btn.classList.add('copied');
+      btn.textContent = 'Copié !'; btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copier le code'; btn.classList.remove('copied'); }, 2000);
     }).catch(() => {
       const el = document.getElementById('codeValue');
-      const range = document.createRange();
-      range.selectNode(el);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
+      const range = document.createRange(); range.selectNode(el);
+      window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
       document.execCommand('copy');
-      btn.textContent = 'Copié !';
-      btn.classList.add('copied');
+      btn.textContent = 'Copié !'; btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copier le code'; btn.classList.remove('copied'); }, 2000);
     });
   }

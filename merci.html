@@ -3,83 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Merci pour votre achat - Passerelle Environnement">
-    <meta name="robots" content="noindex">
-    <title>Merci - Passerelle Environnement</title>
+    <meta name="description" content="Merci pour votre message — Passerelle Environnement">
+    <title>Merci — Passerelle Environnement</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="accompagnement.html">Accompagnement</a></li>
                 <li><a href="apropos.html">À propos</a></li>
                 <li><a href="blog.html">Ressources</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="questionnaire.html" class="nav-cta">Faire le questionnaire</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- CONTENU MERCI -->
-    <section class="section-intro" style="min-height: 60vh; display: flex; align-items: center;">
-        <div class="container" style="text-align: center;">
-            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">✅ Merci !</h1>
-            <h2>Votre paiement a été confirmé</h2>
-            <div style="background-color: var(--color-gris-clair); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
-                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-                    Un email de confirmation vient de vous être envoyé avec :
+    <section class="section-merci">
+        <div class="container">
+            <div class="merci-contenu">
+                <div class="merci-icone">✓</div>
+                <h1>Merci !</h1>
+                <p class="merci-titre">Votre message a bien été reçu.</p>
+                <p class="merci-texte">
+                    Je vous remercie de votre intérêt pour Passerelle Environnement.
+                    Je répondrai personnellement à votre message sous 48h.
                 </p>
-                <ul style="list-style: none; text-align: left; display: inline-block;">
-                    <li style="padding: 0.5rem 0;">✓ Votre code profil</li>
-                    <li style="padding: 0.5rem 0;">✓ Le lien pour réserver votre premier RDV</li>
-                    <li style="padding: 0.5rem 0;">✓ Les informations de votre accompagnement</li>
-                </ul>
+                <p class="merci-sous">
+                    En attendant, vous pouvez explorer le site ou faire le questionnaire
+                    si vous ne l'avez pas encore essayé.
+                </p>
+                <div class="merci-actions">
+                    <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
+                    <a href="questionnaire.html" class="btn btn-cta">Faire le questionnaire — 2 min</a>
+                </div>
             </div>
-            <p style="margin: 2rem 0; color: #666;">
-                Rendez-vous sur <strong>Cal.com</strong> pour choisir votre créneau avec Floriane.
-            </p>
-            <a href="index.html" class="btn btn-secondary" style="margin-top: 1rem;">Retour à l'accueil</a>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="accompagnement.html">Accompagnement</a></li>
-                        <li><a href="blog.html">Ressources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Légal</h4>
-                    <ul>
-                        <li><a href="mentions-legales.html">Mentions légales</a></li>
-                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
-                    </ul>
-                </div>
+                <div class="footer-section"><h4>Passerelle Environnement</h4><p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p></div>
+                <div class="footer-section"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="accompagnement.html">Accompagnement</a></li><li><a href="apropos.html">À propos</a></li><li><a href="blog.html">Ressources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-section"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Politique de confidentialité</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p>
-                <p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p><p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p></div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js/tarteaucitron.js"></script>
     <script src="js/tarteaucitron-init.js" defer></script>
 </body>

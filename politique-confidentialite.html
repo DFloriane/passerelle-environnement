@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Politique de confidentialité - Passerelle Environnement">
-    <meta name="robots" content="noindex, follow">
-    <title>Politique de confidentialité - Passerelle Environnement</title>
+    <meta name="description" content="Politique de confidentialité et RGPD — Passerelle Environnement">
+    <title>Politique de confidentialité — Passerelle Environnement</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="accompagnement.html">Accompagnement</a></li>
                 <li><a href="apropos.html">À propos</a></li>
@@ -26,102 +23,134 @@
         </div>
     </nav>
 
-    <!-- POLITIQUE DE CONFIDENTIALITÉ -->
-    <section class="section-intro">
-        <div class="container" style="max-width: 800px;">
-            <h1>Politique de confidentialité</h1>
-            
-            <h2>1. Responsable du traitement</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec les informations du responsable.
-            </p>
-
-            <h2>2. Données collectées</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec :
-            </p>
-            <ul>
-                <li>Données du questionnaire</li>
-                <li>Données de contact</li>
-                <li>Données de paiement (via Stripe)</li>
-                <li>Données de réservation (via Cal.com)</li>
-            </ul>
-
-            <h2>3. Base légale</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec la justification légale (consentement, contrat, etc.).
-            </p>
-
-            <h2>4. Durée de conservation</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec les durées de conservation selon la nature des données.
-            </p>
-
-            <h2>5. Droits des utilisateurs</h2>
-            <p>
-                Vous disposez des droits suivants concernant vos données personnelles :
-            </p>
-            <ul>
-                <li><strong>Droit d'accès</strong> : consulter vos données</li>
-                <li><strong>Droit de rectification</strong> : corriger vos données</li>
-                <li><strong>Droit à l'oubli</strong> : demander la suppression</li>
-                <li><strong>Droit à la portabilité</strong> : recevoir vos données</li>
-                <li><strong>Droit d'opposition</strong> : refuser un traitement</li>
-            </ul>
-
-            <h2>6. Cookies</h2>
-            <p>
-                Ce site utilise des cookies pour améliorer votre expérience. 
-                Vous pouvez gérer vos préférences via la bannière Tarteaucitron affichée sur chaque page.
-            </p>
-
-            <h2>7. Contact & CNIL</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec :
-            </p>
-            <ul>
-                <li>Adresse email pour exercer vos droits</li>
-                <li>Référence de déclaration CNIL</li>
-            </ul>
-
-            <p style="margin-top: 3rem; color: #999; font-size: 0.9rem;">
-                Page à finaliser à l'étape 7 (Sécurité, audit code & conformité RGPD)
-            </p>
+    <section class="hero-simple">
+        <div class="container">
+            <p class="hero-surtitre">Légal</p>
+            <h1>Politique de confidentialité et RGPD</h1>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <section class="section-legal">
+        <div class="container">
+            <div class="legal-contenu">
+
+                <h2>Responsable du traitement des données</h2>
+                <p>
+                    <strong>Passerelle Environnement</strong><br>
+                    Floriane Dybul<br>
+                    Email : contact@passerelle-environnement.fr
+                </p>
+
+                <h2>Données collectées</h2>
+                <p>
+                    Passerelle Environnement collecte les données suivantes uniquement lorsque vous les fournissez volontairement :
+                </p>
+                <ul>
+                    <li><strong>Via le questionnaire :</strong> réponses aux 6 questions (aucune donnée personnelle n'est requise)</li>
+                    <li><strong>Via le formulaire de contact :</strong> prénom, email, sujet, message</li>
+                    <li><strong>Via la prise de rendez-vous :</strong> coordonnées et détails de paiement (traités par le prestataire)</li>
+                </ul>
+
+                <h2>Base légale du traitement</h2>
+                <p>
+                    Le traitement de vos données est basé sur votre consentement explicite. En remplissant un formulaire
+                    ou en vous engageant dans un processus de prise de rendez-vous, vous consentez au traitement de vos données
+                    aux fins décrites ci-après.
+                </p>
+
+                <h2>Finalités du traitement</h2>
+                <p>
+                    Vos données sont traitées pour les finalités suivantes :
+                </p>
+                <ul>
+                    <li>Répondre à votre message de contact</li>
+                    <li>Organiser et assurer vos rendez-vous d'accompagnement</li>
+                    <li>Vous envoyer les confirmations et rappels liés à votre accompagnement</li>
+                    <li>Respecter nos obligations légales et comptables</li>
+                </ul>
+
+                <h2>Durée de conservation</h2>
+                <p>
+                    <strong>Questionnaire :</strong> Les réponses au questionnaire ne sont pas conservées au-delà de votre session.
+                    Aucun email n'est collecté — aucune donnée identifiante n'est stockée.<br>
+                    <br>
+                    <strong>Formulaire de contact :</strong> Vos messages et données de contact sont conservés le temps
+                    nécessaire pour répondre à votre demande, puis supprimés après 6 mois d'inactivité.<br>
+                    <br>
+                    <strong>Accompagnement :</strong> Les données liées à votre accompagnement (coordonnées, notes de séance,
+                    accord de facturation) sont conservées pendant 6 ans pour respecter les obligations comptables légales,
+                    puis supprimées.
+                </p>
+
+                <h2>Destinataires de vos données</h2>
+                <p>
+                    Vos données ne sont jamais vendues, échangées ou partagées avec des tiers à des fins commerciales.
+                    Elles sont accessibles uniquement à :
+                </p>
+                <ul>
+                    <li>Floriane Dybul pour vous répondre et assurer votre accompagnement</li>
+                    <li>Les prestataires techniques strictement nécessaires (Netlify pour l'hébergement, prestataires de paiement)</li>
+                </ul>
+
+                <h2>Vos droits</h2>
+                <p>
+                    Conformément au RGPD, vous disposez des droits suivants :
+                </p>
+                <ul>
+                    <li><strong>Droit d'accès :</strong> demander quelles données nous avons sur vous</li>
+                    <li><strong>Droit de rectification :</strong> corriger vos données si elles sont inexactes</li>
+                    <li><strong>Droit à l'oubli :</strong> demander la suppression de vos données</li>
+                    <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format exploitable</li>
+                    <li><strong>Droit d'opposition :</strong> refuser le traitement de vos données pour certaines finalités</li>
+                </ul>
+                <p>
+                    Pour exercer ces droits, écrivez à : <strong>contact@passerelle-environnement.fr</strong>
+                </p>
+
+                <h2>Sécurité des données</h2>
+                <p>
+                    Vos données sont protégées par des mesures de sécurité techniques et organisationnelles
+                    (chiffrement, accès limité, sauvegardes régulières). Nous n'avons pas de contrôle total sur la sécurité
+                    des données transmises par internet — nous vous recommandons de vérifier la sécurité de votre connexion.
+                </p>
+
+                <h2>Cookies et suivi</h2>
+                <p>
+                    Ce site n'utilise pas de cookies de suivi ou de profilage. Les cookies éventuellement utilisés
+                    sont exclusivement destinés au fonctionnement technique du site et nécessitent votre consentement
+                    (géré via Tarteaucitron).
+                </p>
+
+                <h2>Modifications de cette politique</h2>
+                <p>
+                    Nous nous réservons le droit de modifier cette politique de confidentialité. Les modifications
+                    seront affichées sur cette page avec la date de dernière mise à jour.
+                </p>
+
+                <h2>Contact — Données personnelles</h2>
+                <p>
+                    Pour toute question concernant vos données personnelles ou pour exercer vos droits RGPD :<br>
+                    <strong>Email : contact@passerelle-environnement.fr</strong>
+                </p>
+
+                <p style="margin-top:3rem;font-size:0.85rem;color:#999;">
+                    Dernière mise à jour : janvier 2025
+                </p>
+
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="accompagnement.html">Accompagnement</a></li>
-                        <li><a href="blog.html">Ressources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Légal</h4>
-                    <ul>
-                        <li><a href="mentions-legales.html">Mentions légales</a></li>
-                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
-                    </ul>
-                </div>
+                <div class="footer-section"><h4>Passerelle Environnement</h4><p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p></div>
+                <div class="footer-section"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="accompagnement.html">Accompagnement</a></li><li><a href="apropos.html">À propos</a></li><li><a href="blog.html">Ressources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-section"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Politique de confidentialité</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p>
-                <p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p><p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p></div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js/tarteaucitron.js"></script>
     <script src="js/tarteaucitron-init.js" defer></script>
 </body>

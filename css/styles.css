@@ -2554,3 +2554,175 @@ section {
         order: -1;
     }
 }
+
+/* ============================================
+   PAGES LÉGALES
+   ============================================ */
+
+.section-legal {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.legal-contenu {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-contenu h2 {
+    text-align: left;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-bleu-canard);
+}
+
+.legal-contenu h2:first-child {
+    margin-top: 0;
+}
+
+.legal-contenu p {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.legal-contenu ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.legal-contenu li {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.legal-contenu strong {
+    color: var(--color-dark);
+}
+
+.legal-contenu a {
+    color: var(--color-bleu-canard);
+    text-decoration: underline;
+}
+
+/* ============================================
+   PAGE MERCI
+   ============================================ */
+
+.section-merci {
+    background: linear-gradient(135deg, var(--color-blanc-casse) 0%, white 100%);
+    padding: 8rem 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.merci-contenu {
+    text-align: center;
+    max-width: 560px;
+}
+
+.merci-icone {
+    font-size: 4rem;
+    color: var(--color-vert-sauge);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #F0F7F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.merci-contenu h1 {
+    font-size: 2.2rem;
+    color: var(--color-bleu-canard);
+    margin-bottom: 0.8rem;
+}
+
+.merci-titre {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem !important;
+}
+
+.merci-texte {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1.2rem !important;
+}
+
+.merci-sous {
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 2.5rem !important;
+}
+
+.merci-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── Responsive légal + merci ── */
+
+@media (max-width: 768px) {
+    .section-legal { padding: 3rem 0; }
+    .legal-contenu h2 { font-size: 1.15rem; }
+    .section-merci { padding: 4rem 0; min-height: auto; }
+    .merci-icone { width: 60px; height: 60px; font-size: 2.5rem; }
+    .merci-contenu h1 { font-size: 1.8rem; }
+    .merci-actions { flex-direction: column; align-items: center; }
+    .merci-actions .btn { width: 100%; max-width: 300px; }
+}
+
+/* ============================================
+   TARTEAUCITRON — Personnalisation
+   ============================================ */
+
+#tarteaucitronRoot #tarteaucitron {
+    font-family: 'Atkinson Hyperlegible', sans-serif !important;
+}
+
+#tarteaucitronAlertBig {
+    background: #1a2e3a !important;
+    font-family: 'Atkinson Hyperlegible', sans-serif !important;
+    font-size: 0.9rem !important;
+}
+
+#tarteaucitronPersonalize2,
+.tarteaucitronCTAButton {
+    background: #2D7D8A !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+}
+
+#tarteaucitronAllDenied2 {
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    font-family: 'Nunito', sans-serif !important;
+    border-radius: 6px !important;
+}
+
+#tarteaucitronCloseAlert {
+    background: #C4785A !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+}
+
+#tarteaucitronIcon {
+    background: #2D7D8A !important;
+}

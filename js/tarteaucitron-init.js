@@ -1,63 +1,52 @@
 /* ============================================
-   PASSERELLE ENVIRONNEMENT - TARTEAUCITRON
-   Gestion des cookies et consentement RGPD
-   À finaliser à l'étape 7
+   TARTEAUCITRON — Configuration Passerelle Environnement
+   Mise à jour : janvier 2025
    ============================================ */
 
-// Configuration de Tarteaucitron
 tarteaucitron.init({
-    "privacyUrl": "/politique-confidentialite.html",
-    "bodyPosition": "bottom",
-    "cookieslist": false,
-    "highPrivacy": false,
-    "orientation": "bottom",
-    "showAlertSmall": true,
-    "cookieName": "tarteaucitron",
+    /* Textes */
+    "privacyUrl":         "politique-confidentialite.html",
+    "bodyPosition":       "bottom",
+
+    /* Boutons */
+    "hashtag":            "#tarteaucitron",
+    "cookieName":         "tarteaucitron",
+
+    /* Durées */
+    "cookieslist":        false,   /* Afficher la liste des cookies */
+    "showAlertSmall":     false,   /* Petit bouton flottant */
+    "closePopup":         false,   /* Bouton fermer sans choisir */
+    "showIcon":           true,    /* Icône flottante après choix */
+    "iconPosition":       "BottomRight",
+    "iconSrc":            "",
+
+    /* Comportement */
+    "adblocker":          false,
+    "highPrivacy":        true,    /* Pas de consentement implicite */
     "handleBrowserDNTRequest": false,
-    "removeCredit": false,
-    "moreInfoLink": true,
-    "mandatory": true,
-    "mandatoryCookies": [],
-    "secondLine": false,
-    "useExternalCss": false,
-    "useLocalJs": false,
-    "googleAnalyticsUa": "",
-    "googleAnalyticsMore": function() { return false; },
-    "facebookPixelId": "",
-    "customIdentifier": "",
-    "customIdentifierOnLabel": false,
-    "customIdentifierOnClick": false,
-    "customIdentifierSizeSup": 0
+
+    /* Délais */
+    "removeCredit":       false,
+    "moreInfoLink":       true,
+    "useExternalCss":     false,
+    "useExternalJs":      false,
+
+    /* Affichage */
+    "mandatory":          true,    /* Cookies nécessaires toujours actifs */
+    "mandatoryCta":       true
 });
 
-// SERVICES À ACTIVER (à implémenter selon les besoins)
+/* ── Services déclarés ── */
 
-// Google Analytics (si utilisation future)
-// tarteaucitron.services.googleAnalytics = {
-//     "key": "analytics",
-//     "type": "analytic",
-//     "name": "Google Analytics",
-//     "uri": "https://marketingplatform.google.com/about/analytics/terms/us/",
-//     "cookies": ["_gid", "_ga", "_gat"],
-//     "js": function() {
-//         // Code GA à ajouter
-//     },
-//     "fallback": function() { return false; }
-// };
+/* Netlify Forms (fonctionnel, pas de cookie tiers) */
+/* Pas de Google Analytics pour l'instant */
+/* Pas de pixel publicitaire */
 
-// Stripe (paiement - intégration étape 8)
-// À ajouter quand on intègre Stripe
+/* Quand vous ajouterez des services (ex: Google Analytics),
+   décommentez et adaptez :
 
-// Cal.com (réservation - intégration étape 8)
-// À ajouter quand on intègre Cal.com
+tarteaucitron.user.analyticsUa = 'UA-XXXXXXXX-X';
+tarteaucitron.user.analyticsMore = function () {};
+(tarteaucitron.job = tarteaucitron.job || []).push('analytics');
 
-// Brevo (emails - intégration étape 8)
-// À ajouter quand on intègre Brevo
-
-// ============================================
-// REDRAW (à appeler si modifs de la bannière)
-// ============================================
-
-tarteaucitron.load();
-
-console.log('✅ Tarteaucitron initialisé - RGPD actif');
+*/

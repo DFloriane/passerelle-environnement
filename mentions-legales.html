@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mentions légales - Passerelle Environnement">
-    <meta name="robots" content="noindex, follow">
-    <title>Mentions légales - Passerelle Environnement</title>
+    <meta name="description" content="Mentions légales — Passerelle Environnement">
+    <title>Mentions légales — Passerelle Environnement</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Passerelle Environnement</h1>
-            </div>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><span class="logo-text">Passerelle Environnement</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="accompagnement.html">Accompagnement</a></li>
                 <li><a href="apropos.html">À propos</a></li>
@@ -26,81 +23,74 @@
         </div>
     </nav>
 
-    <!-- MENTIONS LÉGALES -->
-    <section class="section-intro">
-        <div class="container" style="max-width: 800px;">
+    <section class="hero-simple">
+        <div class="container">
+            <p class="hero-surtitre">Légal</p>
             <h1>Mentions légales</h1>
-            
-            <h2>1. Informations sur l'éditeur</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec :
-            </p>
-            <ul>
-                <li>Nom, prénom et adresse du responsable</li>
-                <li>Coordonnées email et téléphone</li>
-                <li>Numéro SIRET/SIREN si applicable</li>
-            </ul>
-
-            <h2>2. Hébergement</h2>
-            <p>
-                Ce site est hébergé par <strong>Netlify</strong><br>
-                Adresse : 2325 3rd Street, Suite 215, San Francisco, CA 94107, USA
-            </p>
-
-            <h2>3. Propriété intellectuelle</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec la mention des droits d'auteur.
-            </p>
-
-            <h2>4. Responsabilité</h2>
-            <p>
-                <strong>À compléter à l'étape 7</strong> avec la clause de responsabilité.
-            </p>
-
-            <h2>5. Données personnelles</h2>
-            <p>
-                Pour toute question relative à vos données personnelles, 
-                consulter la <a href="politique-confidentialite.html">politique de confidentialité</a>.
-            </p>
-
-            <p style="margin-top: 3rem; color: #999; font-size: 0.9rem;">
-                Page à finaliser à l'étape 7 (Sécurité, audit code & conformité RGPD)
-            </p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <section class="section-legal">
+        <div class="container">
+            <div class="legal-contenu">
+
+                <h2>Identification de l'éditeur</h2>
+                <p>
+                    <strong>Passerelle Environnement</strong><br>
+                    Micro-entreprise en cours d'immatriculation<br>
+                    Fondatrice : Floriane Dybul<br>
+                    Email : contact@passerelle-environnement.fr
+                </p>
+
+                <h2>Hébergement</h2>
+                <p>
+                    <strong>Netlify, Inc.</strong><br>
+                    2325 3rd Street, Suite 215<br>
+                    San Francisco, CA 94107<br>
+                    États-Unis<br>
+                    <a href="https://www.netlify.com" target="_blank">www.netlify.com</a>
+                </p>
+
+                <h2>Propriété intellectuelle</h2>
+                <p>
+                    L'ensemble du contenu de ce site (textes, images, mises en page, logos) est la propriété
+                    de Passerelle Environnement ou de ses partenaires. Toute reproduction, même partielle,
+                    sans autorisation préalable est interdite.
+                </p>
+
+                <h2>Limitation de responsabilité</h2>
+                <p>
+                    Les informations contenues sur ce site sont fournies à titre informatif et ne constituent pas
+                    une offre juridique, fiscale ou professionnelle. Passerelle Environnement décline toute responsabilité
+                    quant à l'utilisation faite des informations présentées.
+                </p>
+
+                <h2>Modification des conditions</h2>
+                <p>
+                    Passerelle Environnement se réserve le droit de modifier les présentes mentions légales à tout moment.
+                    L'utilisation du site après modification implique l'acceptation des nouvelles conditions.
+                </p>
+
+                <h2>Lois applicables</h2>
+                <p>
+                    Le site et son contenu sont régis par la loi française. Tout différend sera soumis à la juridiction
+                    des tribunaux compétents du lieu du siège de Passerelle Environnement.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Passerelle Environnement</h4>
-                    <p>Accompagnement vers les métiers de l'environnement public</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="accompagnement.html">Accompagnement</a></li>
-                        <li><a href="blog.html">Ressources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Légal</h4>
-                    <ul>
-                        <li><a href="mentions-legales.html">Mentions légales</a></li>
-                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
-                    </ul>
-                </div>
+                <div class="footer-section"><h4>Passerelle Environnement</h4><p>Accompagnement personnalisé vers les métiers de l'environnement public en France.</p></div>
+                <div class="footer-section"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="accompagnement.html">Accompagnement</a></li><li><a href="apropos.html">À propos</a></li><li><a href="blog.html">Ressources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-section"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Politique de confidentialité</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p>
-                <p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Passerelle Environnement. Tous droits réservés.</p><p class="accessibility-mention">Ce site utilise la police <strong>Atkinson Hyperlegible</strong> pour l'accessibilité</p></div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js/tarteaucitron.js"></script>
     <script src="js/tarteaucitron-init.js" defer></script>
 </body>
