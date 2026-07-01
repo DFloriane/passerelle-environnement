@@ -1288,7 +1288,7 @@ section {
 
 .formule-clarification { background-color: #EEF7F8; }
 .formule-cible         { background-color: var(--color-bleu-canard); }
-.formule-renforce      { background-color: #F3F0E8; }
+.formule-strategique   { background-color: #F3F0E8; }
 
 .formule-label {
     font-family: 'Nunito', sans-serif;
@@ -1308,7 +1308,7 @@ section {
 }
 
 .formule-cible h3 { color: white; }
-.formule-clarification h3, .formule-renforce h3 { color: var(--color-bleu-canard); }
+.formule-clarification h3, .formule-strategique h3 { color: var(--color-bleu-canard); }
 
 .formule-corps {
     padding: 1.5rem 1.8rem 1.8rem;
