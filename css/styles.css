@@ -1072,6 +1072,15 @@ section {
     .hero-accroche { font-size: 1rem; }
     .hero-actions { flex-direction: column; align-items: center; }
 
+    .hero {
+        min-height: auto;
+    }
+    .hero-overlay {
+        position: relative;
+        inset: auto;
+        padding: 3rem 1.5rem;
+    }
+
     .chiffres-grid { flex-direction: column; }
     .chiffre-sep { width: 100%; height: 1px; margin: 0; }
     .chiffre-item { padding: 1.5rem 2rem; }
@@ -1288,7 +1297,7 @@ section {
 
 .formule-clarification { background-color: #EEF7F8; }
 .formule-cible         { background-color: var(--color-bleu-canard); }
-.formule-strategique   { background-color: #F3F0E8; }
+.formule-renforce      { background-color: #F3F0E8; }
 
 .formule-label {
     font-family: 'Nunito', sans-serif;
@@ -1308,7 +1317,7 @@ section {
 }
 
 .formule-cible h3 { color: white; }
-.formule-clarification h3, .formule-strategique h3 { color: var(--color-bleu-canard); }
+.formule-clarification h3, .formule-renforce h3 { color: var(--color-bleu-canard); }
 
 .formule-corps {
     padding: 1.5rem 1.8rem 1.8rem;
@@ -2725,4 +2734,13 @@ section {
 
 #tarteaucitronIcon {
     background: #2D7D8A !important;
+}
+
+@media (max-width: 768px) {
+    #tarteaucitronIcon {
+        transform: scale(0.65);
+        transform-origin: bottom right;
+        bottom: 8px !important;
+        right: 8px !important;
+    }
 }

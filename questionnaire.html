@@ -532,6 +532,21 @@
                     </div>
                 </div>
 
+                <!-- BLOC 7 — RÉSEAU -->
+                <div class="bloc">
+                    <div class="bloc-titre"><div class="bloc-num">7</div>Votre réseau professionnel</div>
+                    <div class="bloc-sous">Un levier souvent sous-estimé pour accéder à ce secteur</div>
+                    <div class="question">
+                        <label class="q-label">Avez-vous déjà des contacts dans le secteur de l'environnement public ?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="reseau" value="aucun" onchange="update()"><span>Aucun contact, je pars de zéro</span></label>
+                            <label class="option"><input type="radio" name="reseau" value="quelques_contacts" onchange="update()"><span>Quelques contacts, mais pas structurés</span></label>
+                            <label class="option"><input type="radio" name="reseau" value="non_utilise" onchange="update()"><span>Un réseau solide, mais je ne sais pas m'en servir stratégiquement</span></label>
+                            <label class="option"><input type="radio" name="reseau" value="actif" onchange="update()"><span>Un réseau actif que j'utilise déjà</span></label>
+                        </div>
+                    </div>
+                </div>
+
             </div><!-- fin questions-col -->
 
             <!-- PANNEAU PROFIL -->
@@ -629,16 +644,20 @@
     <script src="js/tarteaucitron-init.js" defer></script>
 
 <script>
-  const STRIPE_DECOUVERTE = '#stripe-session-decouverte-50';
-  const STRIPE_FORFAITS = { 400:'#stripe-forfait-400', 450:'#stripe-forfait-450', 500:'#stripe-forfait-500', 550:'#stripe-forfait-550', 600:'#stripe-forfait-600' };
-  const STRIPE_FORFAIT_DEFAUT = '#stripe-forfait';
+  const CAL_DECOUVERTE = 'https://www.cal.eu/passerelle-environnement/60min?overlayCalendar=true';
+  const CAL_FORFAITS = {
+    clarification: 'https://www.cal.eu/passerelle-environnement/clarification?overlayCalendar=true',
+    cible:         'https://www.cal.eu/passerelle-environnement/accompagnement-cible-1er-rendez-vous',
+    strategique:   'https://www.cal.eu/passerelle-environnement/accompagnement-renforce?month=2026-09'
+  };
 
   function getVal(name) {
     const el = document.querySelector(`input[name="${name}"]:checked`);
     return el ? el.value : null;
   }
+  const CHAMPS_QUESTIONNAIRE = ['clarte','situation','tentatives','cv','horizon','dispo','reseau'];
   function countAnswered() {
-    return ['clarte','situation','tentatives','cv','horizon','dispo'].filter(q => getVal(q) !== null).length;
+    return CHAMPS_QUESTIONNAIRE.filter(q => getVal(q) !== null).length;
   }
   document.querySelectorAll('.option input').forEach(input => {
     input.addEventListener('change', function() {
@@ -656,10 +675,12 @@
     const cv         = getVal('cv');
     const horizon    = getVal('horizon');
     const dispo      = getVal('dispo');
+    const reseau     = getVal('reseau');
     const answered   = countAnswered();
+    const totalQuestions = CHAMPS_QUESTIONNAIRE.length;
 
-    document.getElementById('progTexte').textContent = `${answered} / 6 questions`;
-    document.getElementById('progFill').style.width  = `${Math.round((answered/6)*100)}%`;
+    document.getElementById('progTexte').textContent = `${answered} / ${totalQuestions} questions`;
+    document.getElementById('progFill').style.width  = `${Math.round((answered/totalQuestions)*100)}%`;
 
     document.getElementById('lectureSection').style.display      = 'none';
     document.getElementById('perspectivesSection').style.display = 'none';
@@ -668,9 +689,9 @@
     document.getElementById('tarifSection').classList.remove('visible');
     document.getElementById('ctaSection').classList.remove('visible');
 
-    if (answered < 6) {
+    if (answered < totalQuestions) {
       document.getElementById('signalBloc').className = 'signal-bloc vide';
-      document.getElementById('signalTitre').textContent = `${answered} / 6 questions répondues`;
+      document.getElementById('signalTitre').textContent = `${answered} / ${totalQuestions} questions répondues`;
       document.getElementById('signalDesc').textContent  = 'Votre profil complet apparaîtra une fois toutes les questions complétées.';
       return;
     }
@@ -743,33 +764,38 @@
       else { ctaMessage = "Votre situation est particulière, urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux."; }
       document.getElementById('ctaSection').classList.add('visible');
       document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div><a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
-      genererCode(clarte, situation, dispo, horizon, 0, false);
+      genererCode(clarte, situation, dispo, horizon, reseau, 0, false);
       return;
     }
 
-    let sessions = 3;
-    if (clarte === 'flou') sessions = 4;
-    if (situation === 'exterieur' && clarte === 'flou') sessions = 4;
-    if (situation === 'etudiant' && clarte === 'flou') sessions = 4;
-    let echanges = 2;
-    if (dispo === 'faible')  echanges = Math.max(1, sessions - 2);
-    if (dispo === 'normale') echanges = sessions - 1;
-    if (dispo === 'forte')   echanges = sessions;
-    if (clarte === 'clair')  echanges = Math.max(1, echanges - 1);
     let cvOption = false; let cvNote = '';
     if (cv === 'inexistant' || cv === 'generique') { cvOption = true; cvNote = "Recommandée : votre CV n'est pas encore adapté au secteur"; }
     else if (cv === 'partiel' && (tentatives === 'non' || tentatives === 'candidatures')) { cvOption = true; cvNote = "Recommandée : reformuler le CV aura un impact direct"; }
     else if (tentatives === 'entretiens') { cvNote = "Non prioritaire : vous décrochez déjà des entretiens"; }
     else if (cv === 'bon') { cvNote = "Non nécessaire : votre CV est déjà adapté"; }
     else { cvNote = "À discuter lors de la première session"; }
-    let forfaitLabel = ''; let forfaitDesc = '';
-    if (sessions === 4) { forfaitLabel = 'Accompagnement renforcé recommandé'; forfaitDesc = "Votre projet nécessite une phase d'exploration et de structuration avant de passer à l'action."; }
-    else if (clarte === 'assez_clair') { forfaitLabel = 'Accompagnement ciblé recommandé'; forfaitDesc = "Vous avez une direction. L'accompagnement se concentre sur la stratégie d'accès au secteur."; }
-    else { forfaitLabel = 'Accompagnement stratégique recommandé'; forfaitDesc = "Votre projet est clair. L'accompagnement vise l'efficacité et la mise en action rapide."; }
-    const PLANCHER = 400; const TARIF_SESSION = 120; const TARIF_ECHANGE = 40;
-    let total = (sessions * TARIF_SESSION) + (echanges * TARIF_ECHANGE);
-    total = Math.max(total, PLANCHER);
-    total = Math.ceil(total / 50) * 50;
+
+    const CLARTE_NIVEAU     = { clair: 1, assez_clair: 2, flou: 3 };
+    const TENTATIVES_NIVEAU = { non: 3, recherches: 3, candidatures: 2, entretiens: 1 };
+    const niveauReseau    = (reseau === 'aucun') ? 2 : 1;
+    const niveauSituation = (situation === 'exterieur') ? 2 : 1;
+    const niveau = Math.max(
+      CLARTE_NIVEAU[clarte] || 1,
+      TENTATIVES_NIVEAU[tentatives] || 1,
+      niveauReseau,
+      niveauSituation
+    );
+
+    const FORFAITS_PAR_NIVEAU = {
+      1: { type: 'strategique',    label: 'Accompagnement stratégique recommandé',    desc: "Votre projet est clair et vos démarches avancent bien. L'accompagnement vise l'efficacité et la mise en action rapide.",                        sessions: 3, echanges: 0, prix: 400 },
+      2: { type: 'cible',          label: 'Accompagnement ciblé recommandé',          desc: "Vous avez une direction, mais certains points restent à affiner. L'accompagnement se concentre sur la stratégie d'accès au secteur.",              sessions: 3, echanges: 2, prix: 450 },
+      3: { type: 'clarification',  label: 'Accompagnement de clarification recommandé', desc: "Votre projet ou vos démarches nécessitent une phase d'exploration et de structuration avant de passer à l'action.",                              sessions: 4, echanges: 3, prix: 600 }
+    };
+    const f = FORFAITS_PAR_NIVEAU[niveau];
+    let sessions = f.sessions, echanges = f.echanges;
+    let forfaitLabel = f.label, forfaitDesc = f.desc, forfaitType = f.type;
+    let total = f.prix;
+
 
     document.getElementById('configForfait').textContent = forfaitLabel;
     document.getElementById('configBloc').innerHTML = `
@@ -781,26 +807,27 @@
     document.getElementById('tarifBloc').innerHTML = `
       <div class="tarif-depuis">À partir de</div>
       <div class="tarif-montant">${total} €</div>
-      <div class="tarif-detail">${sessions} sessions × 120 € + ${echanges} échanges × 40 €${cvOption ? ', option CV/lettre : +100 €' : ''}.<br>Tarif indicatif, définitif confirmé lors de notre premier échange.</div>`;
+      <div class="tarif-detail">Forfait ${forfaitLabel.replace(' recommandé','').toLowerCase()} : ${sessions} sessions × 1h + ${echanges} échanges × 30 min${cvOption ? ', option CV/lettre en supplément : +100 €' : ''}.<br>Tarif confirmé lors de notre premier échange.</div>`;
     document.getElementById('configSection').classList.add('visible');
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
-    const lienForfait = STRIPE_FORFAITS[total] || STRIPE_FORFAIT_DEFAUT;
+    const lienForfait = CAL_FORFAITS[forfaitType] || CAL_FORFAITS.cible;
     document.getElementById('ctaContenu').innerHTML = `
       <a href="${lienForfait}" class="btn-cta-panel" target="_blank">Forfait complet · ${total} €</a>
-      <a href="${STRIPE_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte · 50 €</a>
+      <a href="${CAL_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte · 50 €</a>
       <div class="cta-note">Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet</div>`;
-    genererCode(clarte, situation, dispo, horizon, total, cvOption);
+    genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption);
   }
 
-  function genererCode(clarte, situation, dispo, horizon, total, cvOption) {
+  function genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption) {
     const C = {flou:'F', assez_clair:'A', clair:'C', doute:'D'}[clarte] || '?';
     const S = {etudiant:'T', exterieur:'E', lien_partiel:'L', secteur_prive:'P', secteur_public:'U'}[situation] || '?';
     const D = {faible:'F', normale:'N', forte:'O'}[dispo] || '?';
     const H = {urgent:'U', '6mois':'S', '1an':'A', long:'L'}[horizon] || '?';
+    const R = {aucun:'0', quelques_contacts:'Q', non_utilise:'N', actif:'A'}[reseau] || '?';
     const T = total > 0 ? String(Math.round(total / 10)).padStart(2, '0') : '00';
     const V = cvOption ? 'V' : 'X';
-    const code = 'PAS-' + C + S + D + H + '-' + T + V;
+    const code = 'PAS-' + C + S + D + H + R + '-' + T + V;
     document.getElementById('codeValue').textContent = code;
     document.getElementById('codeBloc').classList.add('visible');
   }
