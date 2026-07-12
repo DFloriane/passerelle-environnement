@@ -1207,7 +1207,6 @@ section {
     background-color: white;
     border-radius: 12px;
     border: 1px solid var(--color-gris-clair);
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1240,11 +1239,13 @@ section {
 
 .formule-header {
     padding: 1.8rem 1.8rem 1.5rem;
+    border-radius: 12px 12px 0 0;
 }
 
 .formule-clarification { background-color: #EEF7F8; }
 .formule-cible         { background-color: var(--color-bleu-canard); }
 .formule-renforce      { background-color: #F3F0E8; }
+.formule-strategique   { background-color: var(--color-terracotta); }
 
 .formule-label {
     font-family: 'Nunito', sans-serif;
@@ -1263,8 +1264,9 @@ section {
     margin: 0;
 }
 
-.formule-cible h3 { color: white; }
+.formule-cible h3, .formule-strategique h3 { color: white; }
 .formule-clarification h3, .formule-renforce h3 { color: var(--color-bleu-canard); }
+.formule-strategique .formule-label { color: rgba(255,255,255,0.7); }
 
 .formule-corps {
     padding: 1.5rem 1.8rem 1.8rem;
