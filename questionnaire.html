@@ -455,6 +455,15 @@
                             <label class="option"><input type="radio" name="clarte" value="clair" onchange="update()"><span>Je sais quel type de poste je vise et quel type d'employeur, j'ai besoin d'un plan concret pour y arriver</span></label>
                         </div>
                     </div>
+                    <div class="question" id="sousQuestionStructure" style="display:none">
+                        <label class="q-label">Avez-vous une préférence pour le type de structure ?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="typeStructure" value="public" onchange="update()"><span>Le secteur public m'intéresse en particulier (collectivités, syndicats, établissements publics…)</span></label>
+                            <label class="option"><input type="radio" name="typeStructure" value="prive" onchange="update()"><span>Je me vois plutôt dans le secteur privé (bureaux d'études, entreprises)</span></label>
+                            <label class="option"><input type="radio" name="typeStructure" value="associatif" onchange="update()"><span>Je me vois plutôt dans le secteur associatif</span></label>
+                            <label class="option"><input type="radio" name="typeStructure" value="indecis" onchange="update()"><span>Je ne sais pas encore, j'hésite entre public, privé et associatif</span></label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- BLOC 2 — SITUATION -->
@@ -644,11 +653,12 @@
     <script src="js/tarteaucitron-init.js" defer></script>
 
 <script>
-  const CAL_DECOUVERTE = 'https://www.cal.eu/passerelle-environnement/60min?overlayCalendar=true';
+  const CAL_DECOUVERTE = 'https://www.cal.eu/passerelle-environnement/decouverte';
+  const CAL_DIAGNOSTIC = 'https://www.cal.eu/passerelle-environnement/diagnostic-typologie-structure';
   const CAL_FORFAITS = {
-    clarification: 'https://www.cal.eu/passerelle-environnement/clarification?overlayCalendar=true',
+    clarification: 'https://www.cal.eu/passerelle-environnement/clarification',
     cible:         'https://www.cal.eu/passerelle-environnement/accompagnement-cible-1er-rendez-vous',
-    strategique:   'https://www.cal.eu/passerelle-environnement/accompagnement-renforce?month=2026-09'
+    strategique:   'https://www.cal.eu/passerelle-environnement/accompagnement-strategique'
   };
 
   function getVal(name) {
@@ -676,8 +686,12 @@
     const horizon    = getVal('horizon');
     const dispo      = getVal('dispo');
     const reseau     = getVal('reseau');
+    const typeStructure = getVal('typeStructure');
     const answered   = countAnswered();
     const totalQuestions = CHAMPS_QUESTIONNAIRE.length;
+
+    const sousQuestionStructure = document.getElementById('sousQuestionStructure');
+    sousQuestionStructure.style.display = (clarte && clarte !== 'doute') ? 'block' : 'none';
 
     document.getElementById('progTexte').textContent = `${answered} / ${totalQuestions} questions`;
     document.getElementById('progFill').style.width  = `${Math.round((answered/totalQuestions)*100)}%`;
@@ -704,15 +718,24 @@
     let sTitre = "✓ Dans le périmètre";
     let sDesc  = "Votre profil correspond à ce qu'un accompagnement Passerelle Environnement peut apporter.";
 
+    const structureHorsPerimetreClair = (typeStructure === 'prive' || typeStructure === 'associatif') && clarte === 'clair';
+    const structureAIncertaine        = (typeStructure === 'prive' || typeStructure === 'associatif') && (clarte === 'flou' || clarte === 'assez_clair');
+
     if (clarte === 'doute') {
       signal = "rouge"; sTitre = "⚠ Point à clarifier en premier";
       sDesc  = "Vous n'êtes pas encore certain·e que ce secteur est fait pour vous. Je vous propose un échange préalable gratuit de 20 minutes avant tout engagement.";
+    } else if (structureHorsPerimetreClair) {
+      signal = "rouge"; sTitre = "⚠ Hors périmètre";
+      sDesc  = "Votre projet vise un poste déjà identifié dans le secteur privé ou associatif. Je ne suis probablement pas la bonne personne ressource pour cette candidature précise.";
     } else if (situation === 'secteur_public' && clarte === 'clair') {
       signal = "orange"; sTitre = "→ Profil déjà dans le secteur";
       sDesc  = "Vous êtes déjà dans l'environnement public avec un projet clair. L'accompagnement portera sur votre repositionnement ou mobilité interne. À discuter.";
     } else if (horizon === 'urgent' && clarte === 'flou') {
       signal = "orange"; sTitre = "→ Urgence + projet à construire";
       sDesc  = "Vous êtes pressé·e mais votre projet n'est pas encore défini. C'est un point de tension à adresser dès la première session.";
+    } else if (structureAIncertaine) {
+      signal = "orange"; sTitre = "→ Type de structure à clarifier";
+      sDesc  = "Vous envisagez plutôt le secteur privé ou associatif, mais votre projet n'est pas encore arrêté. Un diagnostic peut vous aider à vérifier si le secteur public ne correspondrait pas mieux à votre situation.";
     }
 
     signalBloc.className    = `signal-bloc ${signal}`;
@@ -759,11 +782,14 @@
 
     if (signal === 'rouge' || signal === 'orange') {
       let ctaMessage = '';
-      if (signal === 'rouge') { ctaMessage = "Avant d'aller plus loin, il serait utile de clarifier si ce secteur correspond vraiment à vos aspirations. Je vous propose d'en discuter directement, sans engagement."; }
+      if (clarte === 'doute') { ctaMessage = "Avant d'aller plus loin, il serait utile de clarifier si ce secteur correspond vraiment à vos aspirations. Je vous propose d'en discuter directement, sans engagement."; }
+      else if (structureHorsPerimetreClair) { ctaMessage = "Votre projet est déjà arrêté sur un poste précis en dehors du secteur public. Je ne suis probablement pas la bonne personne ressource pour cette candidature précise. N'hésitez pas à m'écrire si vous avez un doute sur ce point."; }
       else if (situation === 'secteur_public') { ctaMessage = "Votre profil est déjà dans le secteur public. Votre enjeu est davantage un repositionnement ou une évolution interne, ce qui demande une approche sur mesure. Parlons-en."; }
+      else if (structureAIncertaine) { ctaMessage = "Vous hésitez encore sur le type de structure à viser. Le diagnostic ci-dessous vous aide à vérifier si le secteur public correspond à votre projet avant d'aller plus loin."; }
       else { ctaMessage = "Votre situation est particulière, urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux."; }
+      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 50 €</a>` : '';
       document.getElementById('ctaSection').classList.add('visible');
-      document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div><a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
+      document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div>${diagBtnRouge}<a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
       genererCode(clarte, situation, dispo, horizon, reseau, 0, false);
       return;
     }
@@ -812,8 +838,10 @@
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
     const lienForfait = CAL_FORFAITS[forfaitType] || CAL_FORFAITS.cible;
+    const diagBtnVert = (typeStructure === 'indecis') ? `<a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 50 €</a>` : '';
     document.getElementById('ctaContenu').innerHTML = `
       <a href="${lienForfait}" class="btn-cta-panel" target="_blank">Forfait complet · ${total} €</a>
+      ${diagBtnVert}
       <a href="${CAL_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte · 50 €</a>
       <div class="cta-note">Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet</div>`;
     genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption);
