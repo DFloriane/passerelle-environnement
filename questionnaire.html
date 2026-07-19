@@ -668,6 +668,7 @@
 <script>
   const CAL_DECOUVERTE = 'https://www.cal.eu/passerelle-environnement/decouverte';
   const CAL_DIAGNOSTIC = 'https://www.cal.eu/passerelle-environnement/diagnostic-typologie-structure';
+  const DIAG_DESCRIPTION = "Vous hésitez encore entre secteur public, privé ou associatif ? Un diagnostic dédié compare les trois pour votre profil.";
   const CAL_FORFAITS = {
     clarification: 'https://www.cal.eu/passerelle-environnement/clarification',
     cible:         'https://www.cal.eu/passerelle-environnement/accompagnement-cible-1er-rendez-vous',
@@ -800,7 +801,7 @@
       else if (situation === 'secteur_public') { ctaMessage = "Votre profil est déjà dans le secteur public. Votre enjeu est davantage un repositionnement ou une évolution interne, ce qui demande une approche sur mesure. Parlons-en."; }
       else if (structureAIncertaine) { ctaMessage = "Vous hésitez encore sur le type de structure à viser. Le diagnostic ci-dessous vous aide à vérifier si le secteur public correspond à votre projet avant d'aller plus loin."; }
       else { ctaMessage = "Votre situation est particulière, urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux."; }
-      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 50 €</a>` : '';
+      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
       document.getElementById('ctaSection').classList.add('visible');
       document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div>${diagBtnRouge}<a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
       genererCode(clarte, situation, dispo, horizon, reseau, 0, false);
@@ -862,11 +863,11 @@
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
     const lienForfait = CAL_FORFAITS[forfaitType] || CAL_FORFAITS.cible;
-    const diagBtnVert = (typeStructure === 'indecis') ? `<a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 50 €</a>` : '';
+    const diagBtnVert = (typeStructure === 'indecis') ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
     document.getElementById('ctaContenu').innerHTML = `
       <a href="${lienForfait}" class="btn-cta-panel" target="_blank">Forfait complet · ${total} €</a>
       ${diagBtnVert}
-      <a href="${CAL_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte · 50 €</a>
+      <a href="${CAL_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte · 49 €</a>
       <div class="cta-note">Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet</div>`;
     genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption);
   }

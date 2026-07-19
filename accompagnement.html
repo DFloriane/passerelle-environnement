@@ -74,8 +74,80 @@
             "@type": "Answer",
             "text": "La durée dépend de la formule choisie et de votre rythme. En général, un accompagnement complet s'étale sur 6 à 12 semaines, à raison d'une session toutes les deux semaines environ."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si le secteur public est fait pour moi plutôt que le privé ou l'associatif ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si vous hésitez encore entre secteur public, privé et associatif, un diagnostic dédié (59 €) compare les trois pour votre situation avant de vous engager dans un accompagnement complet. Il est proposé à l'issue du questionnaire si votre profil le justifie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'accompagnement est-il finançable par le CPF, l'OPCO ou France Travail ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le CPF finance des formations certifiantes ou qualifiantes, pas des prestations de conseil individuel — même logique pour les OPCO et France Travail. Ce n'est pas un oubli administratif, c'est la nature de la prestation qui l'exclut de ces dispositifs."
+          }
         }
       ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Accompagnement à la reconversion professionnelle vers le secteur public environnemental",
+      "name": "Accompagnement Passerelle Environnement",
+      "provider": {
+        "@type": "Person",
+        "name": "Floriane Dybul"
+      },
+      "areaServed": "FR",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Personnes en reconversion ou en recherche d'emploi vers les métiers de l'environnement public"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formules d'accompagnement Passerelle Environnement",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Session découverte",
+            "description": "Un premier échange d'une heure pour faire le point sur votre situation et évaluer si un accompagnement complet correspond à vos besoins.",
+            "price": "49",
+            "priceCurrency": "EUR",
+            "url": "https://passerelle-environnement.fr/accompagnement.html"
+          },
+          {
+            "@type": "Offer",
+            "name": "Accompagnement de clarification",
+            "description": "4 séances d'1h et 3 échanges de 30 min pour identifier votre domaine et construire un plan d'action vers le secteur public environnemental.",
+            "price": "440",
+            "priceCurrency": "EUR",
+            "url": "https://passerelle-environnement.fr/accompagnement.html"
+          },
+          {
+            "@type": "Offer",
+            "name": "Accompagnement ciblé",
+            "description": "3 séances d'1h et 2 échanges de 30 min pour cibler les postes et employeurs, ou diagnostiquer un blocage de candidature.",
+            "price": "350",
+            "priceCurrency": "EUR",
+            "url": "https://passerelle-environnement.fr/accompagnement.html"
+          },
+          {
+            "@type": "Offer",
+            "name": "Accompagnement stratégique",
+            "description": "2 séances d'1h pour retravailler votre argumentaire d'entretien et activer stratégiquement votre réseau.",
+            "price": "260",
+            "priceCurrency": "EUR",
+            "url": "https://passerelle-environnement.fr/accompagnement.html"
+          }
+        ]
+      }
     }
     </script>
 </head>
@@ -339,25 +411,11 @@
     </section>
 
     <!-- SECTION 7 : FORMULES -->
-    <section class="section-formules">
+    <section class="section-formules" id="formules">
         <div class="container">
             <div class="section-entete">
                 <h2>Formules et tarifs</h2>
                 <p class="section-sous-titre">Le secteur public environnemental ne recrute pas comme le privé : concours à dates fixes, Bourse de l'Emploi Public, fenêtres de recrutement resserrées selon les structures. Trois formules selon votre point de départ, déterminées par le questionnaire, toujours ajustables au premier échange.</p>
-            </div>
-
-            <div class="formule-decouverte">
-                <div class="formule-decouverte-texte">
-                    <p class="formule-tag">Pour commencer</p>
-                    <h3>Session découverte · 50 €</h3>
-                    <p>Une heure pour poser à plat votre situation et vérifier, avant d'engager quoi que ce soit, si un accompagnement structuré peut réellement débloquer les choses pour vous.</p>
-                    <p class="formule-note">Annulation libre jusqu'à 48h avant · La session est déduite du tarif si vous vous engagez ensuite dans un accompagnement complet.</p>
-                </div>
-                <div class="formule-decouverte-tarif">
-                    <span class="tarif-montant-card">50 €</span>
-                    <span class="tarif-duree">1 heure</span>
-                    <a href="questionnaire.html" class="btn btn-secondary">Commencer par le questionnaire</a>
-                </div>
             </div>
 
             <div class="formules-grid">
@@ -444,7 +502,20 @@
                     </div>
                 </div>
             </div>
-            <p class="formules-note">Chercher seul reste possible. Mais sans connaître les calendriers de recrutement, les structures qui recrutent réellement et les attentes des jurys, le risque est de perdre plusieurs mois sur des candidatures mal ciblées — ce que l'accompagnement permet d'éviter. Les tarifs sont fixes selon votre profil, déterminés par le questionnaire. L'option CV/lettre comprend la reformulation de votre CV et d'une lettre de motivation adaptés aux codes du secteur public environnemental. Accompagnement individuel non éligible aux dispositifs CPF, OPCO ou France Travail.</p>
+            <div class="formule-decouverte">
+                <div class="formule-decouverte-texte">
+                    <p class="formule-tag">Vous hésitez encore ?</p>
+                    <h3>Session découverte · 49 €</h3>
+                    <p>Vous avez vu les trois formules mais vous ne savez pas encore laquelle vous correspond, ou vous n'êtes pas prêt·e à vous engager ? Une heure pour poser à plat votre situation avant de choisir, sans pression.</p>
+                    <p class="formule-note">Annulation libre jusqu'à 48h avant · La session est déduite du tarif si vous vous engagez ensuite dans un accompagnement complet.</p>
+                </div>
+                <div class="formule-decouverte-tarif">
+                    <span class="tarif-montant-card">49 €</span>
+                    <span class="tarif-duree">1 heure</span>
+                    <a href="questionnaire.html" class="btn btn-secondary">Commencer par le questionnaire</a>
+                </div>
+            </div>
+            <p class="formules-note">Chercher seul reste possible. Mais sans connaître les calendriers de recrutement, les structures qui recrutent réellement et les attentes des jurys, le risque est de perdre plusieurs mois sur des candidatures mal ciblées — ce que l'accompagnement permet d'éviter. Les tarifs sont fixes selon votre profil, déterminés par le questionnaire. L'option CV/lettre comprend la reformulation de votre CV et d'une lettre de motivation adaptés aux codes du secteur public environnemental. Accompagnement individuel non éligible aux dispositifs CPF, OPCO ou France Travail — <a href="article-financement-cpf.html">pourquoi, et comment ça change les choses</a>.</p>
         </div>
     </section>
 
@@ -489,6 +560,18 @@
                     <summary>Combien de temps dure l'accompagnement ?</summary>
                     <div class="faq-reponse">
                         <p>La durée dépend de la formule choisie et de votre rythme. En général, un accompagnement complet s'étale sur 6 à 12 semaines, à raison d'une session toutes les deux semaines environ. L'objectif n'est pas de traiter rapidement, mais d'avancer de façon structurée et de laisser le temps entre les sessions pour mettre en pratique.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Comment savoir si le secteur public est fait pour moi plutôt que le privé ou l'associatif ?</summary>
+                    <div class="faq-reponse">
+                        <p>Si vous hésitez encore entre secteur public, privé et associatif, un diagnostic dédié (59 €) compare les trois pour votre situation avant de vous engager dans un accompagnement complet. Il vous est proposé à l'issue du <a href="questionnaire.html">questionnaire</a> si votre profil le justifie.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>L'accompagnement est-il finançable par le CPF, l'OPCO ou France Travail ?</summary>
+                    <div class="faq-reponse">
+                        <p>Non. Le CPF finance des formations certifiantes ou qualifiantes, pas des prestations de conseil individuel — même logique pour les OPCO et France Travail. Ce n'est pas un oubli administratif, c'est la nature de la prestation qui l'exclut de ces dispositifs. <a href="article-financement-cpf.html">Le détail, et les alternatives de financement d'une reconversion →</a></p>
                     </div>
                 </details>
             </div>
