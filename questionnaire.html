@@ -826,13 +826,20 @@
     );
 
     const FORFAITS_PAR_NIVEAU = {
-      1: { type: 'strategique',    label: 'Accompagnement stratégique recommandé',    desc: "Votre projet est clair et vos démarches avancent bien. L'accompagnement vise l'efficacité et la mise en action rapide.",                        sessions: 3, echanges: 0, prix: 400 },
-      2: { type: 'cible',          label: 'Accompagnement ciblé recommandé',          desc: "Vous avez une direction, mais certains points restent à affiner. L'accompagnement se concentre sur la stratégie d'accès au secteur.",              sessions: 3, echanges: 2, prix: 450 },
-      3: { type: 'clarification',  label: 'Accompagnement de clarification recommandé', desc: "Votre projet ou vos démarches nécessitent une phase d'exploration et de structuration avant de passer à l'action.",                              sessions: 4, echanges: 3, prix: 600 }
+      1: { type: 'strategique',    label: 'Accompagnement stratégique recommandé',    desc: "Votre projet est clair et vos démarches avancent bien. L'accompagnement vise l'efficacité et la mise en action rapide.",                        sessions: 2, echanges: 0, prix: 260,
+           programme: "S1 : diagnostic de vos entretiens passés et retravail de votre argumentaire. S2 : simulation d'entretien, activation stratégique de votre réseau, plan de contact daté.",
+           livrables: "un argumentaire retravaillé et testé, un plan de contact daté avec vos prochaines relances." },
+      2: { type: 'cible',          label: 'Accompagnement ciblé recommandé',          desc: "Vous avez une direction, mais certains points restent à affiner. L'accompagnement se concentre sur la stratégie d'accès au secteur.",              sessions: 3, echanges: 2, prix: 350,
+           programme: "S1 : short-list de métiers et structures, ou diagnostic précis de ce qui a bloqué vos candidatures. S2 : cartographie et priorisation de vos employeurs réels. S3 : plan d'action daté.",
+           livrables: "une short-list ou un diagnostic clair de blocage, une carte de vos employeurs prioritaires, un plan d'action daté." },
+      3: { type: 'clarification',  label: 'Accompagnement de clarification recommandé', desc: "Votre projet ou vos démarches nécessitent une phase d'exploration et de structuration avant de passer à l'action.",                              sessions: 4, echanges: 3, prix: 440,
+           programme: "S1 : vos moteurs personnels → 2-3 domaines candidats. S2 : métiers, structures et grille de critères. S3 : confrontation au terrain et carte des employeurs. S4 : décision et plan d'action.",
+           livrables: "une short-list de pistes validées, une carte de vos employeurs cibles, un plan d'action daté sur 3 à 6 mois." }
     };
     const f = FORFAITS_PAR_NIVEAU[niveau];
     let sessions = f.sessions, echanges = f.echanges;
     let forfaitLabel = f.label, forfaitDesc = f.desc, forfaitType = f.type;
+    let programme = f.programme, livrables = f.livrables;
     let total = f.prix;
 
 
@@ -846,7 +853,11 @@
     document.getElementById('tarifBloc').innerHTML = `
       <div class="tarif-depuis">À partir de</div>
       <div class="tarif-montant">${total} €</div>
-      <div class="tarif-detail">Forfait ${forfaitLabel.replace(' recommandé','').toLowerCase()} : ${sessions} sessions × 1h + ${echanges} échanges × 30 min${cvOption ? ', option CV/lettre en supplément : +100 €' : ''}.<br>Tarif confirmé lors de notre premier échange.</div>`;
+      <div class="tarif-detail">Forfait ${forfaitLabel.replace(' recommandé','').toLowerCase()} : ${sessions} sessions × 1h + ${echanges} échanges × 30 min${cvOption ? ', option CV/lettre en supplément : +100 €' : ''}.<br>Tarif confirmé lors de notre premier échange.</div>
+      <div style="font-size:0.72rem;color:var(--texte-leger);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px dotted var(--gris-med);">
+        <strong style="color:var(--dark);">Le déroulé :</strong> ${programme}<br><br>
+        <strong style="color:var(--dark);">Vous repartez avec :</strong> ${livrables}
+      </div>`;
     document.getElementById('configSection').classList.add('visible');
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
