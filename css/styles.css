@@ -1493,8 +1493,20 @@ section {
 }
 
 .pourquoi-icone {
-    font-size: 1.8rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEF7F8;
+    border-radius: 50%;
     margin-bottom: 1rem;
+    color: var(--color-bleu-canard);
+}
+
+.pourquoi-icone svg {
+    width: 24px;
+    height: 24px;
 }
 
 .pourquoi-item h3 {
