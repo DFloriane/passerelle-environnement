@@ -610,6 +610,21 @@
                         <div id="tarifBloc"></div>
                     </div>
 
+                    <div class="retractation-bloc" id="retractationBloc" style="display:none;margin:16px 0;">
+                        <form name="consentement-retractation" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="retractationConsentForm" style="margin:0;">
+                            <input type="hidden" name="form-name" value="consentement-retractation">
+                            <input type="hidden" name="profil_code" id="consentProfilCode" value="">
+                            <input type="hidden" name="montant" id="consentMontant" value="">
+                            <input type="hidden" name="horodatage" id="consentHorodatage" value="">
+                            <div style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></div>
+                            <label class="form-checkbox retractation-checkbox">
+                                <input type="checkbox" id="retractationCheckbox" name="renonciation">
+                                <span>Je souhaite que la prestation commence avant l'expiration du délai légal de rétractation de 14 jours. Je reconnais qu'une fois la prestation pleinement exécutée, je ne pourrai plus exercer mon droit de rétractation (<a href="cgv.html#retractation" target="_blank">en savoir plus</a>).</span>
+                            </label>
+                            <p class="retractation-avertissement" id="retractationAvertissement" style="display:none;color:#C4785A;font-size:0.8rem;margin-top:6px;">Merci de cocher cette case avant de réserver, ou de choisir une date de séance à plus de 14 jours.</p>
+                        </form>
+                    </div>
+
                     <div class="cta-section" id="ctaSection">
                         <div id="ctaContenu"></div>
                     </div>
@@ -651,6 +666,7 @@
                     <h4>Légal</h4>
                     <ul>
                         <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
                         <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
                     </ul>
                 </div>
@@ -716,6 +732,9 @@
     document.getElementById('configSection').classList.remove('visible');
     document.getElementById('tarifSection').classList.remove('visible');
     document.getElementById('ctaSection').classList.remove('visible');
+    document.getElementById('retractationBloc').style.display = 'none';
+    document.getElementById('retractationCheckbox').checked = false;
+    document.getElementById('retractationAvertissement').style.display = 'none';
 
     if (answered < totalQuestions) {
       document.getElementById('signalBloc').className = 'signal-bloc vide';
@@ -801,10 +820,11 @@
       else if (situation === 'secteur_public') { ctaMessage = "Votre profil est déjà dans le secteur public. Votre enjeu est davantage un repositionnement ou une évolution interne, ce qui demande une approche sur mesure. Parlons-en."; }
       else if (structureAIncertaine) { ctaMessage = "Vous hésitez encore sur le type de structure à viser. Le diagnostic ci-dessous vous aide à vérifier si le secteur public correspond à votre projet avant d'aller plus loin."; }
       else { ctaMessage = "Votre situation est particulière, urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux."; }
-      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
+      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte btn-retractation-gate" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
       document.getElementById('ctaSection').classList.add('visible');
       document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div>${diagBtnRouge}<a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
       genererCode(clarte, situation, dispo, horizon, reseau, 0, false);
+      activerRetractationSiPaiement();
       return;
     }
 
@@ -863,13 +883,14 @@
     document.getElementById('tarifSection').classList.add('visible');
     document.getElementById('ctaSection').classList.add('visible');
     const lienForfait = CAL_FORFAITS[forfaitType] || CAL_FORFAITS.cible;
-    const diagBtnVert = (typeStructure === 'indecis') ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
+    const diagBtnVert = (typeStructure === 'indecis') ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${CAL_DIAGNOSTIC}" class="btn-cta-decouverte btn-retractation-gate" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
     document.getElementById('ctaContenu').innerHTML = `
-      <a href="${lienForfait}" class="btn-cta-panel" target="_blank">Forfait complet · ${total} €</a>
+      <a href="${lienForfait}" class="btn-cta-panel btn-retractation-gate" target="_blank">Forfait complet · ${total} €</a>
       ${diagBtnVert}
-      <a href="${CAL_DECOUVERTE}" class="btn-cta-decouverte" target="_blank">Session découverte · 49 €</a>
+      <a href="${CAL_DECOUVERTE}" class="btn-cta-decouverte btn-retractation-gate" target="_blank">Session découverte · 49 €</a>
       <div class="cta-note">Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet</div>`;
     genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption);
+    activerRetractationSiPaiement();
   }
 
   function genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption) {
@@ -883,6 +904,50 @@
     const code = 'PAS-' + C + S + D + H + R + '-' + T + V;
     document.getElementById('codeValue').textContent = code;
     document.getElementById('codeBloc').classList.add('visible');
+  }
+
+  // --- Droit de rétractation : case de renonciation avant tout lien de réservation payant ---
+  function activerRetractationSiPaiement() {
+    const bloc = document.getElementById('retractationBloc');
+    bloc.style.display = 'block';
+    document.getElementById('consentProfilCode').value = document.getElementById('codeValue').textContent || '';
+    const tarifTexte = document.getElementById('tarifBloc') ? document.getElementById('tarifBloc').textContent : '';
+    const montantTrouve = tarifTexte.match(/(\d+)\s*€/);
+    document.getElementById('consentMontant').value = montantTrouve ? montantTrouve[1] + ' €' : '';
+  }
+
+  // Empêche l'ouverture des liens de réservation (Cal.eu) tant que la case n'est pas cochée.
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-retractation-gate');
+    if (!btn) return;
+    const checkbox = document.getElementById('retractationCheckbox');
+    if (!checkbox.checked) {
+      e.preventDefault();
+      document.getElementById('retractationAvertissement').style.display = 'block';
+      checkbox.focus();
+      const bloc = checkbox.closest('.retractation-bloc');
+      if (bloc) bloc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+  // Enregistre l'horodatage de la renonciation et journalise le consentement via Netlify Forms.
+  document.getElementById('retractationCheckbox').addEventListener('change', function() {
+    const avert = document.getElementById('retractationAvertissement');
+    if (this.checked) {
+      avert.style.display = 'none';
+      document.getElementById('consentHorodatage').value = new Date().toISOString();
+      submitConsentementRetractation();
+    }
+  });
+
+  function submitConsentementRetractation() {
+    const form = document.getElementById('retractationConsentForm');
+    const data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: data
+    }).catch(function(err) { console.warn('Envoi du consentement de renonciation impossible :', err); });
   }
 
   function copyCode() {

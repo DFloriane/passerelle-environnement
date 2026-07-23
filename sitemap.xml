@@ -119,6 +119,11 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://passerelle-environnement.fr/cgv.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
 
   <url>
     <loc>https://passerelle-environnement.fr/politique-confidentialite.html</loc>
