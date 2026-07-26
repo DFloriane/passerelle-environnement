@@ -13,6 +13,11 @@
   # Dossier à servir en local
   publish = "."
 
+[functions]
+  # Fonction serverless : réception des webhooks cal.eu (Booking Paid, Meeting Ended)
+  # et envoi des emails transactionnels Brevo. Voir netlify/functions/cal-webhook.js.
+  directory = "netlify/functions"
+
 # Redirects - à utiliser pour les routes (si besoin plus tard)
 [[redirects]]
   from = "/*"
@@ -25,8 +30,19 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
-    X-XSS-Protection = "1; mode=block"
+    # X-XSS-Protection est déprécié (recommandation OWASP Secure Headers) : la CSP ci-dessous
+    # le remplace. Valeur "0" plutôt qu'omise pour désactiver explicitement le filtre XSS hérité
+    # de certains navigateurs, qui peut lui-même introduire des failles.
+    X-XSS-Protection = "0"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    # CSP volontairement permissive sur script-src/style-src 'unsafe-inline' : le site utilise des
+    # scripts et styles inline (questionnaire.html notamment) sans build step permettant nonces/hash.
+    # Elle bloque en revanche tout chargement de script/frame/objet depuis un domaine tiers non
+    # listé. À resserrer (nonces) si le site passe à un build step. À mettre à jour dès l'ajout de
+    # Stripe/Cal.com/Brevo embarqués (script-src, frame-src, connect-src, form-action).
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
 
 # Cache pour les polices (long terme)
 [[headers]]
@@ -39,3 +55,19 @@
   for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Rate limiting sur les soumissions de formulaires (contact, rétractation, renonciation).
+# Les 3 formulaires Netlify Forms du site postent vers /merci.html. Fonctionnalité disponible
+# sur tous les plans Netlify (2 règles max sur les plans Starter/Free) : voir
+# https://docs.netlify.com/manage/security/secure-access-to-sites/rate-limiting/
+# Complète le honeypot déjà en place (netlify-honeypot="bot-field"), qui ne protège pas contre
+# un envoi massif automatisé qui ignorerait simplement le champ piège.
+[[redirects]]
+  from = "/merci.html"
+  to = "/merci.html"
+  status = 200
+  force = false
+  [redirects.rate_limit]
+    window_limit = 10
+    window_size = 60
+    aggregate_by = ["ip", "domain"]
