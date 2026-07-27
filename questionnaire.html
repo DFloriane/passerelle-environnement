@@ -695,17 +695,15 @@
     strategique:   'https://www.cal.eu/passerelle-environnement/accompagnement-strategique'
   };
 
-  // Ajoute le code profil aux liens de réservation cal.eu, en double emplacement :
-  // - "title" : identifiant technique de la question personnalisée "code profil" côté cal.eu
-  //   (réutilise le champ système renommé "What is this meeting about?").
-  // - "notes" : filet de sécurité, un pré-remplissage documenté comme parfois ignoré par
-  //   cal.eu/Cal.com si le paramètre "name" n'est pas fourni en premier dans l'URL (ce qui
-  //   est notre cas ici puisque le questionnaire est anonyme, sans nom connu à ce stade).
-  // À vérifier avec une vraie réservation test après mise en ligne.
+  // Ajoute le code profil au lien de réservation cal.eu, en pré-remplissage de la question
+  // personnalisée "code profil" (identifiant "title" sur les événements payants — vérifié par
+  // une vraie réservation test). Le filet de sécurité "notes" a été retiré une fois confirmé
+  // que le pré-remplissage direct fonctionne, pour éviter que le code n'apparaisse en double
+  // dans les notes supplémentaires.
   function withProfilParams(url, code) {
     if (!code) return url;
     const sep = url.includes('?') ? '&' : '?';
-    return `${url}${sep}title=${encodeURIComponent(code)}&notes=${encodeURIComponent('Code profil : ' + code)}`;
+    return `${url}${sep}title=${encodeURIComponent(code)}`;
   }
 
   function getVal(name) {

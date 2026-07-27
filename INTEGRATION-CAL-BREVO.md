@@ -50,16 +50,20 @@ Je peux te guider pas à pas en direct si tu partages ton navigateur (extension 
 Chrome) pendant que tu es connectée à Brevo et à ton registrar — dis-le-moi si tu veux
 procéder comme ça plutôt qu'en autonome.
 
-## 4. Point à vérifier après déploiement (non garanti à 100% sans test réel)
+## 4. État vérifié (tests réels effectués)
 
 - Le code profil est ajouté en paramètre `title` (identifiant de la question personnalisée
-  cal.eu) **et** en `notes` (filet de sécurité) sur les liens de réservation. Fais une vraie
-  réservation test pour confirmer qu'il apparaît bien pré-rempli dans le formulaire cal.eu.
-- Le contenu exact du payload `BOOKING_PAID` / `MEETING_ENDED` (où se trouve la valeur du code
-  profil) est basé sur la documentation Cal.com ; à confirmer avec un vrai webhook reçu (les
-  logs de la fonction Netlify affichent un avertissement si le code profil n'est pas trouvé).
+  cal.eu). Confirmé par réservation test : il apparaît bien pré-rempli dans le formulaire, sur
+  **chaque type d'événement payant** (la question doit être créée individuellement sur chacun :
+  découverte, diagnostic, clarification, ciblé, stratégique — rien n'est partagé entre eux côté
+  cal.eu). Le filet de sécurité en doublon dans "notes" a été retiré une fois ce test validé.
+- DNS, HTTPS et le webhook cal.eu → fonction Netlify sont opérationnels de bout en bout (testé
+  via le bouton de test webhook de cal.eu, réponse 200).
 - L'email post-séance est volontairement générique car `MEETING_ENDED` se déclenche après
   **chaque** séance d'un forfait à plusieurs séances, pas seulement la dernière.
+- Reste à confirmer : réception réelle de l'email `BOOKING_PAID` (récap + rendez-vous) suite à
+  un vrai paiement — le mieux est de payer une session découverte à 49 € puis de se rembourser
+  soi-même depuis Stripe (les cartes de test ne fonctionnent pas en mode live).
 
 ## 5. Ce qui n'est pas couvert ici
 
