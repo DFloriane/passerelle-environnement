@@ -544,7 +544,7 @@ section {
 }
 
 .article-card p {
-    color: #999;
+    color: #757575;
     font-size: 0.95rem;
     margin: 0;
     flex-grow: 1;
@@ -682,7 +682,7 @@ section {
     font-size: 0.8rem;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.97);
     margin-bottom: 1.2rem;
 }
 
@@ -695,7 +695,7 @@ section {
 
 .hero-accroche {
     font-size: 1.15rem;
-    color: rgba(255,255,255,0.88);
+    color: rgba(255,255,255,0.97);
     line-height: 1.7;
     margin-bottom: 2.5rem;
 }
@@ -721,7 +721,7 @@ section {
 
 .hero-reassurance {
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.97);
     letter-spacing: 0.5px;
     margin: 0;
 }
@@ -800,7 +800,7 @@ section {
 }
 
 .accroche-forte-inner p {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.97);
     font-size: 1.05rem;
     line-height: 1.8;
     margin-bottom: 1rem;
@@ -1208,7 +1208,7 @@ section {
 
 .formule-note {
     font-size: 0.82rem !important;
-    color: #888 !important;
+    color: #767676 !important;
     font-style: italic;
     margin-top: 0.8rem;
 }
@@ -1232,7 +1232,7 @@ section {
 
 .tarif-duree {
     font-size: 0.85rem;
-    color: #888;
+    color: #767676;
     margin-bottom: 1rem;
 }
 
@@ -1298,7 +1298,7 @@ section {
     margin-bottom: 0.5rem;
 }
 
-.formule-cible .formule-label { color: rgba(255,255,255,0.7); }
+.formule-cible .formule-label { color: rgba(255,255,255,0.97); }
 
 .formule-header h3 {
     font-size: 1.25rem;
@@ -1349,7 +1349,7 @@ section {
     font-size: 0.85rem;
 }
 
-.formule-ligne span { color: #888; }
+.formule-ligne span { color: #767676; }
 .formule-ligne strong { color: var(--color-dark); }
 
 .formule-tarif {
@@ -1361,7 +1361,7 @@ section {
 
 .formule-tarif .from {
     font-size: 0.75rem;
-    color: #888;
+    color: #767676;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -1377,7 +1377,7 @@ section {
 .formules-note {
     text-align: center;
     font-size: 0.82rem;
-    color: #999;
+    color: #757575;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -1534,7 +1534,7 @@ section {
 }
 
 .pourquoi-conclusion p {
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.97);
     font-size: 1rem;
     line-height: 1.7;
     margin: 0;
@@ -1644,7 +1644,7 @@ section {
 
 .ce-quon-ne-fait-pas h4 {
     font-size: 0.85rem;
-    color: #999;
+    color: #757575;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1rem;
@@ -1660,7 +1660,7 @@ section {
 
 .ce-quon-ne-fait-pas li {
     font-size: 0.88rem;
-    color: #888;
+    color: #767676;
     line-height: 1.5;
 }
 
@@ -1911,7 +1911,7 @@ section {
 
 .apropos-identite span {
     font-size: 0.85rem;
-    color: #888;
+    color: #767676;
 }
 
 .apropos-linkedin {
@@ -2007,7 +2007,7 @@ section {
 
 .citation cite {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.97);
     font-style: normal;
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
@@ -2159,7 +2159,7 @@ section {
     background-color: var(--color-blanc-casse);
     border-bottom: 1px solid var(--color-gris-clair);
     font-size: 0.85rem;
-    color: #888;
+    color: #767676;
     flex-wrap: wrap;
 }
 
@@ -2203,7 +2203,7 @@ section {
 }
 
 .article-cta-encart p {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.97);
     font-size: 0.92rem;
     margin-bottom: 1.5rem;
     line-height: 1.7;
@@ -2265,11 +2265,11 @@ section {
     text-align: center;
 }
 
-.sidebar-cta .sidebar-titre { color: rgba(255,255,255,0.7); }
+.sidebar-cta .sidebar-titre { color: rgba(255,255,255,0.97); }
 
 .sidebar-cta p {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.97);
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -2293,7 +2293,7 @@ section {
 }
 
 .hero-article .hero-surtitre {
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.97);
     font-size: 0.78rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -2573,7 +2573,7 @@ section {
 
 .contact-info-reassurance li {
     font-size: 0.88rem;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.97);
 }
 
 /* ── Responsive contact ── */
@@ -2697,7 +2697,7 @@ section {
 
 .merci-sous {
     font-size: 0.95rem;
-    color: #888;
+    color: #767676;
     line-height: 1.7;
     margin-bottom: 2.5rem !important;
 }
