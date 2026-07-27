@@ -18,12 +18,6 @@
   # et envoi des emails transactionnels Brevo. Voir netlify/functions/cal-webhook.js.
   directory = "netlify/functions"
 
-# Redirects - à utiliser pour les routes (si besoin plus tard)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 # Headers de sécurité
 [[headers]]
   for = "/*"

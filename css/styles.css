@@ -2274,6 +2274,54 @@ section {
     margin-bottom: 1rem;
 }
 
+/* ── Fil d'Ariane ── */
+
+.breadcrumb-nav {
+    background-color: var(--color-blanc-casse);
+    border-bottom: 1px solid var(--color-gris-clair);
+}
+
+.breadcrumb-nav ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.breadcrumb-nav li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.3rem;
+    color: var(--color-gris-clair);
+}
+
+.breadcrumb-nav a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--color-bleu-canard);
+    text-decoration: underline;
+}
+
+.breadcrumb-nav li[aria-current="page"] {
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .breadcrumb-nav ol {
+        padding: 0.7rem 1rem;
+        font-size: 0.76rem;
+    }
+}
+
 /* ── Hero article ── */
 
 .hero-article {
