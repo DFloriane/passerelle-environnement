@@ -278,56 +278,15 @@ section {
    DOMAINES
    ============================================ */
 
-.section-domaines {
-    background-color: white;
-}
-
 .domaines-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-.domaine-card {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid var(--color-gris-clair);
-    transition: all 0.3s ease;
-}
-
-.domaine-card:hover {
-    border-color: var(--color-bleu-canard);
-    box-shadow: 0 8px 24px rgba(45, 125, 138, 0.15);
-    transform: translateY(-4px);
-}
-
-.domaine-card h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-/* domaine-img-wrap, domaine-img et hover définis plus bas */
-
-.domaine-info {
-    padding: 1.2rem;
-    flex: 1;
-}
-
-.domaine-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
-    color: var(--color-bleu-canard);
-}
-
-.domaine-info p {
-    font-size: 0.85rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
-}
+/* .section-domaines, .domaine-card, .domaine-info et leurs h3 sont redéfinis plus bas
+   avec le design actuel (domaine-img-wrap/domaine-label) — anciennes règles retirées ici
+   car entièrement mortes (jamais rendues, aucun <h3> dans le HTML actuel). */
 
 /* ============================================
    CTA SECTION
@@ -539,19 +498,8 @@ section {
     transform: translateY(-4px);
 }
 
-.article-card h3 {
-    color: var(--color-bleu-canard);
-    font-size: 1.2rem;
-    line-height: 1.4;
-    margin: 0;
-}
-
-.article-card p {
-    color: #757575;
-    font-size: 0.95rem;
-    margin: 0;
-    flex-grow: 1;
-}
+/* .article-card h3 et .article-card p sont redéfinies plus bas (règles retirées ici
+   car mortes, écrasées par les valeurs plus récentes). */
 
 .article-card .btn {
     align-self: flex-start;
