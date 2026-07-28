@@ -36,7 +36,8 @@
     # Elle bloque en revanche tout chargement de script/frame/objet depuis un domaine tiers non
     # listé. À resserrer (nonces) si le site passe à un build step. À mettre à jour dès l'ajout de
     # Stripe/Cal.com/Brevo embarqués (script-src, frame-src, connect-src, form-action).
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+    # cloud.umami.is autorisé en script-src (chargement du script) et connect-src (envoi des events).
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloud.umami.is; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
 
 # Cache pour les polices (long terme)
 [[headers]]
