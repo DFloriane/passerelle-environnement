@@ -8,6 +8,9 @@
     --color-bleu-canard: #2D7D8A;
     --color-vert-sauge: #7D9B76;
     --color-terracotta: #C4785A;
+    --color-terracotta-accessible: #B15F3F; /* variante foncée, contraste 4.5:1+ pour texte/boutons */
+    --color-vert-sauge-accessible: #627D5C; /* variante foncée, contraste 4.5:1+ pour texte sur fond clair */
+    --color-terracotta-footer: #C88165; /* variante éclaircie, contraste 4.5:1+ pour texte sur fond sombre (footer) */
     --color-gris-clair: #E8EBE4;
     --color-blanc-casse: #F7F5F0;
     --color-dark: #2C2C2C;
@@ -120,7 +123,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
 }
 
 /* ============================================
@@ -205,12 +208,12 @@ section {
 }
 
 .btn-cta {
-    background-color: var(--color-terracotta);
+    background-color: var(--color-terracotta-accessible);
     color: white;
 }
 
 .btn-cta:hover {
-    background-color: #b5664a;
+    background-color: #934F34;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(196, 120, 90, 0.25);
 }
@@ -368,7 +371,7 @@ section {
 }
 
 .footer-section h4 {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-footer);
     margin-bottom: 1rem;
 }
 
@@ -385,7 +388,7 @@ section {
 }
 
 .footer-section a:hover {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-footer);
 }
 
 .footer-bottom {
@@ -427,7 +430,7 @@ section {
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    background-color: var(--color-terracotta);
+    background-color: var(--color-terracotta-accessible);
     color: white;
     font-size: 0.7rem;
     font-weight: 700;
@@ -435,7 +438,7 @@ section {
 }
 
 .footer-linkedin a:hover {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-footer);
 }
 
 /* ============================================
@@ -485,7 +488,7 @@ section {
 
 .about-text h3 {
     font-size: 1.1rem;
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -620,7 +623,7 @@ section {
 }
 
 .nav-cta {
-    background-color: var(--color-terracotta);
+    background-color: var(--color-terracotta-accessible);
     color: white !important;
     padding: 0.5rem 1.2rem;
     border-radius: 50px;
@@ -628,7 +631,7 @@ section {
 }
 
 .nav-cta:hover {
-    background-color: #b5664a !important;
+    background-color: #934F34 !important;
     color: white !important;
 }
 
@@ -711,7 +714,7 @@ section {
 .btn-ghost {
     background-color: transparent;
     color: white;
-    border: 2px solid rgba(255,255,255,0.65);
+    border: 2px solid rgba(255,255,255,0.9);
 }
 .btn-ghost:hover {
     background-color: rgba(255,255,255,0.15);
@@ -999,7 +1002,7 @@ section {
     font-size: 0.8rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
     margin-bottom: 0.8rem;
 }
 
@@ -1022,7 +1025,7 @@ section {
    ============================================ */
 
 .section-cta-final {
-    background-color: var(--color-terracotta);
+    background-color: var(--color-terracotta-accessible);
     padding: 5rem 0;
     text-align: center;
 }
@@ -1034,7 +1037,7 @@ section {
 }
 
 .section-cta-final p {
-    color: rgba(255,255,255,0.8);
+    color: white;
     font-size: 1rem;
     margin-bottom: 2rem;
     letter-spacing: 0.5px;
@@ -1042,7 +1045,7 @@ section {
 
 .section-cta-final .btn-cta {
     background-color: white;
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-accessible);
 }
 
 .section-cta-final .btn-cta:hover {
@@ -1190,7 +1193,7 @@ section {
     font-size: 0.75rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
     margin-bottom: 0.5rem;
 }
 
@@ -1269,7 +1272,7 @@ section {
     position: absolute;
     top: 0; left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background-color: var(--color-terracotta);
+    background-color: var(--color-terracotta-accessible);
     color: white;
     font-family: 'Nunito', sans-serif;
     font-size: 0.75rem;
@@ -1287,7 +1290,7 @@ section {
 .formule-clarification { background-color: #EEF7F8; }
 .formule-cible         { background-color: var(--color-bleu-canard); }
 .formule-renforce      { background-color: #F3F0E8; }
-.formule-strategique   { background-color: var(--color-terracotta); }
+.formule-strategique   { background-color: var(--color-terracotta-accessible); }
 
 .formule-label {
     font-family: 'Nunito', sans-serif;
@@ -1308,7 +1311,7 @@ section {
 
 .formule-cible h3, .formule-strategique h3 { color: white; }
 .formule-clarification h3, .formule-renforce h3 { color: var(--color-bleu-canard); }
-.formule-strategique .formule-label { color: rgba(255,255,255,0.7); }
+.formule-strategique .formule-label { color: white; }
 
 .formule-corps {
     padding: 1.5rem 1.8rem 1.8rem;
@@ -1323,7 +1326,7 @@ section {
     font-size: 0.72rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
     margin-bottom: 0.4rem;
 }
 
@@ -1922,7 +1925,7 @@ section {
 }
 
 .apropos-linkedin:hover {
-    color: var(--color-terracotta) !important;
+    color: var(--color-terracotta-accessible) !important;
 }
 
 .apropos-texte h2 {
@@ -2179,7 +2182,7 @@ section {
 }
 
 .article-meta-auteure a:hover {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-accessible);
     text-decoration: underline;
 }
 
@@ -2351,7 +2354,7 @@ section {
 }
 
 .hero-article p:not(.hero-surtitre) {
-    color: rgba(255,255,255,0.82);
+    color: rgba(255,255,255,0.97);
     font-size: 1.05rem;
     line-height: 1.7;
     max-width: 680px;
@@ -2384,7 +2387,7 @@ section {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
     margin-bottom: 0.8rem;
 }
 
@@ -2413,7 +2416,7 @@ section {
 }
 
 .article-card-lien:hover {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-accessible);
 }
 
 /* ============================================
@@ -2459,7 +2462,7 @@ section {
 }
 
 .form-requis {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-accessible);
 }
 
 .form-groupe input[type="text"],
@@ -2799,7 +2802,7 @@ section {
 }
 
 #tarteaucitronCloseAlert {
-    background: #C4785A !important;
+    background: #B15F3F !important;
     font-family: 'Nunito', sans-serif !important;
     font-weight: 700 !important;
     border-radius: 6px !important;
@@ -2862,7 +2865,7 @@ section {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--color-vert-sauge);
+    color: var(--color-vert-sauge-accessible);
     font-weight: 700;
 }
 
@@ -2941,7 +2944,7 @@ section {
 }
 
 .footer-linkedin a:hover {
-    color: var(--color-terracotta);
+    color: var(--color-terracotta-footer);
 }
 
 /* ============================================

@@ -19,10 +19,10 @@
 // La question personnalisée "code profil" réutilise le champ système "title" (identifiant
 // technique conservé même si son libellé affiché a été renommé côté cal.eu). Sa valeur
 // apparaît dans payload.responses.title.value (BOOKING_PAID, structure imbriquée) ou
-// responses.title.value (MEETING_ENDED, structure plate). Le site ajoute aussi le code en
-// double dans le champ "notes" au moment de la réservation (voir questionnaire.html), en
-// filet de sécurité si le pré-remplissage de "title" ne fonctionnait pas comme attendu —
-// à vérifier avec une vraie réservation test avant mise en production.
+// responses.title.value (MEETING_ENDED, structure plate). Le pré-remplissage via "title" a
+// été confirmé fonctionnel par une réservation test réelle ; l'ancien filet de sécurité qui
+// dupliquait le code dans le champ "notes" a été retiré côté questionnaire.html pour éviter
+// l'affichage en double.
 
 const crypto = require('crypto');
 

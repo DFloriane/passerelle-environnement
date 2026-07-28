@@ -190,7 +190,7 @@
     }
     .panel-header-sous {
         font-size: 0.7rem;
-        color: rgba(255,255,255,0.65);
+        color: rgba(255,255,255,0.97);
         letter-spacing: 0.5px;
     }
     .panel-corps { padding: 20px 22px; }
@@ -624,7 +624,7 @@
                             <div style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></div>
                             <label class="form-checkbox retractation-checkbox">
                                 <input type="checkbox" id="retractationCheckbox" name="renonciation">
-                                <span>Je souhaite que la prestation commence avant l'expiration du délai légal de rétractation de 14 jours. Je reconnais qu'une fois la prestation pleinement exécutée, je ne pourrai plus exercer mon droit de rétractation (<a href="cgv.html#retractation" target="_blank">en savoir plus</a>).</span>
+                                <span>Je souhaite que la prestation commence avant l'expiration du délai légal de rétractation de 14 jours. Je reconnais qu'une fois la prestation pleinement exécutée, je ne pourrai plus exercer mon droit de rétractation (<a href="cgv.html#retractation" target="_blank" rel="noopener noreferrer">en savoir plus</a>).</span>
                             </label>
                             <p class="retractation-avertissement" id="retractationAvertissement" style="display:none;color:#C4785A;font-size:0.8rem;margin-top:6px;">Merci de cocher cette case avant de réserver, ou de choisir une date de séance à plus de 14 jours.</p>
                         </form>
@@ -837,7 +837,7 @@
       else if (structureAIncertaine) { ctaMessage = "Vous hésitez encore sur le type de structure à viser. Le diagnostic ci-dessous vous aide à vérifier si le secteur public correspond à votre projet avant d'aller plus loin."; }
       else { ctaMessage = "Votre situation est particulière, urgence et projet encore à construire. Avant de choisir une formule, échangeons pour voir ce qui vous conviendrait le mieux."; }
       const codeProfilActuel = genererCode(clarte, situation, dispo, horizon, reseau, 0, false);
-      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${withProfilParams(CAL_DIAGNOSTIC, codeProfilActuel)}" class="btn-cta-decouverte btn-retractation-gate" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
+      const diagBtnRouge = (typeStructure === 'indecis' || structureAIncertaine) ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${withProfilParams(CAL_DIAGNOSTIC, codeProfilActuel)}" class="btn-cta-decouverte btn-retractation-gate" target="_blank" rel="noopener noreferrer">Diagnostic type de structure · 59 €</a>` : '';
       document.getElementById('ctaSection').classList.add('visible');
       document.getElementById('ctaContenu').innerHTML = `<div class="cta-message">${ctaMessage}</div>${diagBtnRouge}<a href="contact.html" class="btn-cta-contact">Nous écrire →</a>`;
       activerRetractationSiPaiement();
@@ -900,11 +900,11 @@
     document.getElementById('ctaSection').classList.add('visible');
     const codeProfilActuel = genererCode(clarte, situation, dispo, horizon, reseau, total, cvOption);
     const lienForfait = withProfilParams(CAL_FORFAITS[forfaitType] || CAL_FORFAITS.cible, codeProfilActuel);
-    const diagBtnVert = (typeStructure === 'indecis') ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${withProfilParams(CAL_DIAGNOSTIC, codeProfilActuel)}" class="btn-cta-decouverte btn-retractation-gate" target="_blank">Diagnostic type de structure · 59 €</a>` : '';
+    const diagBtnVert = (typeStructure === 'indecis') ? `<p style="font-size:0.72rem;color:var(--texte-leger);line-height:1.5;margin:10px 0 4px;">${DIAG_DESCRIPTION}</p><a href="${withProfilParams(CAL_DIAGNOSTIC, codeProfilActuel)}" class="btn-cta-decouverte btn-retractation-gate" target="_blank" rel="noopener noreferrer">Diagnostic type de structure · 59 €</a>` : '';
     document.getElementById('ctaContenu').innerHTML = `
-      <a href="${lienForfait}" class="btn-cta-panel btn-retractation-gate" target="_blank">Forfait complet · ${total} €</a>
+      <a href="${lienForfait}" class="btn-cta-panel btn-retractation-gate" target="_blank" rel="noopener noreferrer">Forfait complet · ${total} €</a>
       ${diagBtnVert}
-      <a href="${withProfilParams(CAL_DECOUVERTE, codeProfilActuel)}" class="btn-cta-decouverte btn-retractation-gate" target="_blank">Session découverte · 49 €</a>
+      <a href="${withProfilParams(CAL_DECOUVERTE, codeProfilActuel)}" class="btn-cta-decouverte btn-retractation-gate" target="_blank" rel="noopener noreferrer">Session découverte · 49 €</a>
       <div class="cta-note">Annulation libre jusqu'à 48h avant la séance · Session déduite du forfait si vous vous engagez ensuite dans un accompagnement complet</div>`;
     activerRetractationSiPaiement();
   }
