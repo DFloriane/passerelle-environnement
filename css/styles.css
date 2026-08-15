@@ -1675,6 +1675,19 @@ section {
     margin-bottom: 1rem;
 }
 
+/* Variante avec photo à droite (utilisée sur accompagnement.html pour varier des autres pages) */
+.qui-suis-je-grid--inverse {
+    grid-template-columns: 2fr 1fr;
+}
+
+.qui-suis-je-grid--inverse .qui-suis-je-photo {
+    order: 2;
+}
+
+.qui-suis-je-grid--inverse .qui-suis-je-texte {
+    order: 1;
+}
+
 /* ── Section déroulé ── */
 
 .section-deroule {
@@ -1826,6 +1839,7 @@ section {
     .reassurance-bloc { position: static; }
     .qui-suis-je-grid { grid-template-columns: 1fr; gap: 2rem; }
     .qui-suis-je-photo { order: -1; }
+    .qui-suis-je-grid--inverse .qui-suis-je-photo { order: -1; }
     .qui-suis-je-photo .portrait { max-width: 220px; }
     .travail-grid { grid-template-columns: 1fr; gap: 2rem; }
     .deroule-steps::before { left: 20px; }
