@@ -2944,6 +2944,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2.5rem;
+    align-items: start;
 }
 
 .temoignage-card {
