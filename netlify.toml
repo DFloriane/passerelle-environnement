@@ -7,6 +7,17 @@
   # Pas besoin de build command pour un site statique
   command = ""
 
+[build.processing.html]
+  # Pretty URLs de Netlify désactivées volontairement. Cette fonctionnalité (activée par défaut)
+  # est censée rediriger proprement /page.html vers /page, mais plusieurs retours d'utilisateurs
+  # Netlify (forums officiels, 2020-2026) montrent qu'elle laisse parfois les deux adresses actives
+  # sans rediriger l'une vers l'autre. Constaté sur ce site : Google a indexé /article-urbanisme
+  # (sans extension) plutôt que /article-urbanisme.html (la version canonique, utilisée par le
+  # sitemap et les liens internes), ce qui disperse les signaux de référencement entre deux URL au
+  # lieu de les concentrer sur une seule. On désactive ce comportement automatique et on le remplace
+  # par une redirection explicite ci-dessous, dont le comportement est prévisible et vérifiable.
+  pretty_urls = false
+
 [dev]
   # Port local pour les tests
   port = 8000
@@ -66,3 +77,17 @@
     window_limit = 10
     window_size = 60
     aggregate_by = ["ip", "domain"]
+
+# Redirection générique : toute adresse sans extension (/article-urbanisme, /accompagnement,
+# /blog...) renvoie vers sa version .html correspondante avec un vrai code 301 (redirection
+# permanente). Objectif : une seule adresse indexable par page, celle déjà utilisée partout ailleurs
+# sur le site (sitemap.xml, balises canoniques, liens internes), plutôt que de laisser Google
+# arbitrer lui-même entre deux versions selon les pages.
+# Sans danger pour les fichiers réels du site (robots.txt, sitemap.xml, favicon...) : Netlify
+# donne toujours priorité à un fichier existant sur une redirection quand les deux correspondent
+# à la même adresse exacte (comportement par défaut, "force" n'est volontairement pas activé ici).
+[[redirects]]
+  from = "/:page"
+  to = "/:page.html"
+  status = 301
+  force = false
