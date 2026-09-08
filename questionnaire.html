@@ -28,6 +28,84 @@
     <script src="js/scripts.js" defer></script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="711a45d7-94a4-4810-b53a-163368a3d5c6"></script>
 
+
+    <style>
+    /* ── CSS de base du site (navbar / hero / footer), ré-injectée ici uniquement pour
+       que cet aperçu autonome s'affiche correctement sans dépendre de css/styles.css.
+       Sur le site réel, ces règles existent déjà : rien à ajouter en production. ── */
+    :root {
+        --color-bleu-canard: #2D7D8A;
+        --color-vert-sauge: #7D9B76;
+        --color-terracotta-accessible: #B15F3F;
+        --color-vert-sauge-accessible: #627D5C;
+        --color-terracotta-footer: #C88165;
+        --color-gris-clair: #E8EBE4;
+        --color-blanc-casse: #F7F5F0;
+        --color-dark: #2C2C2C;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Atkinson Hyperlegible', Arial, sans-serif; background-color:var(--color-blanc-casse); color:var(--color-dark); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Nunito', Arial, sans-serif; font-weight:700; line-height:1.3; margin-bottom:1rem; }
+    h1 { font-size:2.5rem; color:var(--color-bleu-canard); }
+    h2 { font-size:2rem; color:var(--color-bleu-canard); text-align:center; margin-bottom:2rem; }
+    p { margin-bottom:1rem; font-size:1rem; }
+    a { color:var(--color-bleu-canard); text-decoration:none; transition:color .3s ease; }
+    a:hover { color:var(--color-vert-sauge-accessible); }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    section { padding:4rem 0; }
+    .navbar { background-color:var(--color-blanc-casse); padding:1.5rem 0; box-shadow:0 2px 8px rgba(0,0,0,.05); position:sticky; top:0; z-index:100; }
+    .nav-container { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; }
+    .logo { text-decoration:none; }
+    .logo-text { font-family:'Nunito',Arial,sans-serif; font-size:1.3rem; font-weight:700; color:var(--color-bleu-canard); }
+    .nav-links { display:flex; list-style:none; gap:2.5rem; }
+    .nav-links a { font-family:'Nunito',Arial,sans-serif; font-weight:600; color:var(--color-dark); transition:color .3s ease; }
+    .nav-links a:hover, .nav-links a.active { color:var(--color-bleu-canard); }
+    .nav-cta { background-color:var(--color-terracotta-accessible); color:white!important; padding:.5rem 1.2rem; border-radius:50px; transition:background-color .3s ease!important; }
+    .nav-cta:hover { background-color:#934F34!important; color:white!important; }
+    .nav-toggle { display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-bleu-canard); }
+    .hero-simple { background:linear-gradient(135deg,var(--color-bleu-canard) 0%,var(--color-vert-sauge) 100%); color:white; padding:4rem 0; text-align:center; }
+    .hero-simple h1 { color:white; margin-bottom:.5rem; }
+    .hero-simple p { color:rgba(255,255,255,.95); font-size:1.1rem; margin:0; }
+    .hero-surtitre { font-family:'Nunito',Arial,sans-serif; font-size:.8rem; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,.97); margin-bottom:1.2rem; }
+    .footer { background-color:var(--color-dark); color:white; padding-top:3rem; }
+    .footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-bottom:2rem; }
+    .footer-section h4 { color:var(--color-terracotta-footer); margin-bottom:1rem; }
+    .footer-section ul { list-style:none; }
+    .footer-section ul li { margin-bottom:.7rem; }
+    .footer-section a { color:rgba(255,255,255,.8); }
+    .footer-section a:hover { color:var(--color-terracotta-footer); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.1); padding-top:1.5rem; text-align:center; color:rgba(255,255,255,.7); font-size:.9rem; }
+    .accessibility-mention { margin-top:.5rem; font-size:.85rem; }
+    .footer-linkedin { margin-top:.8rem!important; }
+    .footer-linkedin a { display:inline-flex; align-items:center; gap:.4rem; color:rgba(255,255,255,.8); font-family:'Nunito',Arial,sans-serif; font-weight:600; font-size:.9rem; }
+    .footer-linkedin a::before { content:"in"; display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:4px; background-color:#0A66C2; color:white; font-size:.68rem; font-weight:800; }
+    .footer-linkedin a:hover { color:var(--color-terracotta-footer); }
+    /* Règle réelle du site (styles.css) pour la case de rétractation — absente de mon
+       premier jet d'aperçu, ce qui faisait apparaître ce texte à la taille par défaut du
+       navigateur (bien plus gros que le reste de la page). Reproduite ici à l'identique. */
+    .form-checkbox {
+        display: flex; align-items: flex-start; gap: 0.8rem; cursor: pointer;
+        font-size: 0.85rem !important;
+        font-family: 'Atkinson Hyperlegible', Arial, sans-serif !important;
+        font-weight: 400 !important; color: #666 !important; line-height: 1.5;
+    }
+    .form-checkbox input[type="checkbox"] {
+        width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+        accent-color: var(--color-bleu-canard); cursor: pointer;
+    }
+    .form-checkbox a { color: var(--color-bleu-canard); text-decoration: underline; }
+    @media (max-width:768px) {
+        .nav-toggle { display:block; }
+        .navbar { position:relative; }
+        .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background-color:var(--color-blanc-casse); flex-direction:column; padding:1rem 2rem; box-shadow:0 4px 12px rgba(0,0,0,.1); gap:1rem; }
+        .nav-links.open { display:flex; }
+        .container { padding:0 1rem; }
+        section { padding:2.5rem 0; }
+        .hero-simple { padding:2.5rem 0; }
+    }
+    </style>
+
     <style>
     /* ── Styles spécifiques au questionnaire ── */
 
@@ -413,9 +491,69 @@
         .options-2col { grid-template-columns: 1fr; }
         .prog-wrap { padding: 12px 1rem; }
     }
+
+    /* ── Section SEO « Les quatre profils que ce diagnostic distingue » (variante B) ──
+       Volontairement écartée du langage visuel du panneau de résultat interactif
+       (pas de carte blanche à ombre portée, pas d'en-tête bleu, pas de bordure gauche
+       colorée) : une liste numérotée en prose, pour ne pas ressembler à une préfiguration
+       du vrai résultat du diagnostic. ── */
+    .diag-info-section {
+        background: white;
+        padding: 3.5rem 2rem;
+        border-top: 1px solid var(--gris-med);
+    }
+    .diag-info-entete { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
+    .diag-info-entete h2 {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.5rem; color: var(--bleu);
+        margin-bottom: 0.5rem;
+    }
+    .diag-info-sous { font-size: 0.92rem; color: var(--texte-leger); line-height: 1.7; }
+    .diag-profils {
+        list-style: none; counter-reset: profil;
+        max-width: 760px; margin: 0 auto 2rem; padding: 0;
+    }
+    .diag-profils li {
+        counter-increment: profil;
+        position: relative;
+        padding-left: 2.8rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.92rem; line-height: 1.7;
+        color: var(--dark);
+    }
+    .diag-profils li:last-child { margin-bottom: 0; }
+    .diag-profils li::before {
+        content: counter(profil);
+        position: absolute; left: 0; top: 0.1em;
+        width: 1.9rem; height: 1.9rem;
+        border-radius: 50%;
+        background: var(--bleu-clair); color: var(--bleu);
+        font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .diag-profils li strong { font-family: 'Nunito', sans-serif; color: var(--dark); }
+    .diag-info-liens {
+        max-width: 760px; margin: 0 auto; text-align: center;
+        font-size: 0.8rem; color: var(--texte-leger); line-height: 1.7;
+    }
+    @media (max-width: 700px) {
+        .diag-profils li { padding-left: 2.4rem; }
+    }
+
+    </style>
+
+    <style>
+    /* ── Bandeau de repérage (aperçu de comparaison uniquement, à retirer en prod) ── */
+    .bandeau-apercu {
+        background:#1a2e3a; color:#fff; text-align:center;
+        font-family:'Nunito', Arial, sans-serif; font-size:0.82rem;
+        padding:10px 16px; letter-spacing:0.3px;
+    }
+    .bandeau-apercu strong { color:#7ecfd4; }
     </style>
 </head>
 <body>
+    <div class="bandeau-apercu"><strong>Aperçu de comparaison —</strong> Variante B (corrigée) : liste numérotée en prose au lieu d'une grille de cartes — cadrage explicite (« les quatre profils que ce diagnostic distingue ») et rendu volontairement différent du panneau de résultat, pour éviter toute confusion avec un vrai résultat.</div>
 
     <!-- NAVIGATION -->
     <nav class="navbar">
@@ -446,7 +584,7 @@
 
         <!-- BARRE DE PROGRESSION -->
         <div class="prog-wrap">
-            <span class="prog-texte" id="progTexte">0 / 6 questions</span>
+            <span class="prog-texte" id="progTexte">0 / 7 questions</span>
             <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
         </div>
 
@@ -648,6 +786,23 @@
 
         </div><!-- fin corps -->
     </div><!-- fin questionnaire-page -->
+
+    <!-- SECTION SEO : LES QUATRE PROFILS QUE CE DIAGNOSTIC DISTINGUE (visible, sous le questionnaire) -->
+    <section class="diag-info-section">
+        <div class="container">
+            <div class="diag-info-entete">
+                <h2>Les quatre profils que ce diagnostic distingue</h2>
+                <p class="diag-info-sous">Le diagnostic croise sept dimensions de votre profil, afin de vous orienter vers l'offre la plus adaptée à votre situation, pour un accompagnement sur mesure. Votre projet, votre point de départ, vos démarches déjà engagées, votre CV, votre horizon, votre disponibilité et votre réseau sont ainsi analysés pour vous situer parmi l'un des quatre profils ci-dessous.</p>
+            </div>
+            <ol class="diag-profils">
+                <li><strong>Un projet encore à clarifier.</strong> L'environnement vous attire, mais ni le métier ni le type de structure ne sont encore arrêtés : la priorité est de comprendre le secteur avant d'agir.</li>
+                <li><strong>Un domaine identifié, une stratégie à construire.</strong> L'eau, la biodiversité ou le climat vous attirent en particulier, mais les postes concrets et les employeurs restent à cartographier.</li>
+                <li><strong>Un projet clair, un plan d'accès à affiner.</strong> Le poste et le type d'employeur sont identifiés ; l'enjeu devient le ciblage, le calendrier de recrutement et le positionnement de la candidature.</li>
+                <li><strong>Un repositionnement depuis l'intérieur du secteur.</strong> Déjà en poste dans l'environnement public, vous cherchez à évoluer ou changer de structure (une mobilité interne plutôt qu'une reconversion) : l'enjeu porte sur les passerelles disponibles entre filières et employeurs publics.</li>
+            </ol>
+            <p class="diag-info-liens">Les familles de métiers évoquées ici sont détaillées dans nos articles : <a href="article-biodiversite.html">biodiversité</a>, <a href="article-technicien-riviere.html">gestion de l'eau et des rivières</a>, <a href="article-urbanisme.html">urbanisme</a>, <a href="article-climat.html">climat</a>, <a href="article-agriculture.html">agriculture</a>, <a href="article-eedd.html">éducation à l'environnement</a>.</p>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -892,7 +1047,7 @@
       <div class="tarif-depuis">À partir de</div>
       <div class="tarif-montant">${total} €</div>
       <div class="tarif-detail">Forfait ${forfaitLabel.replace(' recommandé','').toLowerCase()} : ${sessions} sessions × 1h + ${echanges} échanges × 30 min${cvOption ? ', option CV/lettre en supplément : +100 €' : ''}.<br>Tarif confirmé lors de notre premier échange.</div>
-      <div style="font-size:0.72rem;color:var(--texte-leger);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px dotted var(--gris-med);">
+      <div style="font-size:0.8rem;color:var(--texte-leger);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px dotted var(--gris-med);">
         <strong style="color:var(--dark);">Le déroulé :</strong> ${programme}<br><br>
         <strong style="color:var(--dark);">Vous repartez avec :</strong> ${livrables}
       </div>`;
